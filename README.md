@@ -39,7 +39,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
    <b>State:</b> Utilizado para controlar os estados dos pedidos dos clientes(Compras e Imagem).
 <br />
-   <b>Template Method:</b> Será utilizado na forma de exibicão dos produtos em destaque.
+   <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
    <b>Observer:</b> ?
 <br />
