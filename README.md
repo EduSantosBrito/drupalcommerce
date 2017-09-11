@@ -21,3 +21,15 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
   6. O sistema deverá permitir ao usuário opitar pela criação de uma imagem informando suas ideias a respeito da imagem, após isso será gerada uma cobrança para a criação da mesma(Metodos de pagamento: Cartão de crédito e Boleto). 
   7. O sistema deverá permitir ao usuário realizar a avaliação da imagem criada, podendo pedir alterações na mesma.
   8. O sistema deverá alertar o usuário quando a criação da sua imagem for finalizada(E-mail).
+  
+# Padroes
+   MVC: Padrão utilizado para o desenvolvimento das camadas.
+   Singleton: Utilizacoes atuais: Criar a conexão com o banco.
+   DAO: Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
+   Front Controller: Utilizado na aplicacão para controlar as ações.
+   Facade: Será utilizado em conjunto ao Front Controller e os Action.
+   Action: Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
+   Strategy: Sera utilizado na definicão de promocões, descontos por compra em lotes.
+   State: Utilizado para controlar os estados dos pedidos dos clientes(Compras e Imagem).
+   Template Method: Será utilizado na forma de exibicão dos produtos em destaque.
+   Observer: ?
