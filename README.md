@@ -1,6 +1,9 @@
 # Marco - VirtualStiker
 Essa aplicação será desenvolvida como forma de trabalho final para a matéria de DesignPatters ministrada pelo professor Marco Antônio Araujo.
 
+# Virtual Stiker
+Virtual Stiker é um sistema web que permite um usuário realizar o pedido de adesivos e estampas online, podendo tanto enviar seus próprios adesivos quanto pedir a criação de um novo.
+
 # Tecnologias
 A aplicação web será construida utilizando a linguagem Java e o padrao MVC, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.
 (Até o momento: MVC, Singleton, DAO, Front Controller, Factory Method, Action, Strategy, State).
@@ -8,9 +11,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
 <b>Frameworks?:</b><br />
    Materialize, Spring
-# Virtual Stiker
-Virtual Stiker é um sistema web que permite um usuário realizar o pedido de adesivos e estampas online, podendo tanto enviar seus próprios adesivos quanto pedir a criação de um novo.
-
+   
 # Funcionalidades
   1. O sistema permitira que o usuário possa se cadastrar no site.
   2. O sistema deverá permitir que o usuário cadastrado realize o pedido de adesivos ou estampas em lotes.
