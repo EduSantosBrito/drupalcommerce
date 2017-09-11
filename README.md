@@ -23,23 +23,23 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
   8. O sistema deverá alertar o usuário quando a criação da sua imagem for finalizada(E-mail).
   
 # Padroes
-   MVC: Padrão utilizado para o desenvolvimento das camadas.
+   <b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas.
 <br />
-   Singleton: Utilizacoes atuais: Criar a conexão com o banco.
+   <b>Singleton:</b> Utilizacoes atuais: Criar a conexão com o banco.
 <br />
-   DAO: Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
+   <b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
 <br />
-   Front Controller: Utilizado na aplicacão para controlar as ações.
+   <b>Front Controller:</b> Utilizado na aplicacão para controlar as ações.
 <br />
-   Facade: Será utilizado em conjunto ao Front Controller e os Action.
+   <b>Facade:</b> Será utilizado em conjunto ao Front Controller e os Action.
 <br />
-   Action: Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
+   <b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
 <br />
-   Strategy: Sera utilizado na definicão de promocões, descontos por compra em lotes.
+   <b>Strategy:</b> Sera utilizado na definicão de promocões, descontos por compra em lotes.
 <br />
-   State: Utilizado para controlar os estados dos pedidos dos clientes(Compras e Imagem).
+   <b>State:</b> Utilizado para controlar os estados dos pedidos dos clientes(Compras e Imagem).
 <br />
-   Template Method: Será utilizado na forma de exibicão dos produtos em destaque.
+   <b>Template Method:</b> Será utilizado na forma de exibicão dos produtos em destaque.
 <br />
-   Observer: ?
+   <b>Observer:</b> ?
 <br />
