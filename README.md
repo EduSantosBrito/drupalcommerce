@@ -25,7 +25,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 # Padroes
    <b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas.
 <br />
-   <b>Singleton:</b> Utilizacoes atuais: Criar a conexão com o banco.
+   <b>Singleton:</b> Utilizações atuais: Criar a conexão com o banco.
 <br />
    <b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
 <br />
@@ -35,9 +35,9 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
    <b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
 <br />
-   <b>Strategy:</b> Sera utilizado na definicão de promocões, descontos por compra em lotes.
+   <b>Strategy:</b> Será utilizado na definicão de promocões, descontos por compra em lotes.
 <br />
-   <b>State:</b> Utilizado para controlar os estados dos pedidos dos clientes(Compras e Imagem).
+   <b>State:</b> Será utilizado no controle dos estados dos pedidos dos clientes(Compras e Imagem).
 <br />
    <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
