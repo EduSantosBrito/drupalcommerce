@@ -42,6 +42,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
    <b>Observer:</b> ?
 <br />
-#Observações
+
+# Observações
    <b>Web Lojas</b>: Web lojas são pequenas lojas dentro do site, onde uma pessoa pode realizar o cadastro de produtos para serem expostos a vendas e realizar promoções. Poderão ser criadas de graça, porém o site lucrará com uma porcentagem de cada venda realizada
 
