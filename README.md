@@ -6,7 +6,7 @@ Virtual Shop é um sistema web de e-comerce, onde as pessoas cadastradas podem c
 
 # Tecnologias
 A aplicação web será construida utilizando a linguagem Java e o padrao MVC, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.
-(Até o momento: MVC, Singleton, DAO, Front Controller, Factory Method, Action, Strategy, State).
+(Até o momento: Singleton, MVC, DAO, Facade(Front Controller), Action, Factory Method, State, Strategy, Template Method, Observer).
 <br />
 <br />
 <b>Frameworks?:</b><br />
@@ -29,8 +29,6 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
    <b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
 <br />
    <b>Front Controller:</b> Utilizado na aplicacão para controlar as ações.
-<br />
-   <b>Facade:</b> Será utilizado em conjunto ao Front Controller e os Action.
 <br />
    <b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
 <br />
