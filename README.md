@@ -22,7 +22,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
   7. O sistema deverá permitir ao usuário que possui uma "Web loja" realizar promoções de seus produtos.
   8. O sistema deverá permitir ao usuário que já possui uma "Web loja" realizar o cadastro de uma nova mediante a um pagamento
 
-# Padroes
+# Padrões
 <b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas.
 <br />
 <b>Singleton:</b> Utilizações atuais: Criar a conexão com o banco.
