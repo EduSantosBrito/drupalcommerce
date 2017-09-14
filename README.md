@@ -5,7 +5,7 @@ Essa aplicação será desenvolvida como forma de trabalho final para a matéria
 Virtual Shop é um sistema web de e-comerce, onde as pessoas cadastradas podem criar "mini lojas" e fazer anuncio de seus produtos.
 
 # Tecnologias
-A aplicação web será construida utilizando a linguagem Java e o padrao MVC, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.
+A aplicação web será construida utilizando a linguagem Java, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.<br />
 (Até o momento: Singleton, MVC, DAO, Facade(Front Controller), Action, Factory Method, State, Strategy, Template Method, Observer).
 <br />
 <br />
@@ -20,6 +20,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
   5. O sistema deverá permitir ao usuário a criação de uma "Web loja".
   6. O sistema deverá permitir ao usuário que possui uma "Web loja" realizar o cadastro de produtos para a venda.
   7. O sistema deverá permitir ao usuário que possui uma "Web loja" realizar promoções de seus produtos.
+  8. O sistema deverá permitir ao usuário que já possui uma "Web loja" realizar o cadastro de uma nova mediante a um pagamento
 
 # Padroes
    <b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas.
@@ -28,9 +29,11 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
    <b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
 <br />
-   <b>Front Controller:</b> Utilizado na aplicacão para controlar as ações.
+   <b>Facade(Front Controller):</b> Utilizado na aplicacão para controlar as ações.
 <br />
    <b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
+<br />
+   <b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações.
 <br />
    <b>Strategy:</b> Será utilizado na definicão de promocões, descontos.
 <br />
@@ -38,7 +41,7 @@ A aplicação web será construida utilizando a linguagem Java e o padrao MVC, d
 <br />
    <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
-   <b>Observer:</b> ?
+   <b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude.
 <br />
 
 # Observações
