@@ -33,7 +33,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
    <b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
 <br />
-   <b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações.
+    <b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações.
 <br />
    <b>Strategy:</b> Será utilizado na definicão de promocões, descontos.
 <br />
@@ -41,7 +41,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
    <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
-   <b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude.
+    <b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude.
 <br />
 
 # Observações
