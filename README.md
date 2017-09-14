@@ -2,7 +2,7 @@
 Essa aplicação será desenvolvida como forma de trabalho final para a matéria de DesignPatters ministrada pelo professor Marco Antônio Araujo.
 
 # Virtual Shop
-Virtual Shop é um sistema web de e-comerce, onde as pessoas cadastradas podem criar "mini lojas" e fazer anuncio de seus produtos.
+Virtual Shop é um sistema web de e-comerce, que permitirá que usuários cadastrados possam criar "mini lojas" e fazer anúncio de seus produtos.
 
 # Tecnologias
 A aplicação web será construida utilizando a linguagem Java, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.<br />
