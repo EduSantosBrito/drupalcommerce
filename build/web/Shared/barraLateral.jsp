@@ -5,7 +5,7 @@
 --%>
 
 <!--Barra lateral pequena-->
-<div id="small-navbar" class="side-menu-small black-color hide-on-med-and-down">
+<div id="small-navbar" class="side-menu-small black-color">
     <ul class="center">
         <li>
             <a id="small-bar" href="#" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Expandir menu">
@@ -36,7 +36,7 @@
 </div>
 
 <!--Barra lateral grande-->
-<div id="large-navbar" class="side-menu-large black-color hide-on-med-and-down">
+<div id="large-navbar" class="side-menu-large black-color hide-on-med-and-down z-depth-2">
     <ul class="">
         <!--ARROW-->
         <li>
@@ -58,7 +58,7 @@
                         <i class="material-icons">account_circle</i>CONTA
                         <i class="material-icons">arrow_drop_down</i>
                     </a>
-                    <div class="collapsible-body green-color collapsible-drop-categorias">
+                    <div class="collapsible-body white collapsible-drop-categorias">
                         <ul class="">
                             <!--Hardware Dropdown-->
                             <li class="collapsible-drop-categorias-label">
@@ -85,7 +85,7 @@
                         <i class="material-icons">shop</i>CATEGORIAS
                         <i class="material-icons">arrow_drop_down</i>
                     </a>
-                    <div class="collapsible-body green-color collapsible-drop-categorias">
+                    <div class="collapsible-body white collapsible-drop-categorias">
                         <ul class="">
                             <!--Hardware Dropdown-->
                             <li class="collapsible-drop-categorias-label">
@@ -131,7 +131,7 @@
                                 <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                                     <li>
                                         <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
-                                            Perifericos<i class="material-icons">arrow_drop_down</i>
+                                            Periféricos<i class="material-icons">arrow_drop_down</i>
                                         </a>
                                         <div class="collapsible-body gray-color collapsible-drop-categorias">
                                             <ul>
@@ -179,11 +179,11 @@
                         <i class="material-icons">shopping_cart</i>CARRINHO
                         <i class="material-icons">arrow_drop_down</i>
                     </a>
-                    <div class="collapsible-body green-color collapsible-drop-categorias">
+                    <div class="collapsible-body white collapsible-drop-categorias">
                         <!--LISTA DE PRODUTOS NO CARRINHO-->
                         <ul>
                             <!--Produto 1-->
-                            <li class="drop-carrinho-produto">
+                            <li class="collapsible-drop-categorias-label">
                                 <ul class="z-depth-2">
                                     <li>
                                         <!--TITULO PRODUTO-->
@@ -194,7 +194,7 @@
                                 </ul>
                             </li>
                             <!--Produto 2-->
-                            <li class="drop-carrinho-produto">
+                            <li class="collapsible-drop-categorias-label">
                                 <ul class="z-depth-2">
                                     <li>
                                         <!--TITULO PRODUTO-->
@@ -205,7 +205,7 @@
                                 </ul>
                             </li>
                             <!--Produto 3-->
-                            <li class="drop-carrinho-produto">
+                            <li class="collapsible-drop-categorias-label">
                                 <ul class="z-depth-2">
                                     <li>
                                         <!--TITULO PRODUTO-->
@@ -216,7 +216,7 @@
                                 </ul>
                             </li>
                             <!--Finalizar compra-->
-                            <li class="drop-carrinho-produto">
+                            <li class="collapsible-drop-categorias-label">
                                 <a href="" class="btn black-color btn-finalizar side-menu-small-li-hover">Finalizar compras!</a>
                             </li>
                         </ul>
@@ -249,7 +249,7 @@
     <!--Perifericos Dropdown-->
     <li class="collapsible-drop-size">
         <div class="collapsible-header black-color white-text collapsible-drop-title side-menu-small-li-hover">
-            Perifericos
+            Periféricos
             <i class="material-icons">arrow_drop_down</i>
         </div>
         <div class="collapsible-body collapsible-drop-categorias">
@@ -257,7 +257,7 @@
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Gabinetes</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Teclados & Mouse</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Adaptadores</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Acessorios</li>
+                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Acessórios</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Fones</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Cabos</li>
             </ul>

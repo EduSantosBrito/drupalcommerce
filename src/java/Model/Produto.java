@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author sandr
@@ -14,6 +16,8 @@ public class Produto {
     private Integer codigo;
     private String titulo;
     private String descricao;
+    private String marca;
+    private LocalDate dataCadastro;
     private Categoria categoria;
     private Integer quantidade;
     private Double preco;
@@ -42,6 +46,22 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
     public Categoria getCategoria() {

@@ -63,6 +63,7 @@ public class Carrinho {
             pedido.setDataPedido(LocalDate.now());
             this.usuario.setPedidos(pedido);
         }
+        this.itens.clear();
     }
     
     public Integer getQuantidadeItens(){

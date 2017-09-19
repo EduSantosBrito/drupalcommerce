@@ -6,7 +6,7 @@
 
 <nav id="nav-bar-logo" class="navbar-fixed black-color z-depth-0">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo center search-prefix">
+        <a class="brand-logo center search-prefix">
             <i class="material-icons left">cloud</i>Virtual Shop<i class="material-icons right">cloud</i>
         </a>
         <ul class="right hide-on-med-and-down">
@@ -27,7 +27,7 @@
     </div>
 </nav>
 <!--Dropdown login-->
-<div id="dropdown-login" class="dropdown-content gray-color">
+<div id="dropdown-login" class="dropdown-content black-color">
         <form class="col s12">
         <div class="row login-row-none">
             <div class="input-field col s12">
