@@ -16,7 +16,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
   1. O sistema permitira que o usuário possa se cadastrar no site.
   2. O sistema deverá permitir que o usuário cadastrado realize o compras no site.
   3. O sistema deverá conter um carrinho de compras para armazenar os pedidos(Metodos de pagamento: Cartão de crédito e Boleto).
-  4. O sistema deverá permitir que o usuário cadastrado visualize o andamento dos seus pedidos(Os estados do pedido são: Em Análise, Na fila/Em espera, Em  Atraso, Em Separação, Cancelado e Finalizado).
+  4. O sistema deverá permitir que o usuário cadastrado visualize o andamento dos seus pedidos(Os estados do pedido são: Em Análise, Em  Atraso, Em Separação, Cancelado e Enviado).
 
 # Padrões
 <b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas. <b>FEITO</b>
@@ -43,5 +43,5 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
  1. Construção dos modelos: <b>FEITO</b>
  2. Construção das telas: <b>FEITO</b>
  3. Construção dos controladores e ações: <b>FEITO</b>
- 4. Implementação dos modelos e controladores:
- 5. Testes:
+ 4. Implementação dos modelos e controladores: <b>FEITO</b>
+ 5. Construção e Implementação dos padrões mais complexos: 
