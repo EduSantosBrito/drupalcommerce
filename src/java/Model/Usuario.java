@@ -22,7 +22,16 @@ public class Usuario {
     private Integer telefone;
     private final Carrinho carrinho;
     private List<Pedido> pedidos = new ArrayList<>();
-
+    
+    public Usuario(String email, String nome, String senha, String endereco, Integer telefone){
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.carrinho = new Carrinho(this);
+    }
+    
     public Usuario() {
         this.carrinho = new Carrinho(this);
     }

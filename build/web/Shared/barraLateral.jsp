@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
+            <a href="${pageContext.request.contextPath}/index.jsp" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
                 <i class="white-text material-icons side-menu-small-li-hover">home</i>
             </a>
         </li>
@@ -46,11 +46,11 @@
         </li>
         <!--INICIO-->
         <li>
-            <a class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover" href="#">
+            <a href="${pageContext.request.contextPath}/index.jsp" class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover">
                 <i class="material-icons">home</i> INICIO
             </a>
         </li>
-        <!--CATEGORIAS-->
+        <!--PERFIl-->
         <li>
             <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                 <li>
@@ -62,13 +62,13 @@
                         <ul class="">
                             <!--Hardware Dropdown-->
                             <li class="collapsible-drop-categorias-label">
-                                <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
+                                <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=perfil" class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
                                     Perfil
                                 </a>
                             </li>
                             <!--Perifericos Dropdown-->
                             <li class="collapsible-drop-categorias-label">
-                                <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
+                                <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=VisualizarPedido" class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
                                     Pedidos
                                 </a>
                             </li>
@@ -96,27 +96,27 @@
                                         </a>
                                         <div class="collapsible-body gray-color collapsible-drop-categorias">
                                             <ul>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=placa_mae">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Placa mae
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=memoria_ram">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Memoria RAM
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=processador">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Processadores
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=hd">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Disco Rigido
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=ssd">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         SSD
                                                     </li>
@@ -135,29 +135,58 @@
                                         </a>
                                         <div class="collapsible-body gray-color collapsible-drop-categorias">
                                             <ul>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=gabinete">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Gabinetes
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=teclado_mouse">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Teclado & Mouse
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=adaptadores">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Adaptadores
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=acessorios">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Acessorios
                                                     </li>
                                                 </a>
-                                                <a class="white-text" href="#!">
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=fones">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Fones
+                                                    </li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Software Dropdown-->
+                            <li class="collapsible-drop-categorias-label">
+                                <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
+                                    <li>
+                                        <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
+                                            Software<i class="material-icons">arrow_drop_down</i>
+                                        </a>
+                                        <div class="collapsible-body gray-color collapsible-drop-categorias">
+                                            <ul>
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=SO">
+                                                    <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
+                                                        Sistema Operacional
+                                                    </li>
+                                                </a>
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=anti-virus">
+                                                    <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
+                                                        Anti-virus
+                                                    </li>
+                                                </a>
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=trabalho">
+                                                    <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
+                                                        Trabalho
                                                     </li>
                                                 </a>
                                             </ul>
@@ -260,6 +289,20 @@
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Acessórios</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Fones</li>
                 <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Cabos</li>
+            </ul>
+        </div>
+    </li>
+    <!--Software Dropdown-->
+    <li class="collapsible-drop-size">
+        <div class="collapsible-header black-color white-text collapsible-drop-title side-menu-small-li-hover">
+            Software
+            <i class="material-icons">arrow_drop_down</i>
+        </div>
+        <div class="collapsible-body collapsible-drop-categorias">
+            <ul class="gray-color">
+                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Sistema Operacional</li>
+                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Anti-virus</li>
+                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Trabalho</li>
             </ul>
         </div>
     </li>

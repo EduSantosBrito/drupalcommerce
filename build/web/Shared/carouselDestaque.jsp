@@ -4,6 +4,7 @@
     Author     : sandr
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--Produtos em destaque-->
 <div class="row">
     <div class="col s12">
@@ -19,62 +20,16 @@
                     <a href="Siguiente" class="moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator indicator-right"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
                 </div>
             </div>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
+            <c:forEach var="destaque" items="${destaques}">
+                <a class="carousel-item" href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="Shared/pic.jpg">
+                            <span class="card-title card-content-padding-0">${destaque.nome}</span>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
-            <a class="carousel-item" href="#">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="Shared/pic.jpg">
-                        <span class="card-title card-content-padding-0">Card Title</span>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </c:forEach>
         </div>
     </div>
 </div>

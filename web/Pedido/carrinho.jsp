@@ -10,8 +10,6 @@
 <html>
     <head>
         <c:import url="../Shared/importCss.jsp" />
-        <link rel="stylesheet" href="../Shared/css/materialize.css">
-        <link rel="stylesheet" href="../Shared/css/index.css">
     </head>
     <body>
         <c:import url="../Shared/cabecalho.jsp"/>
@@ -55,8 +53,6 @@
             </div>
         </div>
         <c:import url="../Shared/rodape.jsp"/>
-        <script src="../Shared/js/jquery-3.2.1.min.js"></script>
-        <script src="../Shared/js/materialize.js"></script>
-        <script src="../Shared/js/index.js"></script>
+        <c:import url="../Shared/importJs.jsp"/>
     </body>
 </html>

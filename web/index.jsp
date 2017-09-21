@@ -10,8 +10,6 @@
 <html>
     <head>
         <c:import url="Shared/importCss.jsp"/>
-        <link rel="stylesheet" href="Shared/css/materialize.css">
-        <link rel="stylesheet" href="Shared/css/index.css">
     </head>
     <body>
         <c:import url="Shared/cabecalho.jsp"/>
@@ -26,62 +24,81 @@
                         </div>
                         <div class="card-tabs">
                             <ul class="tabs tabs-fixed-width black-color z-depth-1">
-                                <li class="tab"><a href="#divElet">Eletrônicos</a></li>
                                 <li class="tab"><a href="#divHard">Hardware</a></li>
                                 <li class="tab"><a href="#divSoft">Software</a></li>
                                 <li class="tab"><a href="#divPeri">Periféricos</a></li>
-                                <li class="tab"><a href="#divCompu">Computadores</a></li>
                             </ul>
                         </div>
                         <div class="card-content z-depth-1">
-                            <div id="divElet">
+                            <div id="divHard">
                                 <div class="row">
-                                    <div class="col s2">
-                                        <div class="card">
-                                            <div class="card-image waves-effect waves-block waves-light">
-                                                <img class="activator" src="Shared/pic.jpg">
-                                            </div>
-                                            <div class="card-content padding-0">
-                                                <span class="card-title activator grey-text text-darken-4">Produto 1<i class="material-icons right">more_vert</i></span>
-                                                <p><a class="btn-flat btn-produto" href="#">Página do produto</a></p>
-                                            </div>
-                                            <div class="card-reveal padding-5">
-                                                <span class="card-title grey-text text-darken-4">Produto 1<i class="material-icons right">close</i></span>
-                                                <p>Aqui vao informacoes relacionadas ao produto</p>
+                                    <c:forEach var="hardware" items="${listaHardware}">
+                                        <div class="col s2">
+                                            <div class="card">
+                                                <div class="card-image waves-effect waves-block waves-light">
+                                                    <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
+                                                </div>
+                                                <div class="card-content padding-0">
+                                                    <span class="card-title activator grey-text text-darken-4">${hardware.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${hardware.codigo}">Página do produto</a></p>
+                                                </div>
+                                                <div class="card-reveal padding-5">
+                                                    <span class="card-title grey-text text-darken-4">${hardware.nome}<i class="material-icons right">close</i></span>
+                                                    <p>${hardware.descricao} <br> ${hardware.preco}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
-                            <div id="divHard">HARDWARE</div>
-                            <div id="divSoft">SOFTWARE</div>
-                            <div id="divPeri">SOFTWARE</div>
-                            <div id="divCompu">COMPUTADORES</div>
-                          </div>
+                            <div id="divSoft">
+                                <div class="row">
+                                    <c:forEach var="software" items="${listaSoftware}">
+                                        <div class="col s2">
+                                            <div class="card">
+                                                <div class="card-image waves-effect waves-block waves-light">
+                                                    <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
+                                                </div>
+                                                <div class="card-content padding-0">
+                                                    <span class="card-title activator grey-text text-darken-4">${software.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${software.codigo}">Página do produto</a></p>
+                                                </div>
+                                                <div class="card-reveal padding-5">
+                                                    <span class="card-title grey-text text-darken-4">${software.nome}<i class="material-icons right">close</i></span>
+                                                    <p>${software.descricao} <br> ${software.preco}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                            <div id="divPeri">
+                                <div class="row">
+                                    <c:forEach var="periferico" items="${listaPeriferico}">
+                                        <div class="col s2">
+                                            <div class="card">
+                                                <div class="card-image waves-effect waves-block waves-light">
+                                                    <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
+                                                </div>
+                                                <div class="card-content padding-0">
+                                                    <span class="card-title activator grey-text text-darken-4">${periferico.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${periferico.codigo}">Página do produto</a></p>
+                                                </div>
+                                                <div class="card-reveal padding-5">
+                                                    <span class="card-title grey-text text-darken-4">${periferico.nome}<i class="material-icons right">close</i></span>
+                                                    <p>${periferico.descricao} <br> ${periferico.preco}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="page-footer gray-color">
-            <div class="container">
-                <div class="row">
-                  <div class="col l6 s12">
-                      <h5 class="white-text">Virtual Shop</h5>
-                      <p class="grey-text text-lighten-4">A sua loja online de produtos eletrônicos</p>
-                  </div>
-                  <div class="col l4 offset-l2 s12">
-                      <h5 class="white-text">Referências</h5>
-                      <ul>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                      </ul>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <script src="Shared/js/jquery-3.2.1.min.js"></script>
-        <script src="Shared/js/materialize.js"></script>
-        <script src="Shared/js/index.js"></script>
         <c:import url="Shared/rodape.jsp"/>
+        <c:import url="Shared/importJs.jsp"/>
     </body>
 </html>

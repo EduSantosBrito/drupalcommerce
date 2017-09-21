@@ -10,8 +10,6 @@
 <html>
     <head>
         <c:import url="../Shared/importCss.jsp" />
-        <link rel="stylesheet" href="../Shared/css/materialize.css">
-        <link rel="stylesheet" href="../Shared/css/index.css">
     </head>
     <body>
         <c:import url="../Shared/cabecalho.jsp"/>
@@ -20,7 +18,7 @@
                 <div class="col s12">
                     <div class="card black-color">
                         <div class="card-content padding-0">
-                            <label class="usuario-perfil-titulo white-text">Alessandro da Costa Macanha</label>
+                            <label class="usuario-perfil-titulo white-text">${usuario.nome}</label>
                             <hr class="usuario-perfil-titulo-hr"/>
                         </div>
                         <div class="card-content white">
@@ -31,8 +29,6 @@
             </div>
         </div>
         <c:import url="../Shared/rodape.jsp"/>
-        <script src="../Shared/js/jquery-3.2.1.min.js"></script>
-        <script src="../Shared/js/materialize.js"></script>
-        <script src="../Shared/js/index.js"></script>
+        <c:import url="../Shared/importJs.jsp"/>
     </body>
 </html>

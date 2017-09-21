@@ -18,7 +18,8 @@ public class Produto {
     private String descricao;
     private String marca;
     private LocalDate dataCadastro;
-    private Categoria categoria;
+    private String categoria;
+    private String subCategoria;
     private Integer quantidade;
     private Double preco;
 
@@ -64,12 +65,20 @@ public class Produto {
         this.dataCadastro = dataCadastro;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getSubCategoria() {
+        return subCategoria;
+    }
+
+    public void setSubCategoria(String subCategoria) {
+        this.subCategoria = subCategoria;
     }
 
     public Integer getQuantidade() {
