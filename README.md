@@ -19,17 +19,17 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
   4. O sistema deverá permitir que o usuário cadastrado visualize o andamento dos seus pedidos(Os estados do pedido são: Em Análise, Na fila/Em espera, Em  Atraso, Em Separação, Cancelado e Finalizado).
 
 # Padrões
-<b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas.
+<b>MVC:</b> Padrão utilizado para o desenvolvimento das camadas. <b>FEITO</b>
 <br />
-<b>Singleton:</b> Utilizações atuais: Criar a conexão com o banco.
+<b>Singleton:</b> Utilizações atuais: Criar a conexão com o banco. <b>FEITO</b>
 <br />
-<b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas.
+<b>DAO:</b> Utilizado na aplicacão para realizar o acesso ao banco e a execucão de tarefas. <b>FEITO</b>
 <br />
-<b>Facade(Front Controller):</b> Utilizado na aplicacão para controlar as ações.
+<b>Facade(Front Controller):</b> Utilizado na aplicacão para controlar as ações. <b>FEITO</b>
+<br /> 
+<b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema. <b>FEITO</b>
 <br />
-<b>Action:</b> Será utilizado em conjunto ao Front Controller, controlará as ações do sistema.
-<br />
-<b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações.
+<b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações. <b>FEITO</b>
 <br />
 <b>Strategy:</b> Será utilizado na definicão de promocões, descontos.
 <br />
@@ -37,11 +37,11 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
 <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
-<b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude.
+<b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude. <b>FEITO</b>
 <br />
  # Etapas
  1. Construção dos modelos: <b>FEITO</b>
  2. Construção das telas: <b>FEITO</b>
- 3. Construção dos controladores e ações:
+ 3. Construção dos controladores e ações: <b>FEITO</b>
  4. Implementação dos modelos e controladores:
  5. Testes:
