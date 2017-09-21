@@ -4,6 +4,8 @@
     Author     : sandr
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--Barra lateral pequena-->
 <div id="small-navbar" class="side-menu-small black-color">
     <ul class="center">
@@ -13,12 +15,12 @@
             </a>
         </li>
         <li>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
+            <a href="${pageContext.request.contextPath}/index" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
                 <i class="white-text material-icons side-menu-small-li-hover">home</i>
             </a>
         </li>
         <li>
-            <a href="#" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Conta">
+            <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=perfil" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Conta">
                 <i class="white-text material-icons side-menu-small-li-hover">account_circle</i>
             </a>
         </li>
@@ -28,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Carrinho">
+            <a href="${pageContext.request.contextPath}/Pedido/carrinho.jsp" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Carrinho">
                 <i class="white-text material-icons side-menu-small-li-hover">shopping_cart</i>
             </a>
         </li>
@@ -46,7 +48,7 @@
         </li>
         <!--INICIO-->
         <li>
-            <a href="${pageContext.request.contextPath}/index.jsp" class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover">
+            <a href="${pageContext.request.contextPath}/index" class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover">
                 <i class="material-icons">home</i> INICIO
             </a>
         </li>
@@ -109,6 +111,11 @@
                                                 <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=processador">
                                                     <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
                                                         Processadores
+                                                    </li>
+                                                </a>
+                                                <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=vga">
+                                                    <li class="dropdown-menu-hover-right collapsible-drop-categorias-label">
+                                                        Placa de Video
                                                     </li>
                                                 </a>
                                                 <a class="white-text" href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=hd">
@@ -212,41 +219,21 @@
                         <!--LISTA DE PRODUTOS NO CARRINHO-->
                         <ul>
                             <!--Produto 1-->
-                            <li class="collapsible-drop-categorias-label">
-                                <ul class="z-depth-2">
-                                    <li>
-                                        <!--TITULO PRODUTO-->
-                                        <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
-                                            Produto 1
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--Produto 2-->
-                            <li class="collapsible-drop-categorias-label">
-                                <ul class="z-depth-2">
-                                    <li>
-                                        <!--TITULO PRODUTO-->
-                                        <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
-                                            Produto 2
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--Produto 3-->
-                            <li class="collapsible-drop-categorias-label">
-                                <ul class="z-depth-2">
-                                    <li>
-                                        <!--TITULO PRODUTO-->
-                                        <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
-                                            Produto 3
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <c:forEach var="item" items="${usuario.carrinho.itens}">
+                                <li class="collapsible-drop-categorias-label">
+                                    <ul class="z-depth-2">
+                                        <li>
+                                            <!--TITULO PRODUTO-->
+                                            <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
+                                                ${item.produto.titulo}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </c:forEach>
                             <!--Finalizar compra-->
                             <li class="collapsible-drop-categorias-label">
-                                <a href="" class="btn black-color btn-finalizar side-menu-small-li-hover">Finalizar compras!</a>
+                                <a href="${pageContext.request.contextPath}/Pedido/carrinho.jsp" class="btn black-color btn-finalizar side-menu-small-li-hover">Finalizar compras!</a>
                             </li>
                         </ul>
                     </div>
@@ -266,12 +253,24 @@
         </div>
         <div class="collapsible-body collapsible-drop-categorias">
             <ul class="gray-color">
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Placa mae</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Memoria RAM</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Processadores</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Placa de Video</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Disco Rigido</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">SSD</li>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=placa_mae">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Placa mae</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=memoria_ram">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Memoria RAM</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=processador">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Processadores</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=vga">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Placa de Video</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=hd">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Disco Rigido</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=ssd">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">SSD</li>
+                </a>
             </ul>
         </div>
     </li>
@@ -283,12 +282,21 @@
         </div>
         <div class="collapsible-body collapsible-drop-categorias">
             <ul class="gray-color">
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Gabinetes</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Teclados & Mouse</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Adaptadores</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Acessórios</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Fones</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Cabos</li>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=gabinete">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Gabinetes</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=teclado_mouse">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Teclados & Mouse</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=adaptadores">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Adaptadores</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=acessorios">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Acessórios</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=fones">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Fones</li>
+                </a>
             </ul>
         </div>
     </li>
@@ -300,9 +308,15 @@
         </div>
         <div class="collapsible-body collapsible-drop-categorias">
             <ul class="gray-color">
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Sistema Operacional</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Anti-virus</li>
-                <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Trabalho</li>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=so">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Sistema Operacional</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=anti-virus">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Anti-virus</li>
+                </a>
+                <a href="${pageContext.request.contextPath}/FrontController?action=ListaProdutosSubCategoria&AMP;subCategoria=trabalho">
+                    <li class="dropdown-menu-hover white-text collapsible-drop-categorias-label">Trabalho</li>
+                </a>
             </ul>
         </div>
     </li>

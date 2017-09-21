@@ -29,8 +29,8 @@ public class ListaProdutosSubCategoriaAction implements Action{
         
         try {
             List<Produto> produtos = ProdutoDAO.getInstance().getProdutoBySubCategoria(subCategoria);
-            if(produtos.isEmpty()){
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            if(produtos == null){
+                RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);
             }else{
@@ -46,7 +46,7 @@ public class ListaProdutosSubCategoriaAction implements Action{
             } catch (Exception ex) {
                 Logger.getLogger(RegistrarUsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/index");
             if(rd != null)
                 try {
                     rd.forward(request, response);

@@ -39,11 +39,11 @@
                                                     <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                                                 </div>
                                                 <div class="card-content padding-0">
-                                                    <span class="card-title activator grey-text text-darken-4">${hardware.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <span class="card-title activator grey-text text-darken-4">${hardware.titulo}<i class="material-icons right">more_vert</i></span>
                                                     <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${hardware.codigo}">Página do produto</a></p>
                                                 </div>
                                                 <div class="card-reveal padding-5">
-                                                    <span class="card-title grey-text text-darken-4">${hardware.nome}<i class="material-icons right">close</i></span>
+                                                    <span class="card-title grey-text text-darken-4">${hardware.titulo}<i class="material-icons right">close</i></span>
                                                     <p>${hardware.descricao} <br> ${hardware.preco}</p>
                                                 </div>
                                             </div>
@@ -60,11 +60,11 @@
                                                     <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                                                 </div>
                                                 <div class="card-content padding-0">
-                                                    <span class="card-title activator grey-text text-darken-4">${software.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <span class="card-title activator grey-text text-darken-4">${software.titulo}<i class="material-icons right">more_vert</i></span>
                                                     <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${software.codigo}">Página do produto</a></p>
                                                 </div>
                                                 <div class="card-reveal padding-5">
-                                                    <span class="card-title grey-text text-darken-4">${software.nome}<i class="material-icons right">close</i></span>
+                                                    <span class="card-title grey-text text-darken-4">${software.titulo}<i class="material-icons right">close</i></span>
                                                     <p>${software.descricao} <br> ${software.preco}</p>
                                                 </div>
                                             </div>
@@ -81,11 +81,11 @@
                                                     <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                                                 </div>
                                                 <div class="card-content padding-0">
-                                                    <span class="card-title activator grey-text text-darken-4">${periferico.nome}<i class="material-icons right">more_vert</i></span>
+                                                    <span class="card-title activator grey-text text-darken-4">${periferico.titulo}<i class="material-icons right">more_vert</i></span>
                                                     <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${periferico.codigo}">Página do produto</a></p>
                                                 </div>
                                                 <div class="card-reveal padding-5">
-                                                    <span class="card-title grey-text text-darken-4">${periferico.nome}<i class="material-icons right">close</i></span>
+                                                    <span class="card-title grey-text text-darken-4">${periferico.titulo}<i class="material-icons right">close</i></span>
                                                     <p>${periferico.descricao} <br> ${periferico.preco}</p>
                                                 </div>
                                             </div>

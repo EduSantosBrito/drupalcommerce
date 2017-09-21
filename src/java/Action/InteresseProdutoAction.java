@@ -20,19 +20,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Automateasy
  */
-public class AdicionarCarrinhoAction implements Action {
+public class InteresseProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        Integer quantidade = Integer.parseInt(request.getParameter("qtd-prod"));
-        Integer codigoProduto = Integer.parseInt(request.getParameter("cod-produto"));
-        
+        Integer codigoProduto = Integer.parseInt(request.getParameter("id"));
         try{
+            usuario.produtos = ProdutoDAO.getInstance().getInteressadoByUsuario(usuario);
             Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
-            
-            if(produto != null) {
-                usuario.comprarProduto(produto, quantidade);
+            if(usuario.getProdutos().contains(produto)){
+                RequestDispatcher rd = request.getRequestDispatcher("/index");
+                if(rd != null)
+                    rd.forward(request, response);
+            }else{
+                usuario.gostarProduto(produto);
+                ProdutoDAO.getInstance().salvarInteresse(usuario, produto);
                 RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);
@@ -42,7 +45,7 @@ public class AdicionarCarrinhoAction implements Action {
             try {
                 throw e;
             } catch (Exception ex) {
-                Logger.getLogger(AdicionarCarrinhoAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(InteresseProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -33,15 +33,17 @@ public class VerificarAutenticacaoAction implements Action {
             }else {
                 Action actionObject = null;
                 if(pagina == null || pagina.equals(""))
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("/index");
                 if(pagina.equals("perfil")){
                     RequestDispatcher rd = request.getRequestDispatcher("/Usuario/" + pagina + ".jsp");
                     if(rd != null)
                         rd.forward(request, response);
                 }
-                actionObject = ActionFactory.create(pagina);
-                if(actionObject != null)
-                    actionObject.execute(request, response);
+                else{
+                    actionObject = ActionFactory.create(pagina);
+                    if(actionObject != null)
+                        actionObject.execute(request, response);
+                }
             }
         }
         catch(Exception e){

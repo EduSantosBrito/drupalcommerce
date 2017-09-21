@@ -13,7 +13,8 @@
     </head>
     <body>
         <c:import url="../Shared/cabecalho.jsp"/>
-        <div id="usuario-perfil" class="">
+        <c:import url="../Shared/barraLateral.jsp"/>
+        <div id="usuario-perfil" class="content-margin-left">
             <div class="row">
                 <div class="col s12">
                     <div class="card black-color">

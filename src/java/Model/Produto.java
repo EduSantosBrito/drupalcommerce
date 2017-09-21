@@ -5,13 +5,18 @@
  */
 package Model;
 
+import Action.AletarInteressadosAction;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Objects;
+import java.util.Observable;
 
 /**
  *
  * @author sandr
  */
-public class Produto {
+public class Produto extends Observable{
     
     private Integer codigo;
     private String titulo;
@@ -88,6 +93,15 @@ public class Produto {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+    
+    public void setQuantidadeUpdate(int quantidade) throws ClassNotFoundException, SQLException {
+        if(this.quantidade == 0){
+            List<Usuario> clientes = AletarInteressadosAction.getInstance().alertarClientes(this);
+            setChanged();
+            notifyObservers();
+        }
+        this.quantidade = quantidade;
+    }
 
     public Double getPreco() {
         return preco;
@@ -97,4 +111,33 @@ public class Produto {
         this.preco = preco;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataCadastro, other.dataCadastro)) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -7,11 +7,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav id="nav-bar-logo" class="navbar-fixed black-color z-depth-0">
     <div class="nav-wrapper">
-        <a class="brand-logo center search-prefix" href="${pageContext.request.contextPath}/index.jsp">
+        <a class="brand-logo center search-prefix" href="${pageContext.request.contextPath}/index">
             <i class="material-icons left">cloud</i>Virtual Shop<i class="material-icons right">cloud</i>
         </a>
         <ul class="right hide-on-med-and-down">
-        <li>
+        <li class="btn-cabecalho">
             <a href=""><i class="material-icons prefix search-prefix">search</i></a>
         </li>
         <li>
@@ -19,10 +19,15 @@
                 <input placeholder="Pesquisar" class="search-menu-input" id="menu-search" type="text">
             </div>
         </li>
-        <li>
+        <li class="btn-cabecalho">
             <c:if test = "${usuario == null}">
-                <a href="" class="dropdown-button dropdown-button-login tooltipped" data-activates="dropdown-login" data-position="left" data-delay="50" data-tooltip="Login / Cadastro">
+                <a href="" class="dropdown-button dropdown-button-login tooltipped" data-activates="dropdown-login" data-position="bottom" data-delay="50" data-tooltip="Login / Cadastro">
                     <i class="material-icons prefix search-prefix">account_circle</i>
+                </a>
+            </c:if>
+            <c:if test = "${usuario != null}">
+                <a href="${pageContext.request.contextPath}/FrontController?action=Deslogar" class="tooltipped"data-position="bottom" data-delay="50" data-tooltip="Sair">
+                    <i class="material-icons prefix search-prefix">exit_to_app</i>
                 </a>
             </c:if>
         </li>

@@ -39,7 +39,7 @@ public class VisualizarProdutoAction implements Action{
             } catch (Exception ex) {
                 Logger.getLogger(RegistrarUsuarioAction.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/index");
             if(rd != null)
                 try {
                     rd.forward(request, response);

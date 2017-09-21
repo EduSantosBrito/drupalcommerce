@@ -7,12 +7,14 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author sandr
  */
-public class Usuario {
+public class Usuario implements Observer{
     
     private Integer codigo;
     private String nome;
@@ -22,6 +24,7 @@ public class Usuario {
     private Integer telefone;
     private final Carrinho carrinho;
     private List<Pedido> pedidos = new ArrayList<>();
+    public List<Observable> produtos = new ArrayList<>();
     
     public Usuario(String email, String nome, String senha, String endereco, Integer telefone){
         this.email = email;
@@ -96,11 +99,30 @@ public class Usuario {
         this.pedidos.add(pedido);
     }
     
-    public Item comprarProduto(Produto produto, Integer quantidade){
+    public void comprarProduto(Produto produto, Integer quantidade){
         Item item = new Item();
         item.setProduto(produto);
         item.setQuantidade(quantidade);
-        
-        return item;
+        this.carrinho.adiciona(item);
+    }
+    
+    public void gostarProduto(Observable produto){
+        this.produtos.add(produto);
+        produto.addObserver(this);
+    }
+
+    public List<Observable> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Observable> produtos) {
+        this.produtos = produtos;
+    }
+    
+    @Override
+    public void update(Observable produtoObserver, Object o1) {
+        if(produtoObserver instanceof Produto){
+            System.out.println("Email enviado para: " + this.email);
+        }
     }
 }

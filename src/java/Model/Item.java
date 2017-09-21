@@ -11,20 +11,11 @@ package Model;
  */
 public class Item {
     
-    private Carrinho carrinho;
     private Produto produto;
     private Integer quantidade;
 
     public Item() {}
 
-    public Carrinho getCarrinho() {
-        return carrinho;
-    }
-
-    public void setCarrinho(Carrinho carrinho) {
-        this.carrinho = carrinho;
-    }
-    
     public Produto getProduto() {
         return produto;
     }

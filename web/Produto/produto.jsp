@@ -52,18 +52,32 @@
                                             </div>
                                         </div>
                                         <div class="card-content padding-5 card-produto-h">
-                                            <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarCarrinho" method="">
+                                            <c:if test="${usuario != null}">
+                                                <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarCarrinho" method="post">
+                                                    <div class="row form-margin-0">
+                                                        <div class="col s6">
+                                                            <label class="produto-quantidade">Quantidade: </label>
+                                                            <input name="qtd-prod" type="number" class="produto-qtd-compra" required="true">
+                                                        </div>
+                                                        <div class="col s6">
+                                                            <c:if test="${produto.quantidade > 0}">
+                                                                <input type="hidden" name="cod-produto" value="${produto.codigo}">
+                                                                <input type="submit" class="btn btn-produto-compra black-color right" value="Adicionar Carrinho!">
+                                                            </c:if>
+                                                            <c:if test="${produto.quantidade == 0}">
+                                                                    <a type="submit" class="btn btn-produto-compra black-color right" href="${pageContext.request.contextPath}/FrontController?action=InteresseProduto&AMP;id=${produto.codigo}">Produto indisponível, Avise-me</a>
+                                                            </c:if>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </c:if>
+                                            <c:if test="${usuario == null}">
                                                 <div class="row form-margin-0">
                                                     <div class="col s6">
-                                                        <label class="produto-quantidade">Quantidade: </label>
-                                                        <input id="qtd-prod" type="number" class="produto-qtd-compra">
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <input type="hidden" name="cod-produto" value="${produto.codigo}">
-                                                        <a type="submit" class="btn btn-produto-compra black-color right">Adicionar Carrinho!</a>
+                                                        <label class="produto-quantidade">Entre para comprar!</label>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </c:if>
                                         </div>
                                     </div>
                                 </div>

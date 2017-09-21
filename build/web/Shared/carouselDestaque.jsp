@@ -20,12 +20,14 @@
                     <a href="Siguiente" class="moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator indicator-right"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
                 </div>
             </div>
-            <c:forEach var="destaque" items="${destaques}">
-                <a class="carousel-item" href="#">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="Shared/pic.jpg">
-                            <span class="card-title card-content-padding-0">${destaque.nome}</span>
+            <c:forEach var="destaque" items="${destaque}">
+                <a href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${destaque.codigo}">
+                    <div class="col s2 carousel-item">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
+                                <span class="card-title white-text">${destaque.titulo}</span>
+                            </div>
                         </div>
                     </div>
                 </a>

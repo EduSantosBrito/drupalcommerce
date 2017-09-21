@@ -7,6 +7,7 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -48,9 +49,15 @@ public class Carrinho {
         this.total += item.getProduto().getPreco() * item.getQuantidade();
     }
     
-    public void remove(int indiceItem){
-        Item item = itens.remove(indiceItem);
-        this.total -= item.getProduto().getPreco() * item.getQuantidade();
+    public void remove(Produto produto){
+        Iterator<Item> iter = itens.iterator();
+        while(iter.hasNext()) {
+            Item i = iter.next();
+            if(produto.equals(i.getProduto())){
+                iter.remove();
+                total -= i.getProduto().getPreco() * i.getQuantidade();
+            }
+        }
     }
     
     public void finalizar(){

@@ -32,12 +32,12 @@ public class LogarAction implements Action {
         try {
             usuario = UsuarioDAO.getInstance().autentica(usuario);
             if(usuario.getCodigo() == null){
-                RequestDispatcher rd = request.getRequestDispatcher("/Usuario/login.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/login");
                 if(rd != null)
                     rd.forward(request, response);
             }else{
                 request.getSession().setAttribute("usuario", usuario);
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);
             }

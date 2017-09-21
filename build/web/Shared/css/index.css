@@ -38,6 +38,9 @@ input[type=number]::-webkit-outer-spin-button {
 .search-prefix {
     color: white !important;
 }
+.btn-cabecalho:hover {
+    background: #474747;
+}
 .side-menu-small {
     position: absolute;
     width: 60px;

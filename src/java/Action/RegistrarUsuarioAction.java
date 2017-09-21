@@ -35,7 +35,7 @@ public class RegistrarUsuarioAction implements Action {
         try{
             usuario = UsuarioDAO.getInstance().salvar(usuario);
             request.getSession().setAttribute("usuario", usuario);
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/index");
             if(rd != null)
                 rd.forward(request, response);
         }

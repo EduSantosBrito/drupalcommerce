@@ -50,3 +50,10 @@ CREATE TABLE tb_pdd (
     CONSTRAINT fk_pdd_usr FOREIGN KEY (cdg_usr) REFERENCES tb_usr(cdg_usr),
     CONSTRAINT fk_pdd_prdt FOREIGN KEY (cdg_prdt) REFERENCES tb_prdt(cdg_prdt)
 )
+CREATE TABLE tb_intrc (
+    cdg_intrc INTEGER PRIMARY KEY AUTOINCREMENT,
+    cdg_usr INTEGER NOT NULL,
+    cdg_prdt INTEGER NOT NULL,
+    CONSTRAINT fk_intrc_usr FOREIGN KEY (cdg_usr) REFERENCES tb_usr(cdg_usr),
+    CONSTRAINT fk_intrc_prdt FOREIGN KEY (cdg_prdt) REFERENCES tb_prdt(cdg_prdt)
+)
