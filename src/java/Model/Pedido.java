@@ -5,6 +5,7 @@
  */
 package Model;
 
+import State.PedidoState;
 import java.time.LocalDate;
 
 /**
@@ -19,6 +20,7 @@ public class Pedido {
     private Integer quantidade;
     private Double preco;
     private LocalDate dataPedido;
+    private PedidoState estado;
     
     public Pedido(Usuario usuario){
         this.usuario = usuario;
@@ -63,5 +65,16 @@ public class Pedido {
     public void setDataPedido(LocalDate dataPedido) {
         this.dataPedido = dataPedido;
     }
-    
+
+    public PedidoState getEstado() {
+        return estado;
+    }
+
+    public void setEstado(PedidoState estado) {
+        this.estado = estado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }

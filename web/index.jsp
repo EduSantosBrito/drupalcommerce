@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class="card-reveal padding-5">
                                                     <span class="card-title grey-text text-darken-4">${hardware.titulo}<i class="material-icons right">close</i></span>
-                                                    <p>${hardware.descricao} <br> ${hardware.preco}</p>
+                                                    <p><b>Descrição do produto:</b> ${hardware.descricao} <br> <b>Preço:</b> ${hardware.preco}</p>
                                                 </div>
                                             </div>
                                         </div>

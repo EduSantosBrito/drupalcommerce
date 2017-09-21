@@ -46,6 +46,7 @@
                                                 </div>
                                             </c:forEach>
                                         </li>
+                                        <a type="submit" class="btn btn-produto-compra black-color right" href="${pageContext.request.contextPath}/FrontController?action=FinalizarPedido">Finalizar Pedido</a>
                                       </ul>
                                 </div>
                             </div>

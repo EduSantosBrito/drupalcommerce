@@ -9,29 +9,29 @@
 <!--Barra lateral pequena-->
 <div id="small-navbar" class="side-menu-small black-color">
     <ul class="center">
-        <li>
-            <a id="small-bar" href="#" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Expandir menu">
-                <i class="small white-text material-icons side-menu-small-li-hover">keyboard_arrow_right</i>
+        <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Expandir menu">
+            <a id="small-bar" href="#">
+                <i class="small white-text material-icons side-menu-small-li-hover icon-margin">keyboard_arrow_right</i>
             </a>
         </li>
-        <li>
-            <a href="${pageContext.request.contextPath}/index" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
-                <i class="white-text material-icons side-menu-small-li-hover">home</i>
+        <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Inicio">
+            <a href="${pageContext.request.contextPath}/index">
+                <i class="white-text material-icons side-menu-small-li-hover icon-margin">home</i>
             </a>
         </li>
-        <li>
-            <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=perfil" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Conta">
-                <i class="white-text material-icons side-menu-small-li-hover">account_circle</i>
+        <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Conta">
+            <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=perfil">
+                <i class="white-text material-icons side-menu-small-li-hover icon-margin">account_circle</i>
             </a>
         </li>
-        <li>
-            <a class="dropdown-button tooltipped" href="#" data-activates="dropdown-produtos-small" data-position="right" data-delay="50" data-tooltip="Expandir categorias">
-                <i class="white-text material-icons side-menu-small-li-hover">shop</i>
+        <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Expandir categorias">
+            <a class="dropdown-button" href="#" data-activates="dropdown-produtos-small" >
+                <i class="white-text material-icons side-menu-small-li-hover icon-margin">shop</i>
             </a>
         </li>
-        <li>
-            <a href="${pageContext.request.contextPath}/Pedido/carrinho.jsp" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Carrinho">
-                <i class="white-text material-icons side-menu-small-li-hover">shopping_cart</i>
+        <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Carrinho">
+            <a href="${pageContext.request.contextPath}/Pedido/carrinho.jsp">
+                <i class="white-text material-icons side-menu-small-li-hover icon-margin">shopping_cart</i>
             </a>
         </li>
     </ul>
@@ -41,9 +41,9 @@
 <div id="large-navbar" class="side-menu-large black-color hide-on-med-and-down z-depth-2">
     <ul class="">
         <!--ARROW-->
-        <li>
-            <a id="large-bar" href="#" class="white-text large-arrow-left tooltipped" data-position="right" data-delay="50" data-tooltip="Diminuir menu">
-                <i class="small material-icons side-menu-small-li-hover">keyboard_arrow_left</i>
+        <li class="side-menu-large-li-hover tooltipped" data-position="right" data-delay="50" data-tooltip="Diminuir menu">
+            <a id="large-bar" href="#" class="white-text large-arrow-left ">
+                <i class="small material-icons side-menu-small-li-hover icon-margin">keyboard_arrow_left</i>
             </a>
         </li>
         <!--INICIO-->

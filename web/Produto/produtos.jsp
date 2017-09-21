@@ -35,7 +35,7 @@
                                             </div>
                                             <div class="card-reveal padding-5">
                                                 <span class="card-title grey-text text-darken-4">${produto.titulo}<i class="material-icons right">close</i></span>
-                                                <p>${produto.descricao} <br> Preço: ${produto.preco}</p>
+                                                <p><b>Descrição do produto:</b> ${produto.descricao} <br> <b>Preço:</b> ${produto.preco}</p>
                                             </div>
                                         </div>
                                     </c:forEach>

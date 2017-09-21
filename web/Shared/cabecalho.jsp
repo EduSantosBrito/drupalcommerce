@@ -40,11 +40,11 @@
         <form action="${pageContext.request.contextPath}/FrontController?action=Logar" method="post" class="col s12">
             <div class="row login-row-none">
                 <div class="input-field col s12">
-                  <input name="email_login" type="text" class="login-input-margin">
+                    <input name="email_login" type="email" class="login-input-margin" required="true">
                   <label for="email_login" class="login-input-label">Email:</label>
                 </div>
                 <div class="input-field col s12">
-                  <input name="senha_login" type="password" class="login-input-margin">
+                  <input name="senha_login" type="password" class="login-input-margin" required="true">
                   <label for="senha_login" class="login-input-label">Senha</label>
                 </div>
             </div>

@@ -71,6 +71,7 @@ public class Carrinho {
             this.usuario.setPedidos(pedido);
         }
         this.itens.clear();
+        this.total = 0d;
     }
     
     public Integer getQuantidadeItens(){

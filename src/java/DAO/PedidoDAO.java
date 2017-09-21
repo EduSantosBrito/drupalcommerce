@@ -5,6 +5,8 @@
  */
 package DAO;
 
+import Model.Carrinho;
+import Model.Item;
 import Model.Pedido;
 import Model.Usuario;
 import java.sql.Connection;
@@ -30,6 +32,28 @@ public class PedidoDAO {
         return instance;
     }
     
+    public void salvarPedido(Usuario usuario, Item item) throws SQLException, ClassNotFoundException{
+        String sql = "INSERT INTO tb_pdd (cdg_usr, cdg_prdt, qtd_prdt, prc_pdd, dt_pdd) VALUES " +
+                "(" + usuario.getCodigo() +
+                ", " + item.getProduto().getCodigo() +
+                ", " + item.getQuantidade() +
+                ", " + item.getProduto().getPreco() * item.getQuantidade() + 
+                ", " + LocalDate.now() +
+                ")";
+        
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+    }
+    
     public List<Pedido> getPedidoByUsuario(Usuario usuario) throws SQLException, ClassNotFoundException{
         List<Pedido> pedidos = new ArrayList<>();
         String sql = "SELECT p.cdg_pdd, p.cdg_prdt, p.qtd_prdt, p.prc_pdd, p.dt_pdd " +
@@ -42,7 +66,6 @@ public class PedidoDAO {
             while(rs.next()){
                 Pedido pedido = new Pedido(usuario);
                 pedido.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
-                pedido.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
                 pedido.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
                 pedido.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
                 pedido.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));

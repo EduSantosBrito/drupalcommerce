@@ -320,3 +320,9 @@ table {
 .content-margin-top {
     margin-top: 20px;
 }
+.icon-margin {
+    margin-top: 5px;
+}
+.tt:hover {
+    background: red;
+}
