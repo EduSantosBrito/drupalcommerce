@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Strategy.Pagamento;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,6 +20,7 @@ public class Carrinho {
     private final Usuario usuario;
     private List<Item> itens = new ArrayList<>();
     private Double total = 0.0;
+    private Pagamento pagamento;
 
     public Carrinho(Usuario usuario) {
         this.usuario = usuario;
@@ -43,6 +45,14 @@ public class Carrinho {
     public void setTotal(Double total) {
         this.total = total;
     }
+
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
     
     public void adiciona(Item item){
         this.itens.add(item);
@@ -61,15 +71,6 @@ public class Carrinho {
     }
     
     public void finalizar(){
-        for (Item item : itens) {
-            Pedido pedido = new Pedido(this.usuario);
-            pedido.setCodigo(1);
-            pedido.setProduto(item.getProduto());
-            pedido.setQuantidade(item.getQuantidade());
-            pedido.setPreco(item.getProduto().getPreco());
-            pedido.setDataPedido(LocalDate.now());
-            this.usuario.setPedidos(pedido);
-        }
         this.itens.clear();
         this.total = 0d;
     }

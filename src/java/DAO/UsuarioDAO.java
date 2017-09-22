@@ -25,6 +25,7 @@ public class UsuarioDAO {
     }
     
     public Usuario salvar(Usuario usuario) throws SQLException, ClassNotFoundException{
+        Usuario user = new Usuario();
         String sql =    "INSERT INTO tb_usr (nm_usr, eml_usr, snh_usr, ndrc_usr, tlfn_usr) VALUES" +
                         "(" +
                             "'" + usuario.getNome() + 
@@ -37,6 +38,14 @@ public class UsuarioDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             st.execute(sql);
+            ResultSet rs = st.executeQuery("SELECT * FROM tb_usr WHERE eml_usr = '" + usuario.getEmail() + "'");
+            while(rs.next()){
+                user.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
+                user.setEmail(rs.getString("eml_usr"));
+                user.setNome(rs.getString("nm_usr"));
+                user.setEndereco(rs.getString("ndrc_usr"));
+                user.setSenha(rs.getString("snh_usr"));
+            }
         }
         catch(SQLException e) {
             throw e;
@@ -45,7 +54,7 @@ public class UsuarioDAO {
             closeResources(conn, st);
         }
         
-        return usuario;
+        return user;
     }
     
     public Usuario autentica(Usuario usuario) throws SQLException, ClassNotFoundException{

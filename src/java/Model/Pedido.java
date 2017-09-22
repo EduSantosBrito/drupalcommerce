@@ -5,14 +5,18 @@
  */
 package Model;
 
+import Action.AletarAlteracaoEstadoAction;
+import State.PedidoEstadoAnalise;
 import State.PedidoState;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Observable;
 
 /**
  *
  * @author sandr
  */
-public class Pedido {
+public class Pedido extends Observable{
     
     private final Usuario usuario;
     private Integer codigo;
@@ -21,11 +25,17 @@ public class Pedido {
     private Double preco;
     private LocalDate dataPedido;
     private PedidoState estado;
+    private Integer desconto; 
     
     public Pedido(Usuario usuario){
         this.usuario = usuario;
+        this.estado = new PedidoEstadoAnalise();
     }
-
+    
+    public Pedido(){
+        this.usuario = null;
+    }
+    
     public Integer getCodigo() {
         return codigo;
     }
@@ -76,5 +86,22 @@ public class Pedido {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public Integer getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(Integer desconto) {
+        this.desconto = desconto;
+    }
+    
+    public void setEstadoUpdate(PedidoState estado) throws ClassNotFoundException {
+        if(this.estado != estado){
+            List<Usuario> clientes = AletarAlteracaoEstadoAction.getInstance().alertarClientes(this);
+            setChanged();
+            notifyObservers();
+        }
+        this.estado = estado;
     }
 }

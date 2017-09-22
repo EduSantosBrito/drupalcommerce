@@ -11,10 +11,11 @@ package State;
  */
 public interface PedidoState {
     
-    PedidoState analise();
-    PedidoState atraso();
-    PedidoState separacao();
-    PedidoState cancelado();
-    PedidoState enviado();
+    public String estado();
+    public String analise();
+    public String atraso();
+    public String separacao();
+    public String cancelado();
+    public String enviado();
     
 }

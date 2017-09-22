@@ -7,6 +7,8 @@ package Action;
 
 import Controller.Action;
 import Controller.ActionFactory;
+import DAO.PedidoDAO;
+import DAO.ProdutoDAO;
 import Model.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -36,6 +38,13 @@ public class VerificarAutenticacaoAction implements Action {
                     response.sendRedirect("/index");
                 if(pagina.equals("perfil")){
                     RequestDispatcher rd = request.getRequestDispatcher("/Usuario/" + pagina + ".jsp");
+                    if(rd != null)
+                        rd.forward(request, response);
+                }
+                if(pagina.equals("admin")){
+                    request.setAttribute("produtos", ProdutoDAO.getInstance().getAllProduto());
+                    request.setAttribute("pedidos", PedidoDAO.getInstance().getAllPedido());
+                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Admin/index.jsp");
                     if(rd != null)
                         rd.forward(request, response);
                 }

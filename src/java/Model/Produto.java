@@ -22,13 +22,23 @@ public class Produto extends Observable{
     private String titulo;
     private String descricao;
     private String marca;
-    private LocalDate dataCadastro;
     private String categoria;
     private String subCategoria;
     private Integer quantidade;
     private Double preco;
-
+    private LocalDate dataCadastro;
+    
     public Produto() {}
+
+    public Produto(String titulo, String descricao, String marca, String categoria, String subCategoria, Integer quantidade, Double preco) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.subCategoria = subCategoria;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
     
     public Integer getCodigo() {
         return codigo;
@@ -110,7 +120,7 @@ public class Produto extends Observable{
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 5;

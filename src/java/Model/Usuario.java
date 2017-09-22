@@ -23,7 +23,7 @@ public class Usuario implements Observer{
     private String endereco;
     private Integer telefone;
     private final Carrinho carrinho;
-    private List<Pedido> pedidos = new ArrayList<>();
+    private List<Observable> pedidos = new ArrayList<>();
     public List<Observable> produtos = new ArrayList<>();
     
     public Usuario(String email, String nome, String senha, String endereco, Integer telefone){
@@ -91,7 +91,7 @@ public class Usuario implements Observer{
         return carrinho;
     }
 
-    public List<Pedido> getPedidos() {
+    public List<Observable> getPedidos() {
         return pedidos;
     }
 
@@ -122,7 +122,10 @@ public class Usuario implements Observer{
     @Override
     public void update(Observable produtoObserver, Object o1) {
         if(produtoObserver instanceof Produto){
-            System.out.println("Email enviado para: " + this.email);
+            System.out.println("PRODUTO: " + this.email);
+        }
+        if(produtoObserver instanceof Pedido){
+            System.out.println("PEDIDO: " + this.email);
         }
     }
 }

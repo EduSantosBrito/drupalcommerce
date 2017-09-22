@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -29,6 +28,31 @@ public class ProdutoDAO {
     
     public static ProdutoDAO getInstance(){
         return instance;
+    }
+    
+    public void salvarProduto(Produto produto) throws SQLException, ClassNotFoundException{
+        
+        String sql = "INSERT INTO tb_prdt(ttl_prdt, dscr_prdt, mrc_prdt, dt_cdstr_prdt, ctgr_prdt, sb_ctgr_prdt, qtd_estq_prdt, prc_prdt) " +
+                     "VALUES ('" + produto.getTitulo() +
+                     "', '" + produto.getDescricao() + 
+                     "', '" + produto.getMarca() + 
+                     "', 0" +
+                     ", '" + produto.getCategoria() + 
+                     "', '" + produto.getSubCategoria() + 
+                     "', " + produto.getQuantidade() + 
+                     ", " + produto.getPreco() + 
+                     ")";
+        try{
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
     }
     
     public List<Produto> getProdutoByCategoria(String categoria) throws SQLException, ClassNotFoundException {
@@ -140,7 +164,6 @@ public class ProdutoDAO {
             while(rs.next()){
                 Produto produto = new Produto();
                 produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
                 produto.setDescricao(rs.getString("dscr_prdt"));
                 produto.setMarca(rs.getString("mrc_prdt"));
                 produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
