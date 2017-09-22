@@ -20,6 +20,7 @@
                     <div class="card z-depth-1 content-margin-left">
                         <div class="card-content center card-content-padding-0 black-color">
                             <a class="btn-flat white-text">CARRINHO</a>
+<<<<<<< HEAD
                             <a class="btn-flat white-text right">Preço Total: ${usuario.carrinho.total}R$</a>
                         </div>
                         <div class="card-content white padding-0">
@@ -50,6 +51,33 @@
                                             <a class="btn btn-produto-compra black-color right modal-trigger" href="#modalCompra">Finalizar Compra</a>
                                         </c:if>
                                     </ul>
+=======
+                        </div>
+                        <div class="card-content white">
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="collection with-header">
+                                        <li class="collection-header"><h5>Produtos</h5></li>
+                                        <li class="collection-item">
+                                            <!--ITEMS-->
+                                            <div>
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="padding-0">Produto 1</td>
+                                                            <td class="td-qtd-size padding-0">Quantidade: 0</td>
+                                                            <td class="td-remove-size padding-0">
+                                                                <a href="">
+                                                                    <i class="material-icons red-text">remove_shopping_cart</i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </li>
+                                      </ul>
+>>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
                                 </div>
                             </div>
                         </div>
@@ -57,6 +85,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <!--MODAL COMPRA-->
         <div id="modalCompra" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -156,5 +185,9 @@
                 $('select').material_select();
             });
         </script>
+=======
+        <c:import url="../Shared/rodape.jsp"/>
+        <c:import url="../Shared/importJs.jsp"/>
+>>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
     </body>
 </html>

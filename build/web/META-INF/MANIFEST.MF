@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 
+=======
+Manifest-Version: 1.0
+
+>>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a

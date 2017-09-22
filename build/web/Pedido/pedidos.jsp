@@ -32,6 +32,7 @@
                                                       <c:forEach var="pedido" items="${pedidos}">
                                                         <tr>
                                                             <td class="padding-0">Código do pedido: ${pedido.codigo}</td>
+<<<<<<< HEAD
                                                             <td class="padding-0">Produto: ${pedido.produto.titulo}</td>
                                                             <td class="padding-0">Data do pedido: ${pedido.dataPedido}</td>
                                                             <td class="padding-0">Quantidade: ${pedido.quantidade}</td>
@@ -39,6 +40,12 @@
                                                             <td class="padding-0">Valor Total: ${pedido.preco}</td>
                                                             <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * (pedido.desconto / 100))}</td>
                                                             <td class="padding-0">Estado: ${pedido.estado.estado()}</td>
+=======
+                                                            <td class="padding-0">Produto: ${pedido.produto}</td>
+                                                            <td class="padding-0 td-qtd-size">Data do pedido: ${pedido.dataPedido}</td>
+                                                            <td class="padding-0 td-qtd-size">Quantidade: ${pedido.quantidade}</td>
+                                                            <td class="padding-0 td-qtd-size">Valor Total: ${pedido.preco}</td>
+>>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
                                                         </tr>
                                                       </c:forEach>
                                                   </tbody>

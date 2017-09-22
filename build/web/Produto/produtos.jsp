@@ -35,7 +35,11 @@
                                             </div>
                                             <div class="card-reveal padding-5">
                                                 <span class="card-title grey-text text-darken-4">${produto.titulo}<i class="material-icons right">close</i></span>
+<<<<<<< HEAD
                                                 <p><b>Descrição do produto:</b> ${produto.descricao} <br> <b>Preço:</b> ${produto.preco}</p>
+=======
+                                                <p>${produto.descricao} <br> Preço: ${produto.preco}</p>
+>>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
                                             </div>
                                         </div>
                                     </c:forEach>
