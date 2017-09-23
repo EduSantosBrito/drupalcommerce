@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cabecalho
-    Created on : 17/09/2017, 20:39:59
-    Author     : sandr
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav id="nav-bar-logo" class="navbar-fixed black-color z-depth-0">
     <div class="nav-wrapper">

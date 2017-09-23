@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 22/09/2017, 13:49:02
-    Author     : Automateasy
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>

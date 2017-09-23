@@ -1,9 +1,3 @@
-<%-- 
-    Document   : produto
-    Created on : 19/09/2017, 15:07:59
-    Author     : Automateasy
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -52,7 +46,6 @@
                                             </div>
                                         </div>
                                         <div class="card-content padding-5 card-produto-h">
-<<<<<<< HEAD
                                             <c:if test="${usuario != null}">
                                                 <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarCarrinho" method="post">
                                                     <div class="row form-margin-0">
@@ -79,20 +72,6 @@
                                                     </div>
                                                 </div>
                                             </c:if>
-=======
-                                            <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarCarrinho" method="">
-                                                <div class="row form-margin-0">
-                                                    <div class="col s6">
-                                                        <label class="produto-quantidade">Quantidade: </label>
-                                                        <input id="qtd-prod" type="number" class="produto-qtd-compra">
-                                                    </div>
-                                                    <div class="col s6">
-                                                        <input type="hidden" name="cod-produto" value="${produto.codigo}">
-                                                        <a type="submit" class="btn btn-produto-compra black-color right">Adicionar Carrinho!</a>
-                                                    </div>
-                                                </div>
-                                            </form>
->>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
                                         </div>
                                     </div>
                                 </div>

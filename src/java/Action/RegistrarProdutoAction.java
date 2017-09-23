@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Action;
 
 import Controller.Action;
@@ -15,10 +9,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Automateasy
- */
 public class RegistrarProdutoAction implements Action{
 
     @Override
@@ -47,19 +37,3 @@ public class RegistrarProdutoAction implements Action{
         }
     }
 }
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Action;
-
-/**
- *
- * @author Automateasy
- */
-public class RegistrarProdutoAction {
-    
-}
->>>>>>> c9c8b6bf5d3fb2e451aa96ef91c0a61196a02b4a
