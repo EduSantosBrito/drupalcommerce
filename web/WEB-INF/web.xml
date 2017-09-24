@@ -2,11 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>FrontController</servlet-name>
-        <servlet-class>Controller.FrontController</servlet-class>
+        <servlet-class>br.com.virtualshop.controller.FrontController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>indexServlet</servlet-name>
-        <servlet-class>Controller.indexServlet</servlet-class>
+        <servlet-class>br.com.virtualshop.controller.indexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
