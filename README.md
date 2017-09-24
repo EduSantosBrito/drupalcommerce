@@ -31,9 +31,9 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
 <b>Factor Method:</b> Será utilizado em conjunto ao Front Controller, auxiliando no redirecionamento para as ações. <b>FEITO</b>
 <br />
-<b>Strategy:</b> Será utilizado na definicão de promocões, descontos.
+<b>Strategy:</b> Será utilizado na definicão de promocões, descontos na compra. <b>FEITO</b>
 <br />
-<b>State:</b> Será utilizado no controle dos estados dos pedidos dos clientes.
+<b>State:</b> Será utilizado no controle dos estados dos pedidos dos clientes. <b>FEITO</b>
 <br />
 <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
