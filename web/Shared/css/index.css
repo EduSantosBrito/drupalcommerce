@@ -336,3 +336,6 @@ ul.dropdown-content.select-dropdown li span {
     border-bottom: 1px solid #474747 !important;
     box-shadow: 0 1px 0 0 #474747 !important;
 }
+.card-height {
+    max-height: 200px;
+}

@@ -42,6 +42,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <label class="red-text">${errorLogin}</label>
                             </div>
                             <div id="registro" class="row">
                                 <form id="form-registro" action="${pageContext.request.contextPath}/FrontController?action=RegistrarUsuario" method="post" class="col s12">
@@ -81,6 +82,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <label class="red-text">${error}</label>
                             </div>
                         </div>
                     </div>

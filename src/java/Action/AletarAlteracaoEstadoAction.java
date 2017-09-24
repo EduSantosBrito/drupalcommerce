@@ -5,9 +5,10 @@
  */
 package Action;
 
+import DAO.PedidoDAO;
 import Model.Pedido;
 import Model.Usuario;
-import java.util.List;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,9 +23,10 @@ public class AletarAlteracaoEstadoAction {
         return instance;
     }
     
-    public List<Usuario> alertarClientes(Pedido pedido){
+    public Usuario alertarClientes(Pedido pedido) throws SQLException, ClassNotFoundException{
+        Usuario usuario = PedidoDAO.getInstance().getAllEstadoAlterado(pedido);
+        usuario.alertaEstadoPedido(pedido);
         
-        
-        return null;
+        return usuario;
     }
 }

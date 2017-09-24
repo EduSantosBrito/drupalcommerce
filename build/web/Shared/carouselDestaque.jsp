@@ -12,7 +12,9 @@
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
-                                <span class="card-title white-text">${destaque.titulo}</span>
+                            </div>
+                            <div class="card-content padding-0">
+                                <span class="black-text ">${destaque.titulo}</span>
                             </div>
                         </div>
                     </div>

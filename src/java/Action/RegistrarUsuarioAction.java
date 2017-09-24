@@ -33,6 +33,15 @@ public class RegistrarUsuarioAction implements Action {
         Usuario usuario = new Usuario(email, nome, senha, endereco, Integer.parseInt(telefone));
         
         try{
+            Usuario u = UsuarioDAO.getInstance().getUsuarioByEmail(email);
+            
+            if(u.getCodigo() != null){
+                request.getSession().setAttribute("error", "Email já cadastrado!");
+                RequestDispatcher rd = request.getRequestDispatcher("/Usuario/login.jsp");
+            if(rd != null)
+                rd.forward(request, response);
+            }
+            
             usuario = UsuarioDAO.getInstance().salvar(usuario);
             request.getSession().setAttribute("usuario", usuario);
             RequestDispatcher rd = request.getRequestDispatcher("/index");

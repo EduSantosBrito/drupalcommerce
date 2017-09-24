@@ -5,11 +5,13 @@
  */
 package State;
 
+import Model.Pedido;
+
 /**
  *
  * @author Automateasy
  */
-public class PedidoEstadoCancelado implements PedidoState {
+public class PedidoEstadoCancelado implements PedidoEstado {
 
     @Override
     public String estado() {
@@ -17,28 +19,28 @@ public class PedidoEstadoCancelado implements PedidoState {
     }
 
     @Override
-    public String analise() {
-        return "";
+    public String analise(Pedido pedido) {
+        return "O estado do pedido não pode ser alterado para análise";
     }
 
     @Override
-    public String atraso() {
-        return "";
+    public String atraso(Pedido pedido) {
+        return "O estado do pedido não pode ser alterado para atraso";
     }
 
     @Override
-    public String separacao() {
-        return "";
+    public String separacao(Pedido pedido) {
+        return "O estado do pedido não pode ser alterado para separação";
     }
 
     @Override
-    public String cancelado() {
-        return "";
+    public String cancelado(Pedido pedido) {
+        return "O pedido já foi cancelado";
     }
 
     @Override
-    public String enviado() {
-        return "";
+    public String enviado(Pedido pedido) {
+        return "O estado do pedido não pode ser alterado para enviado";
     }
     
 }

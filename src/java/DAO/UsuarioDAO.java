@@ -74,6 +74,33 @@ public class UsuarioDAO {
         return usuarioAutenticado;
     }
     
+    public Usuario getUsuarioByEmail(String email) throws SQLException, ClassNotFoundException{
+        String sql = "SELECT * FROM tb_usr WHERE eml_usr = '" + email + "'";
+        Usuario usuario = new Usuario();
+        
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                usuario.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
+                usuario.setEmail(rs.getString("eml_usr"));
+                usuario.setNome(rs.getString("nm_usr"));
+                usuario.setEndereco(rs.getString("ndrc_usr"));
+                usuario.setSenha(rs.getString("snh_usr"));
+            }
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+        
+        return usuario;
+    }
+    
     public void closeResources(Connection conn, Statement st) throws SQLException {
         try {
             if(st != null) st.close();

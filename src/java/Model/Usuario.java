@@ -90,13 +90,18 @@ public class Usuario implements Observer{
         this.pedidos.add(pedido);
     }
     
+    public void alertaEstadoPedido(Observable pedido){
+        this.pedidos.add(pedido);
+        pedido.addObserver(this);
+    }
+    
     public void comprarProduto(Produto produto, Integer quantidade){
         Item item = new Item();
         item.setProduto(produto);
         item.setQuantidade(quantidade);
         this.carrinho.adiciona(item);
     }
-    
+  
     public void gostarProduto(Observable produto){
         this.produtos.add(produto);
         produto.addObserver(this);
@@ -113,10 +118,10 @@ public class Usuario implements Observer{
     @Override
     public void update(Observable produtoObserver, Object o1) {
         if(produtoObserver instanceof Produto){
-            System.out.println("PRODUTO: " + this.email);
+            System.out.println("ALTERAÇÃO REALIZADA NO PRODUTO");
         }
         if(produtoObserver instanceof Pedido){
-            System.out.println("PEDIDO: " + this.email);
+            System.out.println("ALTERAÇÃO REALIZADA NO PEDIDO DO USUARIO: " + this.nome + " UM EMAIL DE ALERTA FOI ENVIADO");
         }
     }
 }

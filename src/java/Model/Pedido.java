@@ -2,10 +2,11 @@ package Model;
 
 import Action.AletarAlteracaoEstadoAction;
 import State.PedidoEstadoAnalise;
-import State.PedidoState;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Observable;
+import State.PedidoEstado;
+import java.sql.SQLException;
 
 public class Pedido extends Observable{
     
@@ -15,7 +16,7 @@ public class Pedido extends Observable{
     private Integer quantidade;
     private Double preco;
     private LocalDate dataPedido;
-    private PedidoState estado;
+    private PedidoEstado estado;
     private Integer desconto; 
     
     public Pedido(Usuario usuario){
@@ -67,11 +68,11 @@ public class Pedido extends Observable{
         this.dataPedido = dataPedido;
     }
 
-    public PedidoState getEstado() {
+    public PedidoEstado getEstado() {
         return estado;
     }
 
-    public void setEstado(PedidoState estado) {
+    public void setEstado(PedidoEstado estado) {
         this.estado = estado;
     }
 
@@ -87,12 +88,32 @@ public class Pedido extends Observable{
         this.desconto = desconto;
     }
     
-    public void setEstadoUpdate(PedidoState estado) throws ClassNotFoundException {
+    public void setEstadoUpdate(PedidoEstado estado) throws ClassNotFoundException, SQLException {
         if(this.estado != estado){
-            List<Usuario> clientes = AletarAlteracaoEstadoAction.getInstance().alertarClientes(this);
+            Usuario usuario = AletarAlteracaoEstadoAction.getInstance().alertarClientes(this);
             setChanged();
             notifyObservers();
         }
         this.estado = estado;
+    }
+    
+    public String setAnaliseEstado() throws ClassNotFoundException, SQLException{
+        return this.estado.analise(this);
+    }
+    
+    public String setAtrasoEstado(){
+        return this.estado.atraso(this);
+    }
+    
+    public String setCanceladoEstado(){
+        return this.estado.cancelado(this);
+    }
+    
+    public String setEnviadoEstado(){
+        return this.estado.enviado(this);
+    }
+    
+    public String setSeparacaoEstado(){
+        return this.estado.separacao(this);
     }
 }

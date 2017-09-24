@@ -25,13 +25,12 @@
                                                   <tbody>
                                                       <c:forEach var="pedido" items="${pedidos}">
                                                         <tr>
-                                                            <td class="padding-0">Código do pedido: ${pedido.codigo}</td>
+                                                            <td class="padding-0">Código: ${pedido.codigo}</td>
                                                             <td class="padding-0">Produto: ${pedido.produto.titulo}</td>
-                                                            <td class="padding-0">Data do pedido: ${pedido.dataPedido}</td>
+                                                            <td class="padding-0">Data: ${pedido.dataPedido}</td>
                                                             <td class="padding-0">Quantidade: ${pedido.quantidade}</td>
-                                                            <td class="padding-0">Desconto: ${pedido.desconto}%</td>
-                                                            <td class="padding-0">Valor Total: ${pedido.preco}</td>
-                                                            <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * (pedido.desconto / 100))}</td>
+                                                            <td class="padding-0">Total: ${pedido.preco}</td>
+                                                            <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * (pedido.desconto / 100))}(${pedido.desconto}%)</td>
                                                             <td class="padding-0">Estado: ${pedido.estado.estado()}</td>
                                                         </tr>
                                                       </c:forEach>

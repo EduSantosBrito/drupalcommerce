@@ -17,14 +17,14 @@
                         </div>
                         <div class="card-content white">
                             <div class="row">
-                                <div class="col s2">
-                                    <c:forEach var="produto" items="${produtos}">
+                                <c:forEach var="produto" items="${produtos}">
+                                    <div class="col s2">
                                         <div class="card">
                                             <div class="card-image waves-effect waves-block waves-light">
                                                 <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                                             </div>
                                             <div class="card-content padding-0">
-                                                <span class="card-title activator grey-text text-darken-4">${produto.titulo}<i class="material-icons right">more_vert</i></span>
+                                                <span class="activator grey-text text-darken-4">${produto.titulo}<i class="material-icons right">more_vert</i></span>
                                                 <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${produto.codigo}">Página do produto</a></p>
                                             </div>
                                             <div class="card-reveal padding-5">
@@ -32,8 +32,8 @@
                                                 <p><b>Descrição do produto:</b> ${produto.descricao} <br> <b>Preço:</b> ${produto.preco}</p>
                                             </div>
                                         </div>
-                                    </c:forEach>
-                                </div>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

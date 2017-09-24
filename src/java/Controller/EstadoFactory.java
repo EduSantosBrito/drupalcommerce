@@ -5,15 +5,15 @@
  */
 package Controller;
 
-import State.PedidoState;
+import State.PedidoEstado;
 
 /**
  *
  * @author Automateasy
  */
 public class EstadoFactory {
-    public static PedidoState create(String action) throws Exception{
-        PedidoState actionObject = null;
+    public static PedidoEstado create(String action) throws Exception{
+        PedidoEstado actionObject = null;
         String nomeClasse = "State.PedidoEstado" + action;
         Class classe = null;
         Object object = null;
@@ -24,8 +24,8 @@ public class EstadoFactory {
         catch(Exception ex){
             throw ex;
         }
-        if(!(object instanceof PedidoState)) return null;
-        actionObject = (PedidoState) object;
+        if(!(object instanceof PedidoEstado)) return null;
+        actionObject = (PedidoEstado) object;
         return actionObject;
     }
 }

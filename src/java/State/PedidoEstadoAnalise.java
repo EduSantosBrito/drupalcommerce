@@ -5,11 +5,16 @@
  */
 package State;
 
+import Model.Pedido;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Automateasy
  */
-public class PedidoEstadoAnalise implements PedidoState {
+public class PedidoEstadoAnalise implements PedidoEstado {
 
     @Override
     public String estado() {
@@ -17,28 +22,64 @@ public class PedidoEstadoAnalise implements PedidoState {
     }
 
     @Override
-    public String analise() {
-        return "";
+    public String analise(Pedido pedido) {
+        return "O Pedido já está em análise";
     }
 
     @Override
-    public String atraso() {
-        return "";
+    public String atraso(Pedido pedido) {
+        try {
+            pedido.setEstadoUpdate(new PedidoEstadoAtraso());
+        } catch (Exception e) {
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "O estado do pedido foi alterado para atraso";
     }
 
     @Override
-    public String separacao() {
-        return "";
+    public String separacao(Pedido pedido) {
+        try {
+            pedido.setEstadoUpdate(new PedidoEstadoSeparacao());
+        } catch (Exception e) {
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "O estado do pedido foi alterado para separação";
     }
 
     @Override
-    public String cancelado() {
-        return "";
+    public String cancelado(Pedido pedido) {
+        try {
+            pedido.setEstadoUpdate(new PedidoEstadoCancelado());
+        } catch (Exception e) {
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "O estado do pedido foi alterado para cancelado";
     }
 
     @Override
-    public String enviado() {
-        return "";
+    public String enviado(Pedido pedido) {
+        try {
+            pedido.setEstadoUpdate(new PedidoEstadoEnviado());
+        } catch (Exception e) {
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "O estado do pedido foi alterado para enviado";
     }
     
 }

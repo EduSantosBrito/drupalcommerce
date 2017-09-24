@@ -4,7 +4,7 @@
         <a class="brand-logo center search-prefix" href="${pageContext.request.contextPath}/index">
             <i class="material-icons left">cloud</i>Virtual Shop<i class="material-icons right">cloud</i>
         </a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right">
         <li class="btn-cabecalho">
             <a href=""><i class="material-icons prefix search-prefix">search</i></a>
         </li>
@@ -20,7 +20,7 @@
                 </a>
             </c:if>
             <c:if test = "${usuario != null}">
-                <a href="${pageContext.request.contextPath}/FrontController?action=Deslogar" class="tooltipped"data-position="bottom" data-delay="50" data-tooltip="Sair">
+                <a href="${pageContext.request.contextPath}/FrontController?action=Deslogar" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sair">
                     <i class="material-icons prefix search-prefix">exit_to_app</i>
                 </a>
             </c:if>
@@ -44,7 +44,7 @@
             </div>
             <div class="row login-row-none right">
                 <div class="col s8">
-                    <label>Ainda nao possui uma conta?<a href="" class="login-cadastro side-menu-small-li-hover" > CADASTRE-SE</a></label>
+                    <label>Ainda nao possui uma conta?<a href="${pageContext.request.contextPath}/Usuario/login.jsp" class="login-cadastro side-menu-small-li-hover" > CADASTRE-SE</a></label>
                 </div>
                 <div class="col s4">
                     <input type="submit" class="btn white black-text btn-login" value="Entrar">

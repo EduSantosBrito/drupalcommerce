@@ -33,7 +33,7 @@
                                                     <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                                                 </div>
                                                 <div class="card-content padding-0">
-                                                    <span class="card-title activator grey-text text-darken-4">${hardware.titulo}<i class="material-icons right">more_vert</i></span>
+                                                    <span class="activator grey-text text-darken-4">${hardware.titulo}<i class="material-icons right">more_vert</i></span>
                                                     <p><a class="btn-flat btn-produto" href="${pageContext.request.contextPath}/FrontController?action=VisualizarProduto&AMP;id=${hardware.codigo}">Página do produto</a></p>
                                                 </div>
                                                 <div class="card-reveal padding-5">

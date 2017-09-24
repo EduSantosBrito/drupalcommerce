@@ -10,7 +10,7 @@
         <c:import url="../Shared/barraLateral.jsp"/>
         <div id="produto" class="">
             <div class="row">
-                <div class="col s10 offset-s1">
+                <div class="col s12">
                     <div class="card black-color content-margin-left">
                         <div class="card-content padding-0">
                             <label class="usuario-perfil-titulo white-text">${produto.titulo}</label>

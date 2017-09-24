@@ -32,10 +32,12 @@ public class LogarAction implements Action {
         try {
             usuario = UsuarioDAO.getInstance().autentica(usuario);
             if(usuario.getCodigo() == null){
+                request.getSession().setAttribute("errorLogin", "Email ou senha incorretos!");
                 RequestDispatcher rd = request.getRequestDispatcher("/Usuario/login.jsp");
                 if(rd != null)
                     rd.forward(request, response);
             }else{
+                request.getSession().setAttribute("errorLogin", "");
                 request.getSession().setAttribute("usuario", usuario);
                 RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)

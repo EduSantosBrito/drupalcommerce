@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col s12">
                         <h5>Boleto Bancário</h5>
-                        <h6>15% de desconto</h6><br>
+                        <h6>15% de desconto R$ ${usuario.carrinho.total - (usuario.carrinho.total * 0.15)}</h6>
                         <a class="btn btn-produto-compra black-color" href="${pageContext.request.contextPath}/FrontController?action=FinalizarPedido&AMP;pagamento=Boleto">Pagar no boleto</a>
                         <hr/>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col s5">
                                 <h5>Cartão de Crédito</h5>
-                                <h6>À vista com até 10% de desconto, 2x ou 3x com até 5% de desconto</h6><br>
+                                <h6>À vista com até 10% de desconto, 2x ou 3x com até 5% de desconto</h6>
                             </div>
                             <form action="${pageContext.request.contextPath}/FrontController?action=FinalizarPedido" method="post" >
                                 <div class="col s7">
@@ -99,17 +99,17 @@
                                         </div>
                                     </div>
                                     <div class="row form-margin-0">
-                                        <div class="input-field col s3">
+                                        <div class="input-field col s4">
                                             <input name="validade-mes-cartao" type="number" class="form-input form-margin-0">
                                             <label for="validade-mes-cartao" class="form-input-label">Validade mês </label>
                                         </div>
-                                        <div class="input-field col s3">
+                                        <div class="input-field col s4">
                                             <input name="validade-dia-cartao" type="number" class="form-input form-margin-0">
                                             <label for="validade-dia-cartao" class="form-input-label">Validade dia </label>
                                         </div>
                                     </div>
                                     <div class="row form-margin-0">
-                                        <div class="input-field col s5">
+                                        <div class="input-field col s6">
                                             <input name="codigo-cartao" type="number" class="form-input form-margin-0">
                                             <label for="codigo-cartao" class="form-input-label">Código de segurança </label>
                                         </div>

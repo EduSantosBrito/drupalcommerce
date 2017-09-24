@@ -31,6 +31,15 @@ public class Produto extends Observable{
         this.preco = preco;
     }
     
+    public Produto(String titulo, String descricao, String marca, String categoria, String subCategoria, Double preco) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.subCategoria = subCategoria;
+        this.preco = preco;
+    }
+    
     public Integer getCodigo() {
         return codigo;
     }

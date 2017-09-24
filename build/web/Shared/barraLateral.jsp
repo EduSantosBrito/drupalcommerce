@@ -226,7 +226,7 @@
                                     <ul class="z-depth-2">
                                         <li>
                                             <!--TITULO PRODUTO-->
-                                            <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
+                                            <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover padding-5">
                                                 <p>${item.produto.titulo}</p>
                                             </a>
                                         </li>
