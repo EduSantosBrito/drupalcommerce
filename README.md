@@ -37,7 +37,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
 <b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
 <br />
-<b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso uma venda seja realizada ou o estado de um pedido mude. <b>FEITO</b>
+<b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso o estado de um pedido mude ou um pedido em interesse seja alterado <b>FEITO</b>
 <br />
  # Etapas
  1. Construção dos modelos: <b>FEITO</b>
