@@ -18,6 +18,7 @@ public class Produto extends Observable{
     private Integer quantidade;
     private Double preco;
     private LocalDate dataCadastro;
+    private Promocao promocao;
     
     public Produto() {}
 
@@ -119,6 +120,14 @@ public class Produto extends Observable{
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Promocao getPromocao() {
+        return promocao;
+    }
+
+    public void setPromocao(Promocao promocao) {
+        this.promocao = promocao;
     }
     
     @Override

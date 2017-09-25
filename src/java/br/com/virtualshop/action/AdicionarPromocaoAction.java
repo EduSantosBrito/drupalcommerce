@@ -1,31 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.dao.PromocaoDAO;
-import br.com.virtualshop.model.Produto;
+import br.com.virtualshop.model.PromocaoGenerica;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RegistrarProdutoAction implements Action{
+/**
+ *
+ * @author macanha
+ */
+public class AdicionarPromocaoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String titulo = request.getParameter("titulo");
-        Integer qtd = Integer.parseInt(request.getParameter("qtd"));
-        String descricao = request.getParameter("descricao");
-        String marca = request.getParameter("marca");
-        Double preco = Double.parseDouble(request.getParameter("preco"));
-        String categoria = request.getParameter("produto-categoria");
-        String subCategoria = request.getParameter("produto-sub-categoria");
-        
-        Produto produto = new Produto(titulo, descricao, marca, categoria, subCategoria, qtd, preco);
+        Integer desconto = Integer.parseInt(request.getParameter("desconto"));
         
         try{
-            ProdutoDAO.getInstance().salvarProduto(produto);
+            PromocaoGenerica promocao = new PromocaoGenerica();
+            promocao.setTituloPromocao(titulo);
+            promocao.setDescontoPromocao(desconto);
+            
+            PromocaoDAO.getInstance().salvarPromocao(promocao);
             
             request.setAttribute("promocoes", PromocaoDAO.getInstance().getAllPromocao());
             request.setAttribute("produtos", ProdutoDAO.getInstance().getAllProduto());
@@ -35,7 +43,12 @@ public class RegistrarProdutoAction implements Action{
                 rd.forward(request, response);
         }
         catch(Exception e){
-            
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(AdicionarPromocaoAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+            
     }
 }

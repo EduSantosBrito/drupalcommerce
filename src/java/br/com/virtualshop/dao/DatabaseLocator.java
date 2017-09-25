@@ -23,13 +23,9 @@ public class DatabaseLocator {
     private DatabaseLocator() {}
     
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-        /*
-        Class.forName("org.sqlite.JDBC");
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\SQLite\\virtual_shop_db");
-        */
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn =
-                DriverManager.getConnection("jdbc:mysql://localhost:3306/designpatters", "root", "8812");
+                DriverManager.getConnection("jdbc:mysql://localhost:3306/designpattern", "root", "8812");
         return conn;
     }
 }

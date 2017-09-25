@@ -200,6 +200,78 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s6">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title center">Promoções</span>
+                                <div class="row">
+                                    <div class="col s12 center">
+                                        <h5>Criar promoção</h5>
+                                        <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocao" method="post">
+                                            <div class="row form-margin-0">
+                                                <div class="input-field col s8">
+                                                    <input name="titulo" type="text" class="form-input form-margin-0" required="true">
+                                                    <label for="titulo" class="form-input-label">Titulo</label>
+                                                </div>
+                                                <div class="input-field col s4">
+                                                    <input id="qtd-num" name="desconto" type="number" class="form-input form-margin-0" onblur="validarQuantidade(this)" required="true">
+                                                    <label for="desconto" class="form-input-label">Desconto</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s6">
+                                                    <input type="submit" class="btn btn-login-form black-color" style="margin-top: 20px;" value="Criar">
+                                                </div>  
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title center">Adicionar promoções ao produto</span>
+                                <div class="row">
+                                    <div class="col s12 center">
+                                        <h5>Adicionar promoção</h5>
+                                        <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocaoProduto" method="post">
+                                            <div class="row form-margin-0">
+                                                <div class="input-field col s6">
+                                                    <select name="produto-codigo">
+                                                        <c:forEach var="produto" items="${produtos}">
+                                                            <option value="${produto.codigo}">${produto.titulo}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <label>Selecione o produto</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <select name="promocao-codigo">
+                                                        <c:forEach var="promocao" items="${promocoes}">
+                                                            <option value="${promocao.codigo}">${promocao.titulo}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <label>Selecione a promoção</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s6">
+                                                    <input type="submit" class="btn btn-login-form black-color" style="margin-top: 20px;" value="Adicionar">
+                                                </div>  
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <c:import url="../../Shared/importJs.jsp"/>
         <script>
             $(document).ready(function() {

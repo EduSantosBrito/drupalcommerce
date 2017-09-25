@@ -142,7 +142,7 @@ public class ProdutoDAO {
     public Produto getProdutoByID(int codigo) throws SQLException, ClassNotFoundException{
         Produto produto = new Produto();
         
-        String sql = "SELECT * FROM tb_prdt WHERE cdg_prdt = " + codigo;
+        String sql = "SELECT p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt FROM tb_prdt p, tb_prmprdt pr WHERE p.cdg_prdt = " + codigo;
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();

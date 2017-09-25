@@ -9,7 +9,9 @@ import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.dao.PromocaoDAO;
-import br.com.virtualshop.model.Pedido;
+import br.com.virtualshop.model.Produto;
+import br.com.virtualshop.model.Promocao;
+import br.com.virtualshop.model.PromocaoGenerica;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,40 +21,21 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author sandr
+ * @author macanha
  */
-public class AlterarEstadoPedidoAction implements Action {
+public class AdicionarPromocaoProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer codigoPedido = Integer.parseInt(request.getParameter("pedido-codigo"));
-        String estadoPedido = request.getParameter("estado");
+        Integer codigoProduto = Integer.parseInt(request.getParameter("produto-codigo"));
+        Integer codigoPromocao = Integer.parseInt(request.getParameter("promocao-codigo"));
         
         try{
-            String estado = "";
-            Pedido pedido = PedidoDAO.getInstance().getPedidoByID(codigoPedido);
+            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
+            Promocao promocao = PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
             
-            switch(estadoPedido){
-                case "atraso":
-                    estado = pedido.setAtrasoEstado();
-                    break;
-                case "analise":
-                    estado = pedido.setAnaliseEstado();
-                    break;
-                case "cancelado":
-                    estado = pedido.setCanceladoEstado();
-                    break;
-                case "enviado":
-                    estado = pedido.setEnviadoEstado();
-                    break;
-                case "separacao":
-                    estado = pedido.setSeparacaoEstado();
-                    break;
-            }
+            PromocaoDAO.getInstance().salvarPromocaoProduto((PromocaoGenerica) promocao, produto);
             
-            PedidoDAO.getInstance().updatePedido(pedido);
-            
-            request.setAttribute("alteracaoEstado", estado);
             request.setAttribute("promocoes", PromocaoDAO.getInstance().getAllPromocao());
             request.setAttribute("produtos", ProdutoDAO.getInstance().getAllProduto());
             request.setAttribute("pedidos", PedidoDAO.getInstance().getAllPedido());
@@ -64,8 +47,9 @@ public class AlterarEstadoPedidoAction implements Action {
             try {
                 throw e;
             } catch (Exception ex) {
-                Logger.getLogger(AlterarEstadoPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdicionarPromocaoProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
 }
