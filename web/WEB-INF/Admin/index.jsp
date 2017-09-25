@@ -70,7 +70,7 @@
                                                             <label for="marca" class="form-input-label">Marca</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input name="preco" type="number" class="form-input form-margin-0" value="${produto.preco}" required="true">
+                                                            <input name="preco" type="number" class="form-input form-margin-0" value="${produto.preco}" required="true" onblur="validarPreco(this)">
                                                             <label for="preco" class="form-input-label">Preço</label>
                                                         </div>
                                                     </div>
@@ -127,7 +127,7 @@
                                                     <label for="marca" class="form-input-label">Marca</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input name="preco" type="number" class="form-input form-margin-0" required="true">
+                                                    <input name="preco" type="number" class="form-input form-margin-0" required="true" onblur="validarPreco(this)">
                                                     <label for="preco" class="form-input-label">Preço</label>
                                                 </div>
                                             </div>
@@ -205,9 +205,19 @@
             $(document).ready(function() {
                 $('select').material_select();
             });
-            function validarQuantidade(self){
+            function validarPreco(self){
+                if(self.value == "")
+                    return;
                 if(!isNormalInteger(self.value)){
-                    Materialize.toast('Número inválido!', 2000) ;
+                    Materialize.toast('Preço inválido!', 2000) ;
+                    self.value = "";
+                }
+            }
+            function validarQuantidade(self){
+                if(self.value == "")
+                    return;
+                if(!isNormalInteger(self.value)){
+                    Materialize.toast('Quantidade inválida!', 2000) ;
                     self.value = "";
                 }
             }

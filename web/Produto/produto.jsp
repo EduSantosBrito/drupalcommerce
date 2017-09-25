@@ -51,7 +51,7 @@
                                                     <div class="row form-margin-0">
                                                         <div class="col s6">
                                                             <label class="produto-quantidade">Quantidade: </label>
-                                                            <input name="qtd-prod" type="number" class="produto-qtd-compra" required="true">
+                                                            <input name="qtd-prod" type="number" class="produto-qtd-compra" onblur="validarQuantidade(this)" required="true">
                                                         </div>
                                                         <div class="col s6">
                                                             <c:if test="${produto.quantidade > 0}">
@@ -83,5 +83,16 @@
         </div>
         <c:import url="../Shared/rodape.jsp"/>
         <c:import url="../Shared/importJs.jsp"/>
+        <script>
+            function validarQuantidade(self){
+                if(!isNormalInteger(self.value)){
+                    Materialize.toast('Quantidade inválida!', 2000) ;
+                    self.value = "";
+                }
+            }
+            function isNormalInteger(str) {
+                return /^\+?(0|[1-9]\d*)$/.test(str);
+            }
+        </script>
     </body>
 </html>
