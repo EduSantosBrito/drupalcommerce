@@ -44,6 +44,11 @@
                                             <div class="row">
                                                 <b>Desrição:</b> ${produto.descricao}
                                             </div>
+                                            <c:if test="${produto.promocao != null}">
+                                                <div class="row">
+                                                    <b>Promoção:</b> ${produto.promocao.getDescricaoPromocao()} Desconto para ${produto.promocao.getValorDescontado()}
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="card-content padding-5 card-produto-h">
                                             <c:if test="${usuario != null}">

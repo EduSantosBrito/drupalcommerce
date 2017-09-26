@@ -35,12 +35,8 @@ public class VerificarAutenticacaoAction implements Action {
                 }
                 if(pagina.equals("admin")){
                     
-                    request.setAttribute("promocoes", PromocaoDAO.getInstance().getAllPromocao());
-                    request.setAttribute("produtos", ProdutoDAO.getInstance().getAllProduto());
-                    request.setAttribute("pedidos", PedidoDAO.getInstance().getAllPedido());
-                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Admin/index.jsp");
-                    if(rd != null)
-                        rd.forward(request, response);
+                    AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+                    apa.execute(request, response);
                 }
                 else{
                     actionObject = ActionFactory.create(pagina);

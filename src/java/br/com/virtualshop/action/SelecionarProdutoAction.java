@@ -31,12 +31,8 @@ public class SelecionarProdutoAction implements Action {
             Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigo);
             
             request.setAttribute("produto", produto);
-            request.setAttribute("promocoes", PromocaoDAO.getInstance().getAllPromocao());
-            request.setAttribute("produtos", ProdutoDAO.getInstance().getAllProduto());
-            request.setAttribute("pedidos", PedidoDAO.getInstance().getAllPedido());
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Admin/index.jsp");
-            if(rd != null)
-                rd.forward(request, response);
+            AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+            apa.execute(request, response);
         }
         catch(Exception e){
             try {

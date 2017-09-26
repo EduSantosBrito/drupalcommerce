@@ -1,6 +1,7 @@
 package br.com.virtualshop.dao;
 
 import br.com.virtualshop.model.Produto;
+import br.com.virtualshop.model.PromocaoGenerica;
 import br.com.virtualshop.model.Usuario;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -141,8 +142,13 @@ public class ProdutoDAO {
     
     public Produto getProdutoByID(int codigo) throws SQLException, ClassNotFoundException{
         Produto produto = new Produto();
+        PromocaoGenerica promocao = new PromocaoGenerica();
         
-        String sql = "SELECT p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt FROM tb_prdt p, tb_prmprdt pr WHERE p.cdg_prdt = " + codigo;
+        String sql = "SELECT p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, r.cdg_prm, r.ttl_prm, r.dscnt_prm" +
+                     " FROM tb_prdt p, tb_prmprdt pr. tb_prm r" +
+                     " WHERE p.cdg_prdt = " + codigo + 
+                     " AND pr.cdg_prdt = p.cdg_prdt" + 
+                     " AND pr.cdg_prm = r.cdg_prm";
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();
@@ -159,6 +165,12 @@ public class ProdutoDAO {
                 produto.setCategoria(rs.getString("ctgr_prdt"));
                 produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
                 produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
+                
+                promocao.setCodigo(Integer.parseInt(rs.getString("r.cdg_prm")));
+                promocao.setTituloPromocao(rs.getString("r.ttl_prm"));
+                promocao.setDescontoPromocao(Integer.parseInt(rs.getString("r.dscnt_prm")));
+                
+                produto.setPromocao(promocao);
             }
         }
         catch(SQLException e) {
@@ -174,7 +186,10 @@ public class ProdutoDAO {
     public List<Produto> getAllProduto() throws ClassNotFoundException, SQLException{
         List<Produto> produtos = new ArrayList<>();
         
-        String sql = "SELECT * FROM tb_prdt";
+        String sql = "SELECT p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, r.cdg_prm, r.ttl_prm, r.dscnt_prm" + 
+                     " FROM tb_prdt p, tb_prmprdt pr. tb_prm r" + 
+                     " AND pr.cdg_prdt = p.cdg_prdt" + 
+                     " AND pr.cdg_prm = r.cdg_prm";
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();
@@ -191,7 +206,13 @@ public class ProdutoDAO {
                 produto.setCategoria(rs.getString("ctgr_prdt"));
                 produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
                 produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
+                                
+                PromocaoGenerica promocao = new PromocaoGenerica();
+                promocao.setCodigo(Integer.parseInt(rs.getString("r.cdg_prm")));
+                promocao.setTituloPromocao(rs.getString("r.ttl_prm"));
+                promocao.setDescontoPromocao(Integer.parseInt(rs.getString("r.dscnt_prm")));
                 
+                produto.setPromocao(promocao);
                 produtos.add(produto);
             }
         }
@@ -322,4 +343,5 @@ public class ProdutoDAO {
             throw e;
         }
     }
+    
 }
