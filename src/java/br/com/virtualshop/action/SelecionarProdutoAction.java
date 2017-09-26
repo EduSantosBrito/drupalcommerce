@@ -6,14 +6,11 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.dao.ProdutoDAO;
-import br.com.virtualshop.dao.PromocaoDAO;
 import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

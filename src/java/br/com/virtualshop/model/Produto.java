@@ -107,7 +107,7 @@ public class Produto extends Observable{
     
     public void setQuantidadeUpdate(int quantidade) throws ClassNotFoundException, SQLException {
         if(this.quantidade == 0){
-            List<Usuario> clientes = AletarInteressadosAction.getInstance().alertarClientes(this);
+            AletarInteressadosAction.getInstance().alertarClientes(this);
             setChanged();
             notifyObservers();
         }

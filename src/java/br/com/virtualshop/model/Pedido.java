@@ -3,7 +3,6 @@ package br.com.virtualshop.model;
 import br.com.virtualshop.action.AletarAlteracaoEstadoAction;
 import br.com.virtualshop.state.PedidoEstadoAnalise;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Observable;
 import br.com.virtualshop.state.PedidoEstado;
 import java.sql.SQLException;

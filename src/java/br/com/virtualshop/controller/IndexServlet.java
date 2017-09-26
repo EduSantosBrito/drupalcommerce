@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Automateasy
  */
-public class indexServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,7 +53,7 @@ public class indexServlet extends HttpServlet {
             try {
                 throw e;
             } catch (Exception ex) {
-                Logger.getLogger(indexServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(IndexServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

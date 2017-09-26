@@ -24,12 +24,10 @@ public class AletarInteressadosAction {
         return instance;
     }
     
-    public List<Usuario> alertarClientes(Produto produto) throws ClassNotFoundException, SQLException{
+    public void alertarClientes(Produto produto) throws ClassNotFoundException, SQLException{
         List<Usuario> clientes = ProdutoDAO.getInstance().getAllInteressadosByProduto(produto);
         for(int i = 0; i < clientes.size(); i++){
             clientes.get(i).gostarProduto(produto);
         }
-        return clientes;
     }
-    
 }
