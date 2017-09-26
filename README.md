@@ -35,7 +35,7 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
 <b>State:</b> Será utilizado no controle dos estados dos pedidos dos clientes. <b>FEITO</b>
 <br />
-<b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos.
+<b>Template Method:</b> Será utilizado para controlar o algoritimo de descontos de produtos. <b>FEITO</b>
 <br />
 <b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso o estado de um pedido mude ou um pedido em interesse seja alterado <b>FEITO</b>
 <br />
@@ -44,4 +44,5 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
  2. Construção das telas: <b>FEITO</b>
  3. Construção dos controladores e ações: <b>FEITO</b>
  4. Implementação dos modelos e controladores: <b>FEITO</b>
- 5. Construção e Implementação dos padrões mais complexos: 
+ 5. Construção e Implementação dos padrões mais complexos: <b>FEITO</b>
+ 6. Finalização do projeto:
