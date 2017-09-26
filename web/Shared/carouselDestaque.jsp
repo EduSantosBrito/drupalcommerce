@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--Produtos em destaque-->
 <div class="row">
     <div class="col s12">
         <div class="center carousel-margin-top">

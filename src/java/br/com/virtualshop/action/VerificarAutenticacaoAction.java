@@ -25,15 +25,15 @@ public class VerificarAutenticacaoAction implements Action {
                 if(rd != null)
                     rd.forward(request, response);
             }else {
-                Action actionObject = null;
+                Action actionObject;
                 if(pagina == null || pagina.equals(""))
                     response.sendRedirect("/index");
-                if(pagina.equals("perfil")){
+                if("perfil".equals(pagina)){
                     RequestDispatcher rd = request.getRequestDispatcher("/Usuario/" + pagina + ".jsp");
                     if(rd != null)
                         rd.forward(request, response);
                 }
-                if(pagina.equals("admin")){
+                if("admin".equals(pagina)){
                     
                     AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                     apa.execute(request, response);

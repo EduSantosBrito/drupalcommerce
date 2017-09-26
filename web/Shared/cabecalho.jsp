@@ -28,7 +28,6 @@
         </ul>
     </div>
 </nav>
-<!--Dropdown login-->
 <c:if test = "${usuario == null}">
     <div id="dropdown-login" class="dropdown-content black-color">
         <form action="${pageContext.request.contextPath}/FrontController?action=Logar" method="post" class="col s12">

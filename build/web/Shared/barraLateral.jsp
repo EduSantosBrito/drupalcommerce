@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--Barra lateral pequena-->
+
 <div id="small-navbar" class="side-menu-small black-color">
     <ul class="center">
         <li class="btn-cabecalho tooltipped" data-position="right" data-delay="50" data-tooltip="Expandir menu">
@@ -31,16 +31,13 @@
     </ul>
 </div>
 
-<!--Barra lateral grande-->
 <div id="large-navbar" class="side-menu-large black-color hide-on-med-and-down z-depth-2">
     <ul class="">
-        <!--ARROW-->
         <li class="side-menu-large-li-hover tooltipped" data-position="right" data-delay="50" data-tooltip="Diminuir menu">
             <a id="large-bar" href="#" class="white-text large-arrow-left ">
                 <i class="small material-icons side-menu-small-li-hover icon-margin">keyboard_arrow_left</i>
             </a>
         </li>
-        <!--PAINEL ADM-->
         <c:if test="${usuario.email == 'alessandromacanha@gmail.com'}">
             <li>
                 <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=admin" class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover">
@@ -48,13 +45,11 @@
                 </a>
             </li>
         </c:if>
-        <!--INICIO-->
         <li>
             <a href="${pageContext.request.contextPath}/index" class="white-text black-color collapsible-header side-menu-large-li-hover side-menu-small-li-hover">
                 <i class="material-icons">home</i> INICIO
             </a>
         </li>
-        <!--PERFIl-->
         <li>
             <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                 <li>
@@ -64,13 +59,11 @@
                     </a>
                     <div class="collapsible-body white collapsible-drop-categorias">
                         <ul class="">
-                            <!--Hardware Dropdown-->
                             <li class="collapsible-drop-categorias-label">
                                 <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=perfil" class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
                                     Perfil
                                 </a>
                             </li>
-                            <!--Perifericos Dropdown-->
                             <li class="collapsible-drop-categorias-label">
                                 <a href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=VisualizarPedido" class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
                                     Pedidos
@@ -81,7 +74,6 @@
                 </li>
             </ul>
         </li>
-        <!--CATEGORIAS-->
         <li>
             <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                 <li>
@@ -91,7 +83,6 @@
                     </a>
                     <div class="collapsible-body white collapsible-drop-categorias">
                         <ul class="">
-                            <!--Hardware Dropdown-->
                             <li class="collapsible-drop-categorias-label">
                                 <ul class="collapsible collapsible-drop-categorias">
                                     <li>
@@ -135,7 +126,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!--Perifericos Dropdown-->
                             <li class="collapsible-drop-categorias-label">
                                 <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                                     <li>
@@ -174,7 +164,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!--Software Dropdown-->
                             <li class="collapsible-drop-categorias-label">
                                 <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
                                     <li>
@@ -208,24 +197,19 @@
                 </li>
             </ul>
         </li>
-        <!--CARRINHO-->
         <li>
             <ul class="collapsible collapsible-accordion collapsible-drop-categorias">
-                <!--TITULO CARRINHO-->
                 <li>
                     <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover">
                         <i class="material-icons">shopping_cart</i>CARRINHO
                         <i class="material-icons">arrow_drop_down</i>
                     </a>
                     <div class="collapsible-body white collapsible-drop-categorias">
-                        <!--LISTA DE PRODUTOS NO CARRINHO-->
                         <ul>
-                            <!--Produto 1-->
                             <c:forEach var="item" items="${usuario.carrinho.itens}">
                                 <li class="collapsible-drop-categorias-label">
                                     <ul class="z-depth-2">
                                         <li>
-                                            <!--TITULO PRODUTO-->
                                             <a class="collapsible-header white-text black-color side-menu-large-li-hover side-menu-small-li-hover padding-5">
                                                 <p>${item.produto.titulo}</p>
                                             </a>
@@ -233,7 +217,6 @@
                                     </ul>
                                 </li>
                             </c:forEach>
-                            <!--Finalizar compra-->
                             <li class="collapsible-drop-categorias-label">
                                 <a class="btn black-color btn-finalizar side-menu-small-li-hover">Total: ${usuario.carrinho.total}</a>
                             </li>
@@ -248,9 +231,7 @@
     </ul>
 </div>
 
-<!--Dropdown produtos small-->
 <ul id="dropdown-produtos-small" class="collapsible dropdown-content dropdown-menu" data-collapsible="accordion">
-    <!--Hardware Dropdown-->
     <li class="collapsible-drop-size">
         <div class="collapsible-header black-color white-text collapsible-drop-title side-menu-small-li-hover">
             Hardware
@@ -279,7 +260,6 @@
             </ul>
         </div>
     </li>
-    <!--Perifericos Dropdown-->
     <li class="collapsible-drop-size">
         <div class="collapsible-header black-color white-text collapsible-drop-title side-menu-small-li-hover">
             Periféricos
@@ -305,7 +285,6 @@
             </ul>
         </div>
     </li>
-    <!--Software Dropdown-->
     <li class="collapsible-drop-size">
         <div class="collapsible-header black-color white-text collapsible-drop-title side-menu-small-li-hover">
             Software

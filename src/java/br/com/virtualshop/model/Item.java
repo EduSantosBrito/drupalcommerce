@@ -14,8 +14,6 @@ public class Item {
     private Produto produto;
     private Integer quantidade;
 
-    public Item() {}
-
     public Produto getProduto() {
         return produto;
     }

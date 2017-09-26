@@ -141,20 +141,18 @@ public class Produto extends Observable{
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        else if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        else if (getClass() != obj.getClass()) {
             return false;
         }
+        
         final Produto other = (Produto) obj;
         if (!Objects.equals(this.titulo, other.titulo)) {
             return false;
         }
-        if (!Objects.equals(this.codigo, other.codigo)) {
-            return false;
-        }
-        if (!Objects.equals(this.dataCadastro, other.dataCadastro)) {
+        else if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
