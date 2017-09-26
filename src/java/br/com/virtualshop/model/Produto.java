@@ -3,7 +3,6 @@ package br.com.virtualshop.model;
 import br.com.virtualshop.action.AletarInteressadosAction;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
 
