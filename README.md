@@ -1,4 +1,7 @@
 # Marco - VirtualShop
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f4ff8ec01914e4e9e2a14c9d70423a5)](https://www.codacy.com/app/alessandromacanha/Marco-VirtualShop?utm_source=github.com&utm_medium=referral&utm_content=macanhajc/Marco-VirtualShop&utm_campaign=badger)
+
 Essa aplicação será desenvolvida como forma de trabalho final para a matéria de DesignPatters ministrada pelo professor Marco Antônio Araujo.
 
 # Virtual Shop
