@@ -97,7 +97,7 @@ public class PromocaoDAO {
     }
     
     public void salvarPromocaoProduto(PromocaoGenerica promocao, Produto produto) throws SQLException, ClassNotFoundException{
-        String sql = "INSERT INTO tb_prmprdt(cdg_prdt, cdg_prm) VALUES (" + promocao.getCodigo() + ", " + produto.getCodigo() + ")";
+        String sql = "INSERT INTO tb_prmprdt(cdg_prdt, cdg_prm) VALUES (" + produto.getCodigo() + ", " + promocao.getCodigo() + ")";
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();

@@ -18,7 +18,4 @@ public abstract class Promocao {
         return "Promoção de " + getTitulo() + ", Desconto de " + getDesconto() + "%";
     }
     
-    public Double getValorDescontado(Produto produto){
-        return produto.getPreco() - (produto.getPreco() * (getDesconto() / 100));
-    }
 }

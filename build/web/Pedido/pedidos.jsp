@@ -30,7 +30,8 @@
                                                             <td class="padding-0">Data: ${pedido.dataPedido}</td>
                                                             <td class="padding-0">Quantidade: ${pedido.quantidade}</td>
                                                             <td class="padding-0">Total: ${pedido.preco}</td>
-                                                            <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * (pedido.desconto / 100))}(${pedido.desconto}%)</td>
+                                                            <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * ( ( pedido.desconto / 100) + ( pedido.produto.promocao.getDesconto() /100 ) ) )}(${pedido.desconto + pedido.produto.promocao.getDesconto()}%)</td>
+                                                            <td class="padding-0"></td>
                                                             <td class="padding-0">Estado: ${pedido.estado.estado()}</td>
                                                         </tr>
                                                       </c:forEach>

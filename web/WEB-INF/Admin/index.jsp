@@ -203,12 +203,12 @@
         <div class="card">
             <div class="card-content">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s7">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title center">Promoções</span>
                                 <div class="row">
-                                    <div class="col s12 center">
+                                    <div class="col s6 center">
                                         <h5>Criar promoção</h5>
                                         <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocao" method="post">
                                             <div class="row form-margin-0">
@@ -228,16 +228,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s6">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title center">Adicionar promoções ao produto</span>
-                                <div class="row">
-                                    <div class="col s12 center">
+                                    <div class="col s6 center">
                                         <h5>Adicionar promoção</h5>
                                         <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocaoProduto" method="post">
                                             <div class="row form-margin-0">

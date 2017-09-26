@@ -40,7 +40,7 @@ public class AlterarProdutoAction implements Action {
             produto.setCategoria(categoria);
             produto.setSubCategoria(subCategoria);
             produto.setQuantidadeUpdate(qtd);
-            
+
             ProdutoDAO.getInstance().alterarProduto(produto);
             
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();

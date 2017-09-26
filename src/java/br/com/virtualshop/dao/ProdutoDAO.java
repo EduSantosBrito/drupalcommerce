@@ -140,15 +140,13 @@ public class ProdutoDAO {
         return produtos;
     }
     
-    public Produto getProdutoByID(int codigo) throws SQLException, ClassNotFoundException{
+    public Produto getProdutoByID(int id) throws SQLException, ClassNotFoundException{
         Produto produto = new Produto();
-        PromocaoGenerica promocao = new PromocaoGenerica();
-        
-        String sql = "SELECT p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, r.cdg_prm, r.ttl_prm, r.dscnt_prm" +
-                     " FROM tb_prdt p, tb_prmprdt pr. tb_prm r" +
-                     " WHERE p.cdg_prdt = " + codigo + 
-                     " AND pr.cdg_prdt = p.cdg_prdt" + 
-                     " AND pr.cdg_prm = r.cdg_prm";
+        String sql = "SELECT r.cdg_prm, r.ttl_prm, r.dscnt_prm, pr.cdg_prmprdt, p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, p.dt_cdstr_prdt" +
+                     " FROM tb_prdt p" +
+                     " LEFT JOIN tb_prmprdt pr ON p.cdg_prdt = pr.cdg_prdt " +
+                     " LEFT JOIN tb_prm r ON r.cdg_prm = pr.cdg_prm" + 
+                     " WHERE p.cdg_prdt = " + id;
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();
@@ -164,13 +162,19 @@ public class ProdutoDAO {
                 produto.setTitulo(rs.getString("ttl_prdt"));
                 produto.setCategoria(rs.getString("ctgr_prdt"));
                 produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
+                //produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
                 
-                promocao.setCodigo(Integer.parseInt(rs.getString("r.cdg_prm")));
-                promocao.setTituloPromocao(rs.getString("r.ttl_prm"));
-                promocao.setDescontoPromocao(Integer.parseInt(rs.getString("r.dscnt_prm")));
+                String codigo = rs.getString("cdg_prm");
+                String titulo = rs.getString("ttl_prm");
+                String desconto = rs.getString("dscnt_prm");
                 
-                produto.setPromocao(promocao);
+                if(codigo != null){
+                    PromocaoGenerica promocao = new PromocaoGenerica();
+                    promocao.setCodigo(Integer.parseInt(codigo));
+                    promocao.setTituloPromocao(titulo);
+                    promocao.setDescontoPromocao(Integer.parseInt(desconto));
+                    produto.setPromocao(promocao);
+                }
             }
         }
         catch(SQLException e) {
@@ -186,10 +190,10 @@ public class ProdutoDAO {
     public List<Produto> getAllProduto() throws ClassNotFoundException, SQLException{
         List<Produto> produtos = new ArrayList<>();
         
-        String sql = "SELECT p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.dt_cdstr_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, r.cdg_prm, r.ttl_prm, r.dscnt_prm" + 
-                     " FROM tb_prdt p, tb_prmprdt pr. tb_prm r" + 
-                     " AND pr.cdg_prdt = p.cdg_prdt" + 
-                     " AND pr.cdg_prm = r.cdg_prm";
+        String sql = "SELECT r.cdg_prm, r.ttl_prm, r.dscnt_prm, pr.cdg_prmprdt, p.cdg_prdt, p.ttl_prdt, p.dscr_prdt, p.mrc_prdt, p.ctgr_prdt, p.sb_ctgr_prdt, p.qtd_estq_prdt, p.prc_prdt, p.dt_cdstr_prdt" +
+                     " FROM tb_prdt p" +
+                     " LEFT JOIN tb_prmprdt pr ON p.cdg_prdt = pr.cdg_prdt " +
+                     " LEFT JOIN tb_prm r ON r.cdg_prm = pr.cdg_prm";
         
         try{
             conn = DatabaseLocator.getInstance().getConnection();
@@ -205,14 +209,20 @@ public class ProdutoDAO {
                 produto.setTitulo(rs.getString("ttl_prdt"));
                 produto.setCategoria(rs.getString("ctgr_prdt"));
                 produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
+                //produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
                                 
-                PromocaoGenerica promocao = new PromocaoGenerica();
-                promocao.setCodigo(Integer.parseInt(rs.getString("r.cdg_prm")));
-                promocao.setTituloPromocao(rs.getString("r.ttl_prm"));
-                promocao.setDescontoPromocao(Integer.parseInt(rs.getString("r.dscnt_prm")));
+                String codigo = rs.getString("cdg_prm");
+                String titulo = rs.getString("ttl_prm");
+                String desconto = rs.getString("dscnt_prm");
                 
-                produto.setPromocao(promocao);
+                if(codigo != null){
+                    PromocaoGenerica promocao = new PromocaoGenerica();
+                    promocao.setCodigo(Integer.parseInt(codigo));
+                    promocao.setTituloPromocao(titulo);
+                    promocao.setDescontoPromocao(Integer.parseInt(desconto));
+                    produto.setPromocao(promocao);
+                }
+                
                 produtos.add(produto);
             }
         }

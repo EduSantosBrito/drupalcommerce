@@ -46,7 +46,7 @@
                                             </div>
                                             <c:if test="${produto.promocao != null}">
                                                 <div class="row">
-                                                    <b>Promoção:</b> ${produto.promocao.getDescricaoPromocao()} Desconto para ${produto.promocao.getValorDescontado()}
+                                                    <b>Promoção:</b> ${produto.promocao.getDescricaoPromocao()}
                                                 </div>
                                             </c:if>
                                         </div>

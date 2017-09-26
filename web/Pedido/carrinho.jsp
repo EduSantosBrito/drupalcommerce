@@ -28,6 +28,11 @@
                                                             <tr>
                                                                 <td class="padding-0">Produto: ${item.produto.titulo}</td>
                                                                 <td class="padding-0">Preço: ${item.produto.preco}R$</td>
+                                                                <td class="padding-0">
+                                                                    <c:if test="${item.produto.promocao != null}">
+                                                                        Desconto: ${item.produto.promocao.getDesconto()}%
+                                                                    </c:if>
+                                                                </td>
                                                                 <td class="td-qtd-size padding-0">Quantidade: ${item.quantidade}</td>
                                                                 <td class="td-remove-size padding-0">
                                                                     <a href="${pageContext.request.contextPath}/FrontController?action=RemoverProdutoCarrinho&AMP;id=${item.produto.codigo}">
