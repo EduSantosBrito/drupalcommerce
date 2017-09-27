@@ -253,6 +253,9 @@ a.middle-indicator-text{
 .form-margin-0 {
     margin-bottom: 0px !important;
 }
+.icon-margin-0 {
+    margin: 0px !important;
+}
 .form-input {
     border-bottom: 1px solid #474747 !important;
     box-shadow: 0 1px 0 0 #474747 !important;
@@ -338,4 +341,7 @@ ul.dropdown-content.select-dropdown li span {
 }
 .card-height {
     max-height: 200px;
+}
+.drpd-att {
+    cursor: pointer;
 }

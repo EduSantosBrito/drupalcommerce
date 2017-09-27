@@ -11,7 +11,7 @@
                 <a class="brand-logo center search-prefix" href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=admin" >
                     PAINEL ADMINISTRATIVO
                 </a>
-                <a href="${pageContext.request.contextPath}/index" class="tooltipped"data-position="bottom" data-delay="50" data-tooltip="Voltar">
+                <a href="${pageContext.request.contextPath}/index" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Voltar">
                     <i class="material-icons prefix right search-prefix">exit_to_app</i>
                 </a>
             </div>
@@ -203,12 +203,12 @@
         <div class="card">
             <div class="card-content">
                 <div class="row">
-                    <div class="col s7">
+                    <div class="col s12">
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title center">Promoções</span>
                                 <div class="row">
-                                    <div class="col s6 center">
+                                    <div class="col s4 center">
                                         <h5>Criar promoção</h5>
                                         <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocao" method="post">
                                             <div class="row form-margin-0">
@@ -222,13 +222,13 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col s6">
+                                                <div class="col s12">
                                                     <input type="submit" class="btn btn-login-form black-color" style="margin-top: 20px;" value="Criar">
                                                 </div>  
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col s6 center">
+                                    <div class="col s4 center">
                                         <h5>Adicionar promoção</h5>
                                         <form action="${pageContext.request.contextPath}/FrontController?action=AdicionarPromocaoProduto" method="post">
                                             <div class="row form-margin-0">
@@ -250,8 +250,32 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col s6">
-                                                    <input type="submit" class="btn btn-login-form black-color" style="margin-top: 20px;" value="Adicionar">
+                                                <div class="col s12">
+                                                    <input type="submit" class="btn btn-login-form black-color" value="Adicionar">
+                                                    <label class="red-text">${erroPromocao}</label>
+                                                </div>  
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col s4 center">
+                                        <h5>Remover promoção</h5>
+                                        <form action="${pageContext.request.contextPath}/FrontController?action=RemoverPromocaoProduto" method="post">
+                                            <div class="row form-margin-0">
+                                                <div class="input-field col s6">
+                                                    <select name="produto-codigo">
+                                                        <c:forEach var="produto" items="${produtos}">
+                                                            <c:if test="${produto.promocao != null}">
+                                                                <option value="${produto.codigo}">${produto.titulo}</option>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <label>Selecione o produto</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    <input type="submit" class="btn btn-login-form black-color" value="Remover">
+                                                    <label class="red-text">${erroRemocao}</label>
                                                 </div>  
                                             </div>
                                         </form>

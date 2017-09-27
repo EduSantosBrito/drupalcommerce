@@ -9,9 +9,9 @@ import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.dao.PromocaoDAO;
 import br.com.virtualshop.model.Produto;
-import br.com.virtualshop.model.Promocao;
 import br.com.virtualshop.model.PromocaoGenerica;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -30,12 +30,20 @@ public class AdicionarPromocaoProdutoAction implements Action {
         
         try{
             Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
-            Promocao promocao = PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
+            PromocaoGenerica promocao = PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
             
-            PromocaoDAO.getInstance().salvarPromocaoProduto((PromocaoGenerica) promocao, produto);
-            
-            AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
-            apa.execute(request, response);
+            if( produto.getPromocao() != null || Objects.equals(produto.getCodigo(), promocao.getCodigo()) ){
+                request.setAttribute("erroPromocao", "O Produto já possui essa promoção!");
+                AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+                apa.execute(request, response);
+            }
+            else{
+                PromocaoDAO.getInstance().removerPromocaoProduto(produto);
+                PromocaoDAO.getInstance().salvarPromocaoProduto((PromocaoGenerica) promocao, produto);
+
+                AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+                apa.execute(request, response);
+            }
         }
         catch(Exception e){
             try {

@@ -73,7 +73,7 @@ public class PromocaoDAO {
         return promocoes;
     }
     
-    public Promocao getPromocaoByID(Integer id) throws ClassNotFoundException, SQLException{
+    public PromocaoGenerica getPromocaoByID(Integer id) throws ClassNotFoundException, SQLException{
         String sql = "SELECT * FROM tb_prm WHERE cdg_prm = " + id;
         PromocaoGenerica promocao = new PromocaoGenerica();
         try{
@@ -111,6 +111,23 @@ public class PromocaoDAO {
             closeResources(conn, st);
         }
     }
+    
+    public void removerPromocaoProduto(Produto produto) throws SQLException, ClassNotFoundException{
+        String sql = "DELETE FROM tb_prmprdt WHERE cdg_prdt = " + produto.getCodigo();
+        
+        try{
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+    }
+    
     public void closeResources(Connection conn, Statement st) throws SQLException {
         try {
             if(st != null) st.close();

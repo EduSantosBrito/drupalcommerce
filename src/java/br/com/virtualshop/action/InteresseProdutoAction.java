@@ -27,7 +27,7 @@ public class InteresseProdutoAction implements Action {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Integer codigoProduto = Integer.parseInt(request.getParameter("id"));
         try{
-            usuario.produtos = ProdutoDAO.getInstance().getInteressadoByUsuario(usuario);
+            usuario.setProdutos(ProdutoDAO.getInstance().getInteressadoByUsuario(usuario));
             Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
             if(usuario.getProdutos().contains(produto)){
                 RequestDispatcher rd = request.getRequestDispatcher("/index");

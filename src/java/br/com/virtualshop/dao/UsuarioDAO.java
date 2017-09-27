@@ -71,6 +71,8 @@ public class UsuarioDAO {
             closeResources(conn, st);
         }
         
+        usuarioAutenticado = getAlertas(usuarioAutenticado);
+        
         return usuarioAutenticado;
     }
     
@@ -99,6 +101,59 @@ public class UsuarioDAO {
         }
         
         return usuario;
+    }
+    
+    public void salvarAlerta(Usuario usuario, String alerta) throws SQLException, ClassNotFoundException{
+        String sql = "INSERT INTO tb_lrtusr (ttl_lrt, cdg_usr) VALUES ('" + alerta + "', " + usuario.getCodigo() +")";
+        
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+    }
+    
+    public Usuario getAlertas(Usuario usuario) throws SQLException, ClassNotFoundException {
+        String sql = "SELECT ttl_lrt FROM tb_lrtusr WHERE cdg_usr = " + usuario.getCodigo();
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                String alerta = rs.getString("ttl_lrt");
+                usuario.setAlertas(alerta);
+            }
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+        
+        return usuario;
+    }
+    
+    public void removeAlerta(Integer id) throws SQLException, ClassNotFoundException{
+        String sql = "DELETE FROM tb_lrtusr WHERE cdg_usr = " + id; 
+        
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
     }
     
     public void closeResources(Connection conn, Statement st) throws SQLException {

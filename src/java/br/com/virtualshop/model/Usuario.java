@@ -1,9 +1,12 @@
 package br.com.virtualshop.model;
 
+import br.com.virtualshop.dao.UsuarioDAO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Usuario implements Observer{
     
@@ -15,7 +18,8 @@ public class Usuario implements Observer{
     private Integer telefone;
     private final Carrinho carrinho;
     private List<Observable> pedidos = new ArrayList<>();
-    public List<Observable> produtos = new ArrayList<>();
+    private List<Observable> produtos = new ArrayList<>();
+    private List<String> alertas = new ArrayList<>();
     
     public Usuario(String email, String nome, String senha, String endereco, Integer telefone){
         this.email = email;
@@ -114,14 +118,40 @@ public class Usuario implements Observer{
     public void setProdutos(List<Observable> produtos) {
         this.produtos = produtos;
     }
+
+    public List<String> getAlertas() {
+        return alertas;
+    }
+
+    public void setAlertas(String alerta) {
+        this.alertas.add(alerta);
+    }
     
     @Override
     public void update(Observable produtoObserver, Object o1) {
         if(produtoObserver instanceof Produto){
-            System.out.println("ALTERAÇÃO REALIZADA NO PRODUTO");
+            try{
+                UsuarioDAO.getInstance().salvarAlerta(this, "Alteração no estoque do produto " + ((Produto) produtoObserver).getTitulo());
+            }
+            catch(Exception e){
+                try {
+                    throw e;
+                } catch (Exception ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         if(produtoObserver instanceof Pedido){
-            System.out.println("ALTERAÇÃO REALIZADA NO PEDIDO DO USUARIO: " + this.nome + " UM EMAIL DE ALERTA FOI ENVIADO");
+            try{
+                UsuarioDAO.getInstance().salvarAlerta(this, "Estado do pedido Pedido " + ((Pedido) produtoObserver).getCodigo() + " foi alterado para " + ((Pedido) produtoObserver).getEstado().estado() );
+            }
+            catch(Exception e){
+                try {
+                    throw e;
+                } catch (Exception ex) {
+                    Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 }
