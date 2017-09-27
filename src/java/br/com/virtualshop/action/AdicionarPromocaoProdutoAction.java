@@ -33,7 +33,7 @@ public class AdicionarPromocaoProdutoAction implements Action {
             PromocaoGenerica promocao = PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
             
             if( produto.getPromocao() != null || Objects.equals(produto.getCodigo(), promocao.getCodigo()) ){
-                request.setAttribute("erroPromocao", "O Produto já possui essa promoção!");
+                request.setAttribute("erroAdicionarPromocao", "O Produto já possui uma promoção!");
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);
             }

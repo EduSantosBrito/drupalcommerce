@@ -20,7 +20,7 @@
                             <hr class="usuario-perfil-titulo-hr"/>
                         </div>
                         <div class="card-content white">
-                            
+
                         </div>
                     </div>
                 </div>

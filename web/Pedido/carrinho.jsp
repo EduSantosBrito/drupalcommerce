@@ -30,7 +30,7 @@
                                                                 <td class="padding-0">Preço: ${item.produto.preco}R$</td>
                                                                 <td class="padding-0">
                                                                     <c:if test="${item.produto.promocao != null}">
-                                                                        Desconto: ${item.produto.promocao.getDesconto()}%
+                                                                        Promoção de Desconto: ${item.produto.promocao.getDesconto()}%
                                                                     </c:if>
                                                                 </td>
                                                                 <td class="td-qtd-size padding-0">Quantidade: ${item.quantidade}</td>
@@ -72,7 +72,7 @@
                         <a class="btn btn-produto-compra black-color" href="${pageContext.request.contextPath}/FrontController?action=FinalizarPedido&AMP;pagamento=Boleto">Pagar no boleto</a>
                         <hr/>
                     </div>
-                    
+
                     <div class="col s12">
                         <div class="row">
                             <div class="col s5">
@@ -84,9 +84,9 @@
                                     <div class="row form-margin-0">
                                         <div class="input-field col s12">
                                             <select name="pagamento">
-                                              <option value="CartaoUma">À vista - 10% desconto R$ ${usuario.carrinho.total - (usuario.carrinho.total * 0.10)}</option>
-                                              <option value="CartaoDuas">2x - 5% desconto R$ ${(usuario.carrinho.total - (usuario.carrinho.total * 0.05)) / 2}</option>
-                                              <option value="CartaoTres">3x - 5% desconto R$ ${Math.round((usuario.carrinho.total - (usuario.carrinho.total * 0.05)) / 3)}.0</option>
+                                                <option value="CartaoUma">À vista - 10% desconto R$ ${usuario.carrinho.total - (usuario.carrinho.total * 0.10)}</option>
+                                                <option value="CartaoDuas">2x - 5% desconto R$ ${(usuario.carrinho.total - (usuario.carrinho.total * 0.05)) / 2}</option>
+                                                <option value="CartaoTres">3x - 5% desconto R$ ${Math.round((usuario.carrinho.total - (usuario.carrinho.total * 0.05)) / 3)}.0</option>
                                             </select>
                                             <label class="form-input-label">Forma de pagamento*</label>
                                         </div>
@@ -150,7 +150,7 @@
         <c:import url="../Shared/rodape.jsp"/>
         <c:import url="../Shared/importJs.jsp"/>
         <script>
-            $( document ).ready(function() {
+            $(document).ready(function () {
                 $('.modal').modal();
                 $('select').material_select();
             });

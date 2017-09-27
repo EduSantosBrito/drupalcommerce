@@ -302,8 +302,8 @@ a.middle-indicator-text{
 table {
     table-layout: fixed;
 }
-.td-remove-size {
-    width: 1%;
+.td-small-size {
+    width: 7%;
 }
 .td-qtd-size {
     width: 20%;
@@ -344,4 +344,19 @@ ul.dropdown-content.select-dropdown li span {
 }
 .drpd-att {
     cursor: pointer;
+}
+.tabs-vertical{
+    height: auto;
+    white-space: normal;
+}
+.tab-vertical{
+    display: block !important;
+    width: 100%;
+}
+.tab-content-vertical{
+    width: 100%;
+    padding: 0;
+}
+.indicator{
+    display: none;
 }

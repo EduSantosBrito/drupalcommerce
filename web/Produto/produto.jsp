@@ -64,7 +64,7 @@
                                                                 <input type="submit" class="btn btn-produto-compra black-color right" value="Adicionar Carrinho!">
                                                             </c:if>
                                                             <c:if test="${produto.quantidade == 0}">
-                                                                    <a type="submit" class="btn btn-produto-compra black-color right" href="${pageContext.request.contextPath}/FrontController?action=InteresseProduto&AMP;id=${produto.codigo}">Produto indisponível, Avise-me</a>
+                                                                <a type="submit" class="btn btn-produto-compra black-color right" href="${pageContext.request.contextPath}/FrontController?action=InteresseProduto&AMP;id=${produto.codigo}">Produto indisponível, Avise-me</a>
                                                             </c:if>
                                                         </div>
                                                     </div>
@@ -89,9 +89,9 @@
         <c:import url="../Shared/rodape.jsp"/>
         <c:import url="../Shared/importJs.jsp"/>
         <script>
-            function validarQuantidade(self){
-                if(!isNormalInteger(self.value)){
-                    Materialize.toast('Quantidade inválida!', 2000) ;
+            function validarQuantidade(self) {
+                if (!isNormalInteger(self.value)) {
+                    Materialize.toast('Quantidade inválida!', 2000);
                     self.value = "";
                 }
             }

@@ -22,14 +22,20 @@ public class SelecionarProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer codigo = Integer.parseInt(request.getParameter("produto-codigo"));
+        String codigo = request.getParameter("produto-codigo");
         
         try {
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigo);
-            
-            request.setAttribute("produto", produto);
-            AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
-            apa.execute(request, response);
+            if(codigo == null){
+                request.setAttribute("erroSelecaoProduto", "Nenhum produto selecionado");
+                AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+                apa.execute(request, response);
+                
+            }else{
+                Produto produto = ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(codigo));
+                request.setAttribute("produto", produto);
+                AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
+                apa.execute(request, response);
+            }
         }
         catch(Exception e){
             try {

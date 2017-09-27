@@ -72,6 +72,22 @@ public class ProdutoDAO {
         }
     }
     
+    public void removerProduto(Produto produto) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE FROM tb_prdt WHERE cdg_prdt = " + produto.getCodigo();
+        
+        try{
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        }
+        catch(SQLException e) {
+            throw e;
+        }
+        finally {
+            closeResources(conn, st);
+        }
+    }
+    
     public List<Produto> getProdutoByCategoria(String categoria) throws SQLException, ClassNotFoundException {
         List<Produto> produtos = new ArrayList<>();
         

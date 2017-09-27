@@ -5,26 +5,26 @@
             <i class="material-icons left">cloud</i>Virtual Shop<i class="material-icons right">cloud</i>
         </a>
         <ul class="right">
-        <li class="btn-cabecalho">
-            <a href=""><i class="material-icons prefix search-prefix">search</i></a>
-        </li>
-        <li>
-            <div class="input-field">
-                <input placeholder="Pesquisar" class="search-menu-input" id="menu-search" type="text">
-            </div>
-        </li>
-        <li class="btn-cabecalho">
-            <c:if test = "${usuario == null}">
-                <a href="" class="dropdown-button dropdown-button-login tooltipped" data-activates="dropdown-login" data-position="bottom" data-delay="50" data-tooltip="Login / Cadastro">
-                    <i class="material-icons prefix search-prefix">account_circle</i>
-                </a>
-            </c:if>
-            <c:if test = "${usuario != null}">
-                <a href="${pageContext.request.contextPath}/FrontController?action=Deslogar" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sair">
-                    <i class="material-icons prefix search-prefix">exit_to_app</i>
-                </a>
-            </c:if>
-        </li>
+            <li class="btn-cabecalho">
+                <a href=""><i class="material-icons prefix search-prefix">search</i></a>
+            </li>
+            <li>
+                <div class="input-field">
+                    <input placeholder="Pesquisar" class="search-menu-input" id="menu-search" type="text">
+                </div>
+            </li>
+            <li class="btn-cabecalho">
+                <c:if test = "${usuario == null}">
+                    <a href="" class="dropdown-button dropdown-button-login tooltipped" data-activates="dropdown-login" data-position="bottom" data-delay="50" data-tooltip="Login / Cadastro">
+                        <i class="material-icons prefix search-prefix">account_circle</i>
+                    </a>
+                </c:if>
+                <c:if test = "${usuario != null}">
+                    <a href="${pageContext.request.contextPath}/FrontController?action=Deslogar" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Sair">
+                        <i class="material-icons prefix search-prefix">exit_to_app</i>
+                    </a>
+                </c:if>
+            </li>
         </ul>
     </div>
 </nav>
@@ -34,11 +34,11 @@
             <div class="row login-row-none">
                 <div class="input-field col s12">
                     <input name="email_login" type="email" class="login-input-margin" required="true">
-                  <label for="email_login" class="login-input-label">Email:</label>
+                    <label for="email_login" class="login-input-label">Email:</label>
                 </div>
                 <div class="input-field col s12">
-                  <input name="senha_login" type="password" class="login-input-margin" required="true">
-                  <label for="senha_login" class="login-input-label">Senha</label>
+                    <input name="senha_login" type="password" class="login-input-margin" required="true">
+                    <label for="senha_login" class="login-input-label">Senha</label>
                 </div>
             </div>
             <div class="row login-row-none right">

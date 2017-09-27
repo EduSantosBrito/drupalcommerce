@@ -7,8 +7,6 @@ package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.dao.ProdutoDAO;
-import br.com.virtualshop.dao.PromocaoDAO;
-import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,21 +17,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Automateasy
  */
-public class RemoverPromocaoProdutoAction implements Action {
+public class RemoverProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String codigoProduto = request.getParameter("produto-codigo");
+        String codigo = request.getParameter("produto-codigo");
         
         try{
-            if(codigoProduto != null){
-                Produto produto = ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(codigoProduto));
-                PromocaoDAO.getInstance().removerPromocaoProduto(produto);
+            if(codigo == null){
+                request.setAttribute("erroRemocaoProduto", "Nenhum produto selecionado");
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);
-            }
-            else{
-                request.setAttribute("erroRemocaoPromocao", "Nenhum produto selecionado");
+            }else{
+                ProdutoDAO.getInstance().removerProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(codigo)));
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);
             }
@@ -42,7 +38,7 @@ public class RemoverPromocaoProdutoAction implements Action {
             try {
                 throw e;
             } catch (Exception ex) {
-                Logger.getLogger(RemoverPromocaoProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RemoverProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

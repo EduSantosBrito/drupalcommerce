@@ -18,28 +18,23 @@
                         <div class="card-content white padding-5">
                             <div class="row">
                                 <div class="col s12">
-                                    <ul class="collapsible" data-collapsible="accordion">
-                                        <li>
-                                            <div class="padding-5">
-                                              <table>
-                                                  <tbody>
-                                                      <c:forEach var="pedido" items="${pedidos}">
-                                                        <tr>
-                                                            <td class="padding-0">Código: ${pedido.codigo}</td>
-                                                            <td class="padding-0">Produto: ${pedido.produto.titulo}</td>
-                                                            <td class="padding-0">Data: ${pedido.dataPedido}</td>
-                                                            <td class="padding-0">Quantidade: ${pedido.quantidade}</td>
-                                                            <td class="padding-0">Total: ${pedido.preco}</td>
-                                                            <td class="padding-0">Descontado: ${pedido.preco - (pedido.preco * ( ( pedido.desconto / 100) + ( pedido.produto.promocao.getDesconto() /100 ) ) )}(${pedido.desconto + pedido.produto.promocao.getDesconto()}%)</td>
-                                                            <td class="padding-0"></td>
-                                                            <td class="padding-0">Estado: ${pedido.estado.estado()}</td>
-                                                        </tr>
-                                                      </c:forEach>
-                                                  </tbody>
-                                              </table>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                    <div class="padding-5">
+                                        <table class="bordered">
+                                            <tbody>
+                                                <c:forEach var="pedido" items="${pedidos}">
+                                                    <tr>
+                                                        <td class="padding-5 td-small-size">Código: ${pedido.codigo}</td>
+                                                        <td class="padding-5">Produto: ${pedido.produto.titulo}</td>
+                                                        <td class="padding-5">Data: ${pedido.dataPedido}</td>
+                                                        <td class="padding-5">Quantidade: ${pedido.quantidade}</td>
+                                                        <td class="padding-5">Valor do produto: ${pedido.preco}</td>
+                                                        <td class="padding-5">Pago: ${ Math.round( pedido.preco - (pedido.preco * ( ( pedido.desconto / 100) + ( pedido.produto.promocao.getDesconto() /100 ) ) ) )} (${pedido.desconto + pedido.produto.promocao.getDesconto()}%)</td>
+                                                        <td class="padding-5">Estado: ${pedido.estado.estado()}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
