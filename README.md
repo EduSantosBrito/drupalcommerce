@@ -48,4 +48,4 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
  3. Construção dos controladores e ações: <b>FEITO</b>
  4. Implementação dos modelos e controladores: <b>FEITO</b>
  5. Construção e Implementação dos padrões mais complexos: <b>FEITO</b>
- 6. Finalização do projeto:
+ 6. Finalização do projeto: <b>FEITO</b>
