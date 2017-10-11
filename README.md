@@ -42,6 +42,8 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
 <br />
 <b>Observer:</b> Será utilizado para realizar o envio de emails e alertas para o usuário caso o estado de um pedido mude ou um pedido em interesse seja alterado <b>FEITO</b>
 <br />
+<b>Memento:</b> Será utilizado para controlar o retorno de ações. <b>FEITO</b>
+<br />
  # Etapas
  1. Construção dos modelos: <b>FEITO</b>
  2. Construção das telas: <b>FEITO</b>
