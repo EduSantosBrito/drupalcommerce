@@ -9,11 +9,9 @@ Virtual Shop é um sistema web de e-comerce de eletrônicos.
 
 # Tecnologias
 A aplicação web será construida utilizando a linguagem Java, deverá ser desenvolvida utilizando dos padrões de projeto aprendidos em sala.<br />
-(Até o momento: Singleton, MVC, DAO, Facade(Front Controller), Action, Factory Method, State, Strategy, Template Method, Observer).
+(Até o momento: Singleton, MVC, DAO, Facade(Front Controller), Action, Factory Method, State, Strategy, Template Method, Observer, Memento).
 <br />
 <br />
-<b>Frameworks?:</b><br />
-   Materialize, Spring
    
 # Funcionalidades
   1. O sistema permitira que o usuário possa se cadastrar no site.
