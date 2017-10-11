@@ -115,4 +115,12 @@ public class Pedido extends Observable{
     public String setSeparacaoEstado(){
         return this.estado.separacao(this);
     }
+    
+    public PedidoMemento saveToMemento(){
+        return new PedidoMemento(estado);
+    }
+    
+    public void restoreFromMemento(PedidoMemento memento){
+        estado = memento.getEstadoSalvo();
+    }
 }

@@ -13,7 +13,7 @@
                                 <img class="activator" src="${pageContext.request.contextPath}/Shared/pic.jpg">
                             </div>
                             <div class="card-content padding-0">
-                                <span class="black-text ">${destaque.titulo}</span>
+                                <span class="black-text truncate">${destaque.titulo}</span>
                             </div>
                         </div>
                     </div>

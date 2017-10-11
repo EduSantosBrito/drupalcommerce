@@ -7,6 +7,7 @@ package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.dao.PedidoDAO;
+import br.com.virtualshop.model.EstadosSalvosSingleton;
 import br.com.virtualshop.model.Pedido;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,6 +29,7 @@ public class AlterarEstadoPedidoAction implements Action {
         try{
             String estado = "";
             Pedido pedido = PedidoDAO.getInstance().getPedidoByID(codigoPedido);
+            EstadosSalvosSingleton.getInstance().setListaEstados(pedido.saveToMemento());
             
             switch(estadoPedido){
                 case "atraso":
@@ -52,6 +54,7 @@ public class AlterarEstadoPedidoAction implements Action {
             PedidoDAO.getInstance().updatePedido(pedido);
             
             request.setAttribute("alteracaoEstado", estado);
+            request.setAttribute("pedidoAlterado", pedido.getCodigo());
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
             apa.execute(request, response);
         }

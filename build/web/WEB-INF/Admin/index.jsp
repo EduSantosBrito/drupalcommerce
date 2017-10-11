@@ -41,7 +41,7 @@
                                                                 <h5>Alterar produto</h5>
                                                                 <form action="${pageContext.request.contextPath}/FrontController?action=SelecionarProduto" method="post">
                                                                     <div class="row">
-                                                                        <div class="input-field col s6">
+                                                                        <div class="input-field col s12">
                                                                             <select name="produto-codigo">
                                                                                 <c:forEach var="produto" items="${produtos}">
                                                                                     <option value="${produto.codigo}">${produto.titulo}</option>
@@ -184,7 +184,7 @@
                                                     <h5>Remover produto</h5>
                                                     <form action="${pageContext.request.contextPath}/FrontController?action=RemoverProduto" method="post">
                                                         <div class="row">
-                                                            <div class="input-field col s6">
+                                                            <div class="input-field col s12">
                                                                 <select name="produto-codigo">
                                                                     <c:forEach var="produto" items="${produtos}">
                                                                         <option value="${produto.codigo}">${produto.titulo}</option>
@@ -245,11 +245,15 @@
                                                             <div class="col s6">
                                                                 <input type="submit" class="btn btn-login-form black-color" value="Alterar">
                                                             </div>
+                                                            <div class="col s6">
+                                                                <a href="${pageContext.request.contextPath}/FrontController?action=RetornarEstadoPedido&AMP;id=${pedidoAlterado}" class="btn btn-login-form black-color" >Recuperar</a>
+                                                            </div>
                                                         </div>
                                                         <div class="col s12">
                                                             <label class="red-text">${alteracaoEstado}</label>
                                                         </div>
                                                     </form>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

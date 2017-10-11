@@ -42,7 +42,7 @@
                                                 <b>Marca:</b> ${produto.marca}
                                             </div>
                                             <div class="row">
-                                                <b>Desrição:</b> ${produto.descricao}
+                                                <b>Descrição:</b> ${produto.descricao}
                                             </div>
                                             <c:if test="${produto.promocao != null}">
                                                 <div class="row">
