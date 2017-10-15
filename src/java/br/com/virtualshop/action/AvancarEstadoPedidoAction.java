@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author macanha
  */
-public class RetornarEstadoPedidoAction implements Action{
+public class AvancarEstadoPedidoAction implements Action{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -27,7 +27,7 @@ public class RetornarEstadoPedidoAction implements Action{
         
         try{
             Pedido pedido = PedidoDAO.getInstance().getPedidoByID(Integer.parseInt(codigoPedido));
-            pedido.restoreFromMemento(EstadosSalvosSingleton.getInstance().retornarEstado(pedido));
+            pedido.restoreFromMemento(EstadosSalvosSingleton.getInstance().avancarEstado(pedido));
             PedidoDAO.getInstance().updatePedido(pedido);
 
             request.setAttribute("alteracaoEstado", "Estado restaurado para: " + pedido.getEstado().estado());
@@ -42,4 +42,5 @@ public class RetornarEstadoPedidoAction implements Action{
             }
         }
     }
+    
 }

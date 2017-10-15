@@ -29,7 +29,7 @@ public class AlterarEstadoPedidoAction implements Action {
         try{
             String estado = "";
             Pedido pedido = PedidoDAO.getInstance().getPedidoByID(codigoPedido);
-            EstadosSalvosSingleton.getInstance().setListaEstados(pedido.saveToMemento());
+            EstadosSalvosSingleton.getInstance().setMapaEstados(pedido, pedido.saveToMemento());
             
             switch(estadoPedido){
                 case "atraso":
@@ -54,7 +54,6 @@ public class AlterarEstadoPedidoAction implements Action {
             PedidoDAO.getInstance().updatePedido(pedido);
             
             request.setAttribute("alteracaoEstado", estado);
-            request.setAttribute("pedidoAlterado", pedido.getCodigo());
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
             apa.execute(request, response);
         }

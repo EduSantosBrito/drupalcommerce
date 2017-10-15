@@ -245,15 +245,52 @@
                                                             <div class="col s6">
                                                                 <input type="submit" class="btn btn-login-form black-color" value="Alterar">
                                                             </div>
-                                                            <div class="col s6">
-                                                                <a href="${pageContext.request.contextPath}/FrontController?action=RetornarEstadoPedido&AMP;id=${pedidoAlterado}" class="btn btn-login-form black-color" >Recuperar</a>
-                                                            </div>
                                                         </div>
                                                         <div class="col s12">
                                                             <label class="red-text">${alteracaoEstado}</label>
                                                         </div>
                                                     </form>
                                                     
+                                                </div>
+                                                <div class="col s4 center">
+                                                    <h5>Recuperar estado do Pedido</h5>
+                                                    <form action="${pageContext.request.contextPath}/FrontController?action=RetornarEstadoPedido" method="post">
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <select name="pedido-codigo">
+                                                                    <c:forEach var="pedido" items="${pedidos}">
+                                                                        <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
+                                                                    </c:forEach>
+                                                                </select>
+                                                                <label>Selecione o pedido</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s6">
+                                                                <input type="submit" class="btn btn-login-form black-color" value="Recuperar">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col s4 center">
+                                                    <h5>Avançar estado do Pedido</h5>
+                                                    <form action="${pageContext.request.contextPath}/FrontController?action=AvancarEstadoPedido" method="post">
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <select name="pedido-codigo">
+                                                                    <c:forEach var="pedido" items="${pedidos}">
+                                                                        <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
+                                                                    </c:forEach>
+                                                                </select>
+                                                                <label>Selecione o pedido</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s6">
+                                                                <input type="submit" class="btn btn-login-form black-color" value="Avançar">
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

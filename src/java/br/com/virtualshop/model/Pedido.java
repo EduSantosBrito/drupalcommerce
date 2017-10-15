@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.util.Observable;
 import br.com.virtualshop.state.PedidoEstado;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Pedido extends Observable{
     
@@ -17,6 +20,7 @@ public class Pedido extends Observable{
     private LocalDate dataPedido;
     private PedidoEstado estado;
     private Integer desconto; 
+    private List<PedidoMemento> listaEstados = new ArrayList<>();
     
     public Pedido(Usuario usuario){
         this.usuario = usuario;
@@ -123,4 +127,42 @@ public class Pedido extends Observable{
     public void restoreFromMemento(PedidoMemento memento){
         estado = memento.getEstadoSalvo();
     }
+
+    public List<PedidoMemento> getListaEstados() {
+        return listaEstados;
+    }
+
+    public void setListaEstados(PedidoMemento listaEstados) {
+        this.listaEstados.add(listaEstados);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.usuario);
+        hash = 31 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pedido other = (Pedido) obj;
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        return true;
+    }
+    
 }
