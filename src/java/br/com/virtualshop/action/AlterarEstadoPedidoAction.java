@@ -29,22 +29,25 @@ public class AlterarEstadoPedidoAction implements Action {
         try{
             String estado = "";
             Pedido pedido = PedidoDAO.getInstance().getPedidoByID(codigoPedido);
-            EstadosSalvosSingleton.getInstance().setMapaEstados(pedido, pedido.saveToMemento());
+            
+            String teste = pedido.getEstado().estado();
+            if(!teste.equals(estadoPedido))
+                EstadosSalvosSingleton.getInstance().setMapaEstados(pedido, pedido.saveToMemento());
             
             switch(estadoPedido){
-                case "atraso":
+                case "Atraso":
                     estado = pedido.setAtrasoEstado();
                     break;
-                case "analise":
+                case "Analise":
                     estado = pedido.setAnaliseEstado();
                     break;
-                case "cancelado":
+                case "Cancelado":
                     estado = pedido.setCanceladoEstado();
                     break;
-                case "enviado":
+                case "Enviado":
                     estado = pedido.setEnviadoEstado();
                     break;
-                case "separacao":
+                case "Separacao":
                     estado = pedido.setSeparacaoEstado();
                     break;
                 default:

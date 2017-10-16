@@ -1,35 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.virtualshop.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author macanha
- */
 public class PosicionamentoEstados {
-    private int ponteiro = 0;
-    private List<PedidoMemento> lista = new ArrayList<PedidoMemento>();
+    
+    private int posicao = 0;
+    private List<PedidoMemento> listaMemento = new ArrayList<>();
 
-    public int getPonteiro() {
-        return ponteiro;
+    public int getPosicao() {
+        return posicao;
     }
 
-    public void setPonteiro(int ponteiro) {
-        this.ponteiro = ponteiro;
+    public void setPosicao(int posicao) {
+        this.posicao = posicao;
     }
 
-    public List<PedidoMemento> getLista() {
-        return lista;
+    public List<PedidoMemento> getListaMemento() {
+        return listaMemento;
     }
 
-    public void setLista(List<PedidoMemento> lista) {
-        this.lista = lista;
+    public void setListaMemento(PedidoMemento lista) {
+        this.listaMemento.add(lista);
     }
 
 }

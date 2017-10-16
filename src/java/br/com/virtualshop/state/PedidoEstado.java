@@ -10,5 +10,8 @@ public interface PedidoEstado {
     public String separacao(Pedido pedido);
     public String cancelado(Pedido pedido);
     public String enviado(Pedido pedido);
-    
+
+    @Override
+    public boolean equals(Object obj);
+ 
 }

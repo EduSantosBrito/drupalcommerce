@@ -42,5 +42,8 @@ public class PedidoEstadoEnviado implements PedidoEstado{
     public String enviado(Pedido pedido) {
         return "O pedido já foi enviado";
     }
-    
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+    }
 }

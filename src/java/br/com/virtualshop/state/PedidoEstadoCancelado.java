@@ -42,5 +42,9 @@ public class PedidoEstadoCancelado implements PedidoEstado {
     public String enviado(Pedido pedido) {
         return "O estado do pedido não pode ser alterado para enviado";
     }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

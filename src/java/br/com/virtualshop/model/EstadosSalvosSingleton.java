@@ -1,19 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.virtualshop.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author macanha
- */
 public class EstadosSalvosSingleton {
     
     private Map<Pedido, PosicionamentoEstados> mapaEstados = new HashMap<>();
@@ -31,27 +20,59 @@ public class EstadosSalvosSingleton {
     }
     
     public PedidoMemento retornarEstado(Pedido pedido){
-        PosicionamentoEstados mapa = mapaEstados.get(pedido);
-        List<PedidoMemento> estados = mapa.getLista();
-        PedidoMemento estado = estados.get(mapa.getPonteiro());
-        mapa.setPonteiro(mapa.getPonteiro() + 1 );
-        return estado;
+        PosicionamentoEstados estados = null;
+        try{
+            estados = mapaEstados.get(pedido);
+            if(estados != null){
+                int p = estados.getPosicao() - 1;
+                if(p < 0)
+                    return null;
+                estados.setPosicao(p);
+                PedidoMemento m = estados.getListaMemento().get(p - 1);
+                return m;
+            }
+        }
+        catch(Exception e){ throw e;}
+        return null;
     }
     
     public PedidoMemento avancarEstado(Pedido pedido){
-        PosicionamentoEstados mapa = mapaEstados.get(pedido);
-        List<PedidoMemento> estados = mapa.getLista();
-        PedidoMemento estado = estados.get(mapa.getPonteiro());
-        mapa.setPonteiro(mapa.getPonteiro() - 1 );
-        return estado;
+        PosicionamentoEstados estados = null;
+        try{
+            estados = mapaEstados.get(pedido);
+            if(estados != null){
+                int p = estados.getPosicao();
+                estados.setPosicao(p + 1);
+                if(p == estados.getListaMemento().size())
+                    return null;
+                PedidoMemento m = estados.getListaMemento().get(p);
+                return m;
+            }
+        }
+        catch(Exception e){ throw e;}
+        return null;
     }
     
     public void setMapaEstados(Pedido pedido, PedidoMemento estado) {
-        PosicionamentoEstados estados = new PosicionamentoEstados();
-        List<PedidoMemento> recuar = new ArrayList<>();
-        recuar.add(estado);
-        estados.setLista(recuar);
-        this.mapaEstados.put(pedido, estados);
+        PosicionamentoEstados estados = null;
+        try{
+            estados = mapaEstados.get(pedido);
+            if(estados != null){
+                if(estados.getListaMemento().size() > 2){
+                    int p = estados.getPosicao() - 1;
+                    estados.getListaMemento().subList(p, estados.getListaMemento().size() - 1).clear();
+                }
+                estados.setListaMemento(estado);
+                estados.setPosicao(estados.getPosicao() + 1);
+                mapaEstados.put(pedido, estados);
+            } else {
+                estados = new PosicionamentoEstados();
+                estados.setListaMemento(estado);
+                estados.setPosicao(estados.getPosicao() + 1);
+                mapaEstados.put(pedido, estados);
+            }
+        }
+        catch(Exception e){ throw e;}
     }
     
 }

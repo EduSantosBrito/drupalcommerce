@@ -216,11 +216,11 @@
                                         <div class="card-content">
                                             <span class="card-title center">Pedidos</span>
                                             <div class="row">
-                                                <div class="col s4 center">
+                                                <div class="col s5 center">
                                                     <h5>Alterar estado do Pedido</h5>
                                                     <form action="${pageContext.request.contextPath}/FrontController?action=AlterarEstadoPedido" method="post">
                                                         <div class="row">
-                                                            <div class="input-field col s12">
+                                                            <div class="input-field col s9">
                                                                 <select name="pedido-codigo">
                                                                     <c:forEach var="pedido" items="${pedidos}">
                                                                         <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
@@ -228,15 +228,19 @@
                                                                 </select>
                                                                 <label>Selecione o pedido</label>
                                                             </div>
+                                                            <div class="col s3" style="padding: 0;">
+                                                                <i class="medium material-icons" style="cursor: pointer;" onclick="retornarMemento()">navigate_before</i>
+                                                                <i class="medium material-icons" style="cursor: pointer;" onclick="avancarMemento()">navigate_next</i>
+                                                            </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s6">
                                                                 <select name="estado">
-                                                                    <option value="analise">Em Análise</option>
-                                                                    <option value="atraso">Em Atraso</option>
-                                                                    <option value="separacao">Em Separação</option>
-                                                                    <option value="cancelado">Cancelado</option>
-                                                                    <option value="enviado">Enviado</option>
+                                                                    <option value="Analise">Em Análise</option>
+                                                                    <option value="Atraso">Em Atraso</option>
+                                                                    <option value="Separacao">Em Separação</option>
+                                                                    <option value="Cancelado">Cancelado</option>
+                                                                    <option value="Enviado">Enviado</option>
                                                                 </select>
                                                                 <label>Selecione o estado</label>
                                                             </div>
@@ -248,47 +252,6 @@
                                                         </div>
                                                         <div class="col s12">
                                                             <label class="red-text">${alteracaoEstado}</label>
-                                                        </div>
-                                                    </form>
-                                                    
-                                                </div>
-                                                <div class="col s4 center">
-                                                    <h5>Recuperar estado do Pedido</h5>
-                                                    <form action="${pageContext.request.contextPath}/FrontController?action=RetornarEstadoPedido" method="post">
-                                                        <div class="row">
-                                                            <div class="input-field col s12">
-                                                                <select name="pedido-codigo">
-                                                                    <c:forEach var="pedido" items="${pedidos}">
-                                                                        <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
-                                                                    </c:forEach>
-                                                                </select>
-                                                                <label>Selecione o pedido</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s6">
-                                                                <input type="submit" class="btn btn-login-form black-color" value="Recuperar">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col s4 center">
-                                                    <h5>Avançar estado do Pedido</h5>
-                                                    <form action="${pageContext.request.contextPath}/FrontController?action=AvancarEstadoPedido" method="post">
-                                                        <div class="row">
-                                                            <div class="input-field col s12">
-                                                                <select name="pedido-codigo">
-                                                                    <c:forEach var="pedido" items="${pedidos}">
-                                                                        <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
-                                                                    </c:forEach>
-                                                                </select>
-                                                                <label>Selecione o pedido</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s6">
-                                                                <input type="submit" class="btn btn-login-form black-color" value="Avançar">
-                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -395,11 +358,28 @@
                 </div>
             </div>
         </div>
+        <form style="display: hidden" action="${pageContext.request.contextPath}/FrontController?action=RetornarEstadoPedido" method="POST" id="formRetorno">
+            <input type="hidden" id="idRetorno" name="idRetorno"/>
+        </form>
+        <form style="display: hidden" action="${pageContext.request.contextPath}/FrontController?action=AvancarEstadoPedido" method="POST" id="formAvanco">
+            <input type="hidden" id="idAvanco" name="idAvanco"/>
+        </form>
         <c:import url="../../Shared/importJs.jsp"/>
         <script>
             $(document).ready(function () {
                 $('select').material_select();
             });
+            const pedidoCodigo = $('select[name=pedido-codigo]').val();
+            function retornarMemento(){
+                
+                $("#idRetorno").val(pedidoCodigo);
+                $('#formRetorno').submit();
+            }
+            function avancarMemento(){
+                var teste = $('select[name=pedido-codigo]').val();
+                $("#idAvanco").val(pedidoCodigo);
+                $('#formAvanco').submit();
+            }
             function validarPreco(self) {
                 if (self.value == "")
                     return;
