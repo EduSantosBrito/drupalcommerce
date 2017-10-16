@@ -229,8 +229,8 @@
                                                                 <label>Selecione o pedido</label>
                                                             </div>
                                                             <div class="col s3" style="padding: 0;">
-                                                                <i class="medium material-icons" style="cursor: pointer;" onclick="retornarMemento()">navigate_before</i>
-                                                                <i class="medium material-icons" style="cursor: pointer;" onclick="avancarMemento()">navigate_next</i>
+                                                                <i class="medium material-icons tooltipped" style="cursor: pointer;" onclick="retornarMemento()" data-position="left" data-delay="50" data-tooltip="Recuperar">navigate_before</i>
+                                                                <i class="medium material-icons tooltipped" style="cursor: pointer;" onclick="avancarMemento()" data-position="right" data-delay="50" data-tooltip="Avançar">navigate_next</i>
                                                             </div>
                                                         </div>
                                                         <div class="row">
