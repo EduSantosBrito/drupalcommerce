@@ -216,11 +216,11 @@
                                         <div class="card-content">
                                             <span class="card-title center">Pedidos</span>
                                             <div class="row">
-                                                <div class="col s5 center">
+                                                <div class="col s7 center">
                                                     <h5>Alterar estado do Pedido</h5>
                                                     <form action="${pageContext.request.contextPath}/FrontController?action=AlterarEstadoPedido" method="post">
                                                         <div class="row">
-                                                            <div class="input-field col s9">
+                                                            <div class="input-field col s8">
                                                                 <select name="pedido-codigo">
                                                                     <c:forEach var="pedido" items="${pedidos}">
                                                                         <option value="${pedido.codigo}">Codigo:${pedido.codigo} | Preço: ${pedido.preco} | Estado: ${pedido.estado.estado()}</option>
@@ -228,7 +228,7 @@
                                                                 </select>
                                                                 <label>Selecione o pedido</label>
                                                             </div>
-                                                            <div class="col s3" style="padding: 0;">
+                                                            <div class="col s4" style="padding: 0;">
                                                                 <i class="medium material-icons tooltipped" style="cursor: pointer;" onclick="retornarMemento()" data-position="left" data-delay="50" data-tooltip="Recuperar">navigate_before</i>
                                                                 <i class="medium material-icons tooltipped" style="cursor: pointer;" onclick="avancarMemento()" data-position="right" data-delay="50" data-tooltip="Avançar">navigate_next</i>
                                                             </div>
