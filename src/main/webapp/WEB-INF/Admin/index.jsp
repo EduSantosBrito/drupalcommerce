@@ -9,7 +9,7 @@
         <nav id="nav-bar-logo" class="navbar-fixed black-color z-depth-0">
             <div class="nav-wrapper">
                 <a class="brand-logo center search-prefix" href="${pageContext.request.contextPath}/FrontController?action=VerificarAutenticacao&AMP;pagina=admin" >
-                    PAINEL ADMINISTRATIVO
+                    AREA ADMINISTRATIVA
                 </a>
                 <a href="${pageContext.request.contextPath}/index" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Voltar">
                     <i class="material-icons prefix right search-prefix">exit_to_app</i>
