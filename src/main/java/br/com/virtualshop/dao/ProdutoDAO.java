@@ -4,11 +4,13 @@ import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.PromocaoGenerica;
 import br.com.virtualshop.model.Usuario;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 import java.util.Observable;
 
@@ -16,7 +18,8 @@ public class ProdutoDAO {
     private static ProdutoDAO instance = new ProdutoDAO();
     private Connection conn = null;
     private Statement st = null;
-    
+    private PreparedStatement stmt = null; 
+
     private ProdutoDAO(){}
     
     public static ProdutoDAO getInstance(){
@@ -24,21 +27,18 @@ public class ProdutoDAO {
     }
     
     public void salvarProduto(Produto produto) throws SQLException, ClassNotFoundException{
-        
-        String sql = "INSERT INTO tb_prdt(ttl_prdt, dscr_prdt, mrc_prdt, dt_cdstr_prdt, ctgr_prdt, sb_ctgr_prdt, qtd_estq_prdt, prc_prdt) " +
-                     "VALUES ('" + produto.getTitulo() +
-                     "', '" + produto.getDescricao() + 
-                     "', '" + produto.getMarca() + 
-                     "', '" + LocalDate.now() + 
-                     "', '" + produto.getCategoria() + 
-                     "', '" + produto.getSubCategoria() + 
-                     "', " + produto.getQuantidade() + 
-                     ", " + produto.getPreco() + 
-                     ")";
         try{
+            String sql = 
+            "INSERT INTO tb_prdt(ttl_prdt, dscr_prdt, mrc_prdt, dt_cdstr_prdt, ctgr_prdt, sb_ctgr_prdt, qtd_estq_prdt, prc_prdt) " +
+            "VALUES (?,?,?,?,?,?,?,?)";
+        
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
-            st.execute(sql);
+            stmt = conn.prepareStatement(sql);
+
+            receberAtributosStmt(produto, stmt);
+            
+            stmt.execute();
+            stmt.close();
         }
         catch(SQLException e) {
             throw e;
@@ -48,21 +48,35 @@ public class ProdutoDAO {
         }
     }
     
+    public void receberAtributosStmt(Produto produto, PreparedStatement stmt) throws SQLException {
+        stmt.setString(1, produto.getTitulo());
+        stmt.setString(2, produto.getDescricao());
+        stmt.setString(3, produto.getMarca());
+        stmt.setDate(4, Date.valueOf(LocalDate.now()));
+        stmt.setString(5, produto.getCategoria());
+        stmt.setString(6, produto.getSubCategoria());
+        stmt.setInt(7, produto.getQuantidade());
+        stmt.setDouble(8, produto.getPreco());
+    }
+    
     public void alterarProduto(Produto produto) throws SQLException, ClassNotFoundException{
-        String sql = "UPDATE tb_prdt SET " +
-                     "ttl_prdt = '" + produto.getTitulo() + "', " +
-                     "dscr_prdt = '" + produto.getDescricao() + "', " +
-                     "mrc_prdt =  '" + produto.getMarca() + "', " +
-                     "ctgr_prdt =  '" + produto.getCategoria() + "', " +
-                     "sb_ctgr_prdt = '" + produto.getSubCategoria() + "', " +
-                     "qtd_estq_prdt = " + produto.getQuantidade() + ", " + 
-                     "prc_prdt = " + produto.getPreco() + " " +
-                     "WHERE cdg_prdt = " + produto.getCodigo();
-        
         try{
+            String sql = 
+                "UPDATE tb_prdt SET " +
+                "ttl_prdt = ?, " +
+                "dscr_prdt = ?, " +
+                "mrc_prdt = ?, " +
+                "ctgr_prdt = ?, " +
+                "sb_ctgr_prdt = ?, " +
+                "qtd_estq_prdt = ?, " + 
+                "prc_prdt = ? " +
+                "WHERE cdg_prdt = " + produto.getCodigo();
+        
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
-            st.execute(sql);
+            stmt = conn.prepareStatement(sql);
+            receberAtributosStmt(produto, stmt);
+            stmt.execute();
+            stmt.close();
         }
         catch(SQLException e) {
             throw e;
@@ -99,16 +113,7 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDescricao(rs.getString("dscr_prdt"));
-                produto.setMarca(rs.getString("mrc_prdt"));
-                produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-                produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-                produto.setTitulo(rs.getString("ttl_prdt"));
-                produto.setCategoria(rs.getString("ctgr_prdt"));
-                produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
-                
+                produto.receberAtributosDAO(rs);
                 produtos.add(produto);
             }
         }
@@ -133,16 +138,7 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDescricao(rs.getString("dscr_prdt"));
-                produto.setMarca(rs.getString("mrc_prdt"));
-                produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-                produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-                produto.setTitulo(rs.getString("ttl_prdt"));
-                produto.setCategoria(rs.getString("ctgr_prdt"));
-                produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
-                
+                produto.receberAtributosDAO(rs);
                 produtos.add(produto);
             }
         }
@@ -170,25 +166,14 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
-                produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDescricao(rs.getString("dscr_prdt"));
-                produto.setMarca(rs.getString("mrc_prdt"));
-                produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-                produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-                produto.setTitulo(rs.getString("ttl_prdt"));
-                produto.setCategoria(rs.getString("ctgr_prdt"));
-                produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                //produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
+                produto.receberAtributosDAO(rs);
                 
                 String codigo = rs.getString("cdg_prm");
                 String titulo = rs.getString("ttl_prm");
                 String desconto = rs.getString("dscnt_prm");
                 
                 if(codigo != null){
-                    PromocaoGenerica promocao = new PromocaoGenerica();
-                    promocao.setCodigo(Integer.parseInt(codigo));
-                    promocao.setTituloPromocao(titulo);
-                    promocao.setDescontoPromocao(Integer.parseInt(desconto));
+                    PromocaoGenerica promocao = new PromocaoGenerica(Integer.parseInt(codigo), titulo, Integer.parseInt(desconto));
                     produto.setPromocao(promocao);
                 }
             }
@@ -217,25 +202,14 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDescricao(rs.getString("dscr_prdt"));
-                produto.setMarca(rs.getString("mrc_prdt"));
-                produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-                produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-                produto.setTitulo(rs.getString("ttl_prdt"));
-                produto.setCategoria(rs.getString("ctgr_prdt"));
-                produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                //produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
-                                
+                produto.receberAtributosDAO(rs);
+                
                 String codigo = rs.getString("cdg_prm");
                 String titulo = rs.getString("ttl_prm");
                 String desconto = rs.getString("dscnt_prm");
                 
                 if(codigo != null){
-                    PromocaoGenerica promocao = new PromocaoGenerica();
-                    promocao.setCodigo(Integer.parseInt(codigo));
-                    promocao.setTituloPromocao(titulo);
-                    promocao.setDescontoPromocao(Integer.parseInt(desconto));
+                    PromocaoGenerica promocao = new PromocaoGenerica(Integer.parseInt(codigo), titulo, Integer.parseInt(desconto));
                     produto.setPromocao(promocao);
                 }
                 
@@ -263,16 +237,7 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Produto produto = new Produto();
-                produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-                produto.setDescricao(rs.getString("dscr_prdt"));
-                produto.setMarca(rs.getString("mrc_prdt"));
-                produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-                produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-                produto.setTitulo(rs.getString("ttl_prdt"));
-                produto.setCategoria(rs.getString("ctgr_prdt"));
-                produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-                produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
-                
+                produto.receberAtributosDAO(rs);
                 produtos.add(produto);
             }
         }
@@ -313,16 +278,7 @@ public class ProdutoDAO {
         
         while(rs.next()){
             Produto produto = new Produto();
-            produto.setCodigo(Integer.parseInt(rs.getString("cdg_prdt")));
-            produto.setTitulo(rs.getString("ttl_prdt"));
-            produto.setDescricao(rs.getString("dscr_prdt"));
-            produto.setMarca(rs.getString("mrc_prdt"));
-            produto.setPreco(Double.parseDouble(rs.getString("prc_prdt")));
-            produto.setCategoria(rs.getString("ctgr_prdt"));
-            produto.setSubCategoria(rs.getString("sb_ctgr_prdt"));
-            produto.setQuantidade(Integer.parseInt(rs.getString("qtd_estq_prdt")));
-            produto.setDataCadastro(LocalDate.parse(rs.getString("dt_cdstr_prdt")));
-            
+            produto.receberAtributosDAO(rs);
             produtos.add(produto);
         }
         
@@ -342,14 +298,9 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery(sql);
             
             while(rs.next()){
-                Usuario u = new Usuario();
-                u.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
-                u.setEmail(rs.getString("eml_usr"));
-                u.setNome(rs.getString("nm_usr"));
-                u.setEndereco(rs.getString("ndrc_usr"));
-                u.setTelefone(Integer.parseInt(rs.getString("tlfn_usr")));
-                
-                usuarios.add(u);
+                Usuario usuario = new Usuario();
+                usuario.receberAtributosDAO(rs);
+                usuarios.add(usuario);
             }
             return usuarios;
         }

@@ -11,15 +11,9 @@ public class RegistrarProdutoAction implements Action{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String titulo = request.getParameter("titulo");
-        Integer qtd = Integer.parseInt(request.getParameter("qtd"));
-        String descricao = request.getParameter("descricao");
-        String marca = request.getParameter("marca");
-        Double preco = Double.parseDouble(request.getParameter("preco"));
-        String categoria = request.getParameter("produto-categoria");
-        String subCategoria = request.getParameter("produto-sub-categoria");
         
-        Produto produto = new Produto(titulo, descricao, marca, categoria, subCategoria, qtd, preco);
+        Produto produto = new Produto();
+        produto.capturarAtributos(request);
         
         try{
             ProdutoDAO.getInstance().salvarProduto(produto);

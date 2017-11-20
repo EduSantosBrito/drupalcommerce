@@ -1,6 +1,5 @@
 package br.com.virtualshop.dao;
 
-import br.com.virtualshop.controller.EstadoFactory;
 import br.com.virtualshop.model.Item;
 import br.com.virtualshop.model.Pedido;
 import br.com.virtualshop.model.Usuario;
@@ -12,7 +11,6 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import br.com.virtualshop.state.PedidoEstado;
 
 public class PedidoDAO {
     private static PedidoDAO instance = new PedidoDAO();
@@ -35,26 +33,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido();
-                pedido.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
-                pedido.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
-                pedido.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
-                pedido.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
-                pedido.setDesconto(Integer.parseInt(rs.getString("dsct_pdd")));
-                pedido.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
-                
-                String estado = rs.getString("std_pdd");
-                try{
-                    PedidoEstado actionObject = null;
-                    if(estado == null || estado.equals(""))
-                        pedido.setEstado(null);
-                    actionObject = EstadoFactory.create(estado);
-                    if(actionObject != null)
-                        pedido.setEstado(actionObject);
-                }
-                catch(Exception e){
-                    pedido.setEstado(null);
-                }
-                
+                pedido.receberAtributosDAO(rs);
                 pedidos.add(pedido);
             }
         }
@@ -102,24 +81,7 @@ public class PedidoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                pedido.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
-                pedido.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
-                pedido.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
-                pedido.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
-                pedido.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
-                
-                String estado = rs.getString("std_pdd");
-                try{
-                    PedidoEstado actionObject = null;
-                    if(estado == null || estado.equals(""))
-                        pedido.setEstado(null);
-                    actionObject = EstadoFactory.create(estado);
-                    if(actionObject != null)
-                        pedido.setEstado(actionObject);
-                }
-                catch(Exception e){
-                    pedido.setEstado(null);
-                }
+                pedido.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {
@@ -158,26 +120,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido(usuario);
-                pedido.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
-                pedido.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
-                pedido.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
-                pedido.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
-                pedido.setDesconto(Integer.parseInt(rs.getString("dsct_pdd")));
-                pedido.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
-                
-                String estado = rs.getString("std_pdd");
-                try{
-                    PedidoEstado actionObject = null;
-                    if(estado == null || estado.equals(""))
-                        pedido.setEstado(null);
-                    actionObject = EstadoFactory.create(estado);
-                    if(actionObject != null)
-                        pedido.setEstado(actionObject);
-                }
-                catch(Exception e){
-                    pedido.setEstado(null);
-                }
-                
+                pedido.receberAtributosDAO(rs);
                 pedidos.add(pedido);
             }
         }
@@ -204,11 +147,7 @@ public class PedidoDAO {
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                usuario.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
-                usuario.setEmail(rs.getString("eml_usr"));
-                usuario.setNome(rs.getString("nm_usr"));
-                usuario.setEndereco(rs.getString("ndrc_usr"));
-                usuario.setSenha(rs.getString("snh_usr"));
+                usuario.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {

@@ -56,10 +56,7 @@ public class PromocaoDAO {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 PromocaoGenerica pg = new PromocaoGenerica();
-                pg.setCodigo(Integer.parseInt(rs.getString("cdg_prm")));
-                pg.setTituloPromocao(rs.getString("ttl_prm"));
-                pg.setDescontoPromocao(Integer.parseInt(rs.getString("dscnt_prm")));
-                
+                pg.receberAtributosDAO(rs);
                 promocoes.add(pg);
             }
         }
@@ -81,9 +78,7 @@ public class PromocaoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                promocao.setCodigo(Integer.parseInt(rs.getString("cdg_prm")));
-                promocao.setTituloPromocao(rs.getString("ttl_prm"));
-                promocao.setDescontoPromocao(Integer.parseInt(rs.getString("dscnt_prm")));
+                promocao.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {

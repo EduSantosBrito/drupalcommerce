@@ -31,11 +31,7 @@ public class UsuarioDAO {
             st.execute(sql);
             ResultSet rs = st.executeQuery("SELECT * FROM tb_usr WHERE eml_usr = '" + usuario.getEmail() + "'");
             while(rs.next()){
-                user.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
-                user.setEmail(rs.getString("eml_usr"));
-                user.setNome(rs.getString("nm_usr"));
-                user.setEndereco(rs.getString("ndrc_usr"));
-                user.setSenha(rs.getString("snh_usr"));
+                user.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {
@@ -57,11 +53,7 @@ public class UsuarioDAO {
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                usuarioAutenticado.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
-                usuarioAutenticado.setEmail(rs.getString("eml_usr"));
-                usuarioAutenticado.setNome(rs.getString("nm_usr"));
-                usuarioAutenticado.setEndereco(rs.getString("ndrc_usr"));
-                usuarioAutenticado.setSenha(rs.getString("snh_usr"));
+                usuarioAutenticado.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {
@@ -86,11 +78,7 @@ public class UsuarioDAO {
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                usuario.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
-                usuario.setEmail(rs.getString("eml_usr"));
-                usuario.setNome(rs.getString("nm_usr"));
-                usuario.setEndereco(rs.getString("ndrc_usr"));
-                usuario.setSenha(rs.getString("snh_usr"));
+                usuario.receberAtributosDAO(rs);
             }
         }
         catch(SQLException e) {

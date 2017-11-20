@@ -1,6 +1,8 @@
 package br.com.virtualshop.model;
 
 import br.com.virtualshop.dao.UsuarioDAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -125,6 +127,14 @@ public class Usuario implements Observer{
 
     public void setAlertas(String alerta) {
         this.alertas.add(alerta);
+    }
+    
+    public void receberAtributosDAO(ResultSet rs) throws SQLException {
+        this.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
+        this.setEmail(rs.getString("eml_usr"));
+        this.setNome(rs.getString("nm_usr"));
+        this.setEndereco(rs.getString("ndrc_usr"));
+        this.setSenha(rs.getString("snh_usr"));
     }
     
     @Override

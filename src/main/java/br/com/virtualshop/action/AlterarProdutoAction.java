@@ -22,24 +22,13 @@ public class AlterarProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer codigo = Integer.parseInt(request.getParameter("codigo-produto"));
-        String titulo = request.getParameter("titulo");
-        Integer qtd = Integer.parseInt(request.getParameter("qtd"));
-        String descricao = request.getParameter("descricao");
-        String marca = request.getParameter("marca");
-        Double preco = Double.parseDouble(request.getParameter("preco"));
-        String categoria = request.getParameter("produto-categoria");
-        String subCategoria = request.getParameter("produto-sub-categoria");
-  
+        
+        Produto produto = new Produto();
+        
         try{
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigo);
-            produto.setTitulo(titulo);
-            produto.setDescricao(descricao);
-            produto.setMarca(marca);
-            produto.setPreco(preco);
-            produto.setCategoria(categoria);
-            produto.setSubCategoria(subCategoria);
-            produto.setQuantidadeUpdate(qtd);
+            produto = ProdutoDAO.getInstance().getProdutoByID(produto.getCodigo());
+            
+            produto.capturarAtributos(request);
 
             ProdutoDAO.getInstance().alterarProduto(produto);
             

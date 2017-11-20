@@ -1,10 +1,13 @@
 package br.com.virtualshop.model;
 
 import br.com.virtualshop.action.AletarAlteracaoEstadoAction;
+import br.com.virtualshop.controller.EstadoFactory;
+import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.state.PedidoEstadoAnalise;
 import java.time.LocalDate;
 import java.util.Observable;
 import br.com.virtualshop.state.PedidoEstado;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -135,7 +138,30 @@ public class Pedido extends Observable{
     public void setListaEstados(PedidoMemento listaEstados) {
         this.listaEstados.add(listaEstados);
     }
+    
+    public void receberAtributosDAO(ResultSet rs) throws SQLException, ClassNotFoundException{
+        
+        this.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
+        this.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
+        this.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
+        this.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
+        this.setDesconto(Integer.parseInt(rs.getString("dsct_pdd")));
+        this.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
 
+        String estado = rs.getString("std_pdd");
+        try{
+            PedidoEstado actionObject = null;
+            if(estado == null || estado.equals(""))
+                this.setEstado(null);
+            actionObject = EstadoFactory.create(estado);
+            if(actionObject != null)
+                this.setEstado(actionObject);
+        }
+        catch(Exception e){
+            this.setEstado(null);
+        }
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
