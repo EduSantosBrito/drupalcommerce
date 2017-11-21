@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.model.EstadosSalvosSingleton;
 import br.com.virtualshop.model.Pedido;
 import java.io.IOException;
@@ -27,34 +26,16 @@ public class AlterarEstadoPedidoAction implements Action {
         String estadoPedido = request.getParameter("estado");
         
         try{
-            String estado = "";
-            Pedido pedido = PedidoDAO.getInstance().getPedidoByID(codigoPedido);
+            Pedido pedido = new Pedido();
+            pedido = pedido.getPedido(codigoPedido);
             
-            String teste = pedido.getEstado().estado();
-            if(!teste.equals(estadoPedido))
+            String estadoAtual = pedido.getEstado().estado();
+            if(!estadoAtual.equals(estadoPedido))
                 EstadosSalvosSingleton.getInstance().setMapaEstados(pedido, pedido.saveToMemento());
             
-            switch(estadoPedido){
-                case "Atraso":
-                    estado = pedido.setAtrasoEstado();
-                    break;
-                case "Analise":
-                    estado = pedido.setAnaliseEstado();
-                    break;
-                case "Cancelado":
-                    estado = pedido.setCanceladoEstado();
-                    break;
-                case "Enviado":
-                    estado = pedido.setEnviadoEstado();
-                    break;
-                case "Separacao":
-                    estado = pedido.setSeparacaoEstado();
-                    break;
-                default:
-                    break;
-            }
-            
-            PedidoDAO.getInstance().updatePedido(pedido);
+            String estado = pedido.getPedidoEstado(estadoPedido);
+
+            pedido.salvarPedido();
             
             request.setAttribute("alteracaoEstado", estado);
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();

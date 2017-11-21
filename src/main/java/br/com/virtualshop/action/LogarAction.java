@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.UsuarioDAO;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -30,7 +29,7 @@ public class LogarAction implements Action {
         usuario.setEmail(email);
         usuario.setSenha(senha);
         try {
-            usuario = UsuarioDAO.getInstance().autentica(usuario);
+            usuario = usuario.autenticar();
             if(usuario.getCodigo() == null){
                 request.getSession().setAttribute("errorLogin", "Email ou senha incorretos!");
                 RequestDispatcher rd = request.getRequestDispatcher("/Usuario/login.jsp");

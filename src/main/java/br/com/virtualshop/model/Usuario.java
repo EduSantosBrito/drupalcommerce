@@ -1,5 +1,7 @@
 package br.com.virtualshop.model;
 
+import br.com.virtualshop.dao.PedidoDAO;
+import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.dao.UsuarioDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 
 public class Usuario implements Observer{
     
@@ -100,17 +103,11 @@ public class Usuario implements Observer{
         this.pedidos.add(pedido);
         pedido.addObserver(this);
     }
-    
-    public void comprarProduto(Produto produto, Integer quantidade){
-        Item item = new Item();
-        item.setProduto(produto);
-        item.setQuantidade(quantidade);
-        this.carrinho.adiciona(item);
-    }
   
-    public void gostarProduto(Observable produto){
+    public void gostarProduto(Observable produto) throws ClassNotFoundException, ClassNotFoundException, SQLException{
         this.produtos.add(produto);
         produto.addObserver(this);
+        ProdutoDAO.getInstance().salvarInteresse(this, (Produto) produto);
     }
 
     public List<Observable> getProdutos() {
@@ -129,6 +126,26 @@ public class Usuario implements Observer{
         this.alertas.add(alerta);
     }
     
+    public List<Usuario> getUsuariosInteressados(Produto produto) throws SQLException, SQLException, ClassNotFoundException {
+        return ProdutoDAO.getInstance().getAllInteressadosByProduto(produto);
+    }
+    
+    public void salvarPedido(Item item) throws SQLException, SQLException, ClassNotFoundException {
+        PedidoDAO.getInstance().salvarPedido(this, item);
+    }
+    
+    public Usuario autenticar() throws SQLException, ClassNotFoundException {
+        return UsuarioDAO.getInstance().autentica(this);
+    }
+    
+    public Usuario getUsuarioByEmail() throws SQLException, SQLException, ClassNotFoundException {
+        return UsuarioDAO.getInstance().getUsuarioByEmail(this.email);
+    }
+    
+    public void removerAlertas() throws SQLException, SQLException, ClassNotFoundException {
+        UsuarioDAO.getInstance().removeAlerta(this.codigo);
+    }
+    
     public void receberAtributosDAO(ResultSet rs) throws SQLException {
         this.setCodigo(Integer.parseInt(rs.getString("cdg_usr")));
         this.setEmail(rs.getString("eml_usr"));
@@ -137,6 +154,13 @@ public class Usuario implements Observer{
         this.setSenha(rs.getString("snh_usr"));
     }
     
+    public void capturarAtributos(HttpServletRequest request) {
+        this.email = request.getParameter("email_login");
+        this.nome = request.getParameter("nome_login");
+        this.senha = request.getParameter("senha_login");
+        this.endereco = request.getParameter("endereco_login");
+        this.telefone = Integer.parseInt(request.getParameter("telefone_login"));
+    }
     @Override
     public void update(Observable produtoObserver, Object o1) {
         if(produtoObserver instanceof Produto){

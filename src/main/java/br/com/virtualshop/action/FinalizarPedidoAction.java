@@ -2,7 +2,6 @@ package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.controller.PagamentoFactory;
-import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.model.Item;
 import br.com.virtualshop.model.Usuario;
 import br.com.virtualshop.strategy.Pagamento;
@@ -28,7 +27,7 @@ public class FinalizarPedidoAction implements Action {
                 usuario.getCarrinho().setPagamento(actionObject);
             
             for(Item item : usuario.getCarrinho().getItens() ){
-                PedidoDAO.getInstance().salvarPedido(usuario, item);
+                usuario.salvarPedido(item);
             }
             
             usuario.getCarrinho().finalizar();

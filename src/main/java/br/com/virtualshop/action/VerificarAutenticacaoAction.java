@@ -2,7 +2,6 @@ package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.controller.ActionFactory;
-import br.com.virtualshop.dao.UsuarioDAO;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -24,7 +23,7 @@ public class VerificarAutenticacaoAction implements Action {
                     rd.forward(request, response);
             }else {
                 
-                usuario = UsuarioDAO.getInstance().autentica(usuario);
+                usuario = usuario.autenticar();
                 request.getSession().removeAttribute("usuario");
                 request.getSession().setAttribute("usuario", usuario);
                 

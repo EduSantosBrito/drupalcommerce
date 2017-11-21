@@ -6,7 +6,7 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
+import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +29,9 @@ public class RemoverProdutoAction implements Action {
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);
             }else{
-                ProdutoDAO.getInstance().removerProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(codigo)));
+                Produto produto = new Produto();
+                produto = produto.getProduto(Integer.parseInt(codigo));
+                produto.removerProduto();
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);
             }

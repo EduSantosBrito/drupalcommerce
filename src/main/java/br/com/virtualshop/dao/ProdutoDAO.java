@@ -204,12 +204,12 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.receberAtributosDAO(rs);
                 
-                String codigo = rs.getString("cdg_prm");
+                Integer codigo = Integer.parseInt(rs.getString("cdg_prm"));
                 String titulo = rs.getString("ttl_prm");
-                String desconto = rs.getString("dscnt_prm");
+                Integer desconto = Integer.parseInt(rs.getString("dscnt_prm"));
                 
                 if(codigo != null){
-                    PromocaoGenerica promocao = new PromocaoGenerica(Integer.parseInt(codigo), titulo, Integer.parseInt(desconto));
+                    PromocaoGenerica promocao = new PromocaoGenerica(codigo, titulo, desconto);
                     produto.setPromocao(promocao);
                 }
                 

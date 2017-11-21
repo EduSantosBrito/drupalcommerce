@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PromocaoDAO;
 import br.com.virtualshop.model.PromocaoGenerica;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -29,8 +28,7 @@ public class AdicionarPromocaoAction implements Action {
             PromocaoGenerica promocao = new PromocaoGenerica();
             promocao.setTituloPromocao(titulo);
             promocao.setDescontoPromocao(desconto);
-            
-            PromocaoDAO.getInstance().salvarPromocao(promocao);
+            promocao.salvarPromocao();
             
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
             apa.execute(request, response);

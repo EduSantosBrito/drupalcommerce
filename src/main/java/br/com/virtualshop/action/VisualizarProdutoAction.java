@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,10 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 public class VisualizarProdutoAction implements Action{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id = request.getParameter("id");
+        String codigo = request.getParameter("id");
         
         try {
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(id));
+            Produto produto = new Produto();
+            produto = produto.getProduto(Integer.parseInt(codigo));
             
             request.setAttribute("produto", produto);
             RequestDispatcher rd = request.getRequestDispatcher("/Produto/produto.jsp");

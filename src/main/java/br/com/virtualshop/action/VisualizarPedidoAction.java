@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.model.Pedido;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
@@ -28,7 +27,8 @@ public class VisualizarPedidoAction implements Action{
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         try {
-            List<Pedido> pedidos = PedidoDAO.getInstance().getPedidoByUsuario(usuario);
+            Pedido pedido = new Pedido();
+            List<Pedido> pedidos = pedido.getPedidoByUsuario(usuario);
             if(pedidos != null){
                 request.setAttribute("pedidos", pedidos);
                 RequestDispatcher rd = request.getRequestDispatcher("/Pedido/pedidos.jsp");

@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.UsuarioDAO;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -26,7 +25,7 @@ public class RemoveAlertaAction implements Action {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         
         try{
-            UsuarioDAO.getInstance().removeAlerta(usuario.getCodigo());
+            usuario.removerAlertas();
             usuario.getAlertas().clear();
             RequestDispatcher rd = request.getRequestDispatcher("/Usuario/perfil.jsp");
             if(rd != null)

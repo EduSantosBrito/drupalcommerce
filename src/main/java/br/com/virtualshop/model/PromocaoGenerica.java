@@ -5,9 +5,9 @@
  */
 package br.com.virtualshop.model;
 
+import br.com.virtualshop.dao.PromocaoDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 /**
  *
@@ -25,7 +25,7 @@ public class PromocaoGenerica extends Promocao {
         this.tituloPromocao = tituloPromocao;
         this.descontoPromocao = descontoPromocao;
     }
-
+    
     public Integer getCodigo() {
         return codigo;
     }
@@ -48,6 +48,22 @@ public class PromocaoGenerica extends Promocao {
 
     public void setDescontoPromocao(Integer descontoPromocao) {
         this.descontoPromocao = descontoPromocao;
+    }
+    
+    public void salvarPromocao() throws SQLException, SQLException, ClassNotFoundException {
+        PromocaoDAO.getInstance().salvarPromocao(this);
+    }
+    
+    public PromocaoGenerica getPromocao(Integer codigoPromocao) throws ClassNotFoundException, ClassNotFoundException, SQLException {
+        return PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
+    }
+    
+    public void removerPromocaoProduto(Produto produto) throws SQLException, SQLException, ClassNotFoundException {
+        PromocaoDAO.getInstance().removerPromocaoProduto(produto);
+    }
+    
+    public void salvarPromocaoProduto(Produto produto) throws SQLException, SQLException, ClassNotFoundException {
+        PromocaoDAO.getInstance().salvarPromocaoProduto(this, produto);
     }
     
     public void receberAtributosDAO(ResultSet rs) throws SQLException {

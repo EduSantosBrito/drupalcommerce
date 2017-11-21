@@ -6,8 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
-import br.com.virtualshop.dao.PromocaoDAO;
 import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.PromocaoGenerica;
 import java.io.IOException;
@@ -29,8 +27,10 @@ public class AdicionarPromocaoProdutoAction implements Action {
         Integer codigoPromocao = Integer.parseInt(request.getParameter("promocao-codigo"));
         
         try{
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
-            PromocaoGenerica promocao = PromocaoDAO.getInstance().getPromocaoByID(codigoPromocao);
+            Produto produto = new Produto();
+            produto = produto.getProduto(codigoProduto);
+            PromocaoGenerica promocao = new PromocaoGenerica();
+            promocao = promocao.getPromocao(codigoPromocao);
             
             if( produto.getPromocao() != null || Objects.equals(produto.getCodigo(), promocao.getCodigo()) ){
                 request.setAttribute("erroAdicionarPromocao", "O Produto já possui uma promoção!");
@@ -38,8 +38,8 @@ public class AdicionarPromocaoProdutoAction implements Action {
                 apa.execute(request, response);
             }
             else{
-                PromocaoDAO.getInstance().removerPromocaoProduto(produto);
-                PromocaoDAO.getInstance().salvarPromocaoProduto((PromocaoGenerica) promocao, produto);
+                promocao.removerPromocaoProduto(produto);
+                promocao.salvarPromocaoProduto(produto);
 
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);

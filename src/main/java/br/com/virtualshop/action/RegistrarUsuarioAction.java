@@ -24,16 +24,12 @@ public class RegistrarUsuarioAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
-        String email = request.getParameter("email_login");
-        String nome = request.getParameter("nome_login");
-        String senha = request.getParameter("senha_login");
-        String endereco = request.getParameter("endereco_login");
-        String telefone = request.getParameter("telefone_login");
-        Usuario usuario = new Usuario(email, nome, senha, endereco, Integer.parseInt(telefone));
-        
         try{
-            Usuario u = UsuarioDAO.getInstance().getUsuarioByEmail(email);
+            Usuario usuario = new Usuario();
+            usuario.capturarAtributos(request);
+            
+            Usuario u = new Usuario();
+            u = u.getUsuarioByEmail();
             
             if(u.getCodigo() != null){
                 request.getSession().setAttribute("error", "Email já cadastrado!");

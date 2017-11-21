@@ -14,6 +14,11 @@ public class Item {
     private Produto produto;
     private Integer quantidade;
 
+    public Item(Produto produto, Integer quantidade) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+    }
+    
     public Produto getProduto() {
         return produto;
     }
@@ -28,6 +33,10 @@ public class Item {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+    
+    public void comprarProduto(Produto produto, Usuario usuario){
+        usuario.getCarrinho().adiciona(this);
     }
     
 }

@@ -132,7 +132,7 @@
                                                                 <label for="titulo" class="form-input-label">Titulo</label>
                                                             </div>
                                                             <div class="input-field col s4">
-                                                                <input id="qtd-num" name="qtd" type="number" class="form-input form-margin-0" onblur="validarQuantidade(this)" required="true">
+                                                                <input id="qtd" name="qtd" type="number" class="form-input form-margin-0" onblur="validarQuantidade(this)" required="true">
                                                                 <label for="qtd" class="form-input-label">Quantidade</label>
                                                             </div>
                                                         </div>

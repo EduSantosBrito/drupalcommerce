@@ -6,7 +6,7 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
+import br.com.virtualshop.model.Item;
 import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
@@ -29,10 +29,12 @@ public class AdicionarCarrinhoAction implements Action {
         Integer codigoProduto = Integer.parseInt(request.getParameter("cod-produto"));
         
         try{
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
+            Produto produto = new Produto();
+            produto = produto.getProduto(codigoProduto);
             
             if(produto != null) {
-                usuario.comprarProduto(produto, quantidade);
+                Item item = new Item(produto, quantidade);
+                item.comprarProduto(produto, usuario);
                 RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);

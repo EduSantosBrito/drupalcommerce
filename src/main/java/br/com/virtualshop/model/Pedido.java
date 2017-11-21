@@ -2,11 +2,14 @@ package br.com.virtualshop.model;
 
 import br.com.virtualshop.action.AletarAlteracaoEstadoAction;
 import br.com.virtualshop.controller.EstadoFactory;
+import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.state.PedidoEstadoAnalise;
 import java.time.LocalDate;
 import java.util.Observable;
 import br.com.virtualshop.state.PedidoEstado;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,7 +28,7 @@ public class Pedido extends Observable{
     private Integer desconto; 
     private List<PedidoMemento> listaEstados = new ArrayList<>();
     
-    public Pedido(Usuario usuario){
+    public Pedido(Usuario usuario) {
         this.usuario = usuario;
         this.estado = new PedidoEstadoAnalise();
     }
@@ -138,6 +141,22 @@ public class Pedido extends Observable{
     public void setListaEstados(PedidoMemento listaEstados) {
         this.listaEstados.add(listaEstados);
     }
+
+    public void salvarPedido() throws SQLException, ClassNotFoundException {
+        PedidoDAO.getInstance().updatePedido(this);
+    }
+    
+    public Pedido getPedido(Integer codigoPedido) throws SQLException, ClassNotFoundException {
+        return PedidoDAO.getInstance().getPedidoByID(codigoPedido);
+    }
+    
+    public void alterarPedido() throws SQLException, SQLException, ClassNotFoundException {
+        PedidoDAO.getInstance().updatePedido(this);
+    }
+    
+    public List<Pedido> getPedidoByUsuario(Usuario usuario) throws SQLException, SQLException, ClassNotFoundException {
+        return PedidoDAO.getInstance().getPedidoByUsuario(usuario);
+    }
     
     public void receberAtributosDAO(ResultSet rs) throws SQLException, ClassNotFoundException{
         
@@ -162,6 +181,17 @@ public class Pedido extends Observable{
         }
     }
     
+    public String getPedidoEstado(String estadoPedido) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+        String funcao = "set" + estadoPedido + "Estado";
+        Method method = getClass().getMethod(funcao, null);
+        
+        if (method != null) {
+            return (String) method.invoke(this, null);
+        }
+        
+        return null;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -169,7 +199,7 @@ public class Pedido extends Observable{
         hash = 31 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

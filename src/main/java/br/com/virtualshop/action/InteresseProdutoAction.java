@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
@@ -27,15 +26,16 @@ public class InteresseProdutoAction implements Action {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Integer codigoProduto = Integer.parseInt(request.getParameter("id"));
         try{
-            usuario.setProdutos(ProdutoDAO.getInstance().getInteressadoByUsuario(usuario));
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
+            Produto produto = new Produto();
+            produto = produto.getProduto(codigoProduto);
+            usuario.setProdutos(produto.getInteressadoByUsuario(usuario));
+            
             if(usuario.getProdutos().contains(produto)){
                 RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);
             }else{
                 usuario.gostarProduto(produto);
-                ProdutoDAO.getInstance().salvarInteresse(usuario, produto);
                 RequestDispatcher rd = request.getRequestDispatcher("/index");
                 if(rd != null)
                     rd.forward(request, response);

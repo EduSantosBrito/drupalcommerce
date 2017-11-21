@@ -1,8 +1,11 @@
 package br.com.virtualshop.model;
+
 import br.com.virtualshop.action.AletarInteressadosAction;
+import br.com.virtualshop.dao.ProdutoDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
 import javax.servlet.http.HttpServletRequest;
@@ -21,45 +24,6 @@ public class Produto extends Observable{
     private PromocaoGenerica promocao;
     
     public Produto() {}
-    
-    public void capturarAtributos(HttpServletRequest request) {
-        Integer codigo = Integer.parseInt(request.getParameter("codigo-produto") == null ? request.getParameter("codigo-produto") : "0" );
-        String titulo = request.getParameter("titulo");
-        Integer qtd = Integer.parseInt(request.getParameter("qtd"));
-        String descricao = request.getParameter("descricao");
-        String marca = request.getParameter("marca");
-        Double preco = Double.parseDouble(request.getParameter("preco"));
-        String categoria = request.getParameter("produto-categoria");
-        String subCategoria = request.getParameter("produto-sub-categoria");
-        
-        salvarDados(codigo, titulo, descricao, marca, categoria, subCategoria, qtd, preco, LocalDate.now());
-    }
-    
-    public void receberAtributosDAO(ResultSet rs) throws SQLException {
-        Integer codigo = Integer.parseInt(rs.getString("cdg_prdt"));
-        String descricao = rs.getString("dscr_prdt");
-        String marca = rs.getString("mrc_prdt");
-        Double preco = Double.parseDouble(rs.getString("prc_prdt"));
-        Integer qtd = Integer.parseInt(rs.getString("qtd_estq_prdt"));
-        String titulo = rs.getString("ttl_prdt");
-        String categoria = rs.getString("ctgr_prdt");
-        String subCategoria = rs.getString("sb_ctgr_prdt");
-        LocalDate data = LocalDate.parse(rs.getString("dt_cdstr_prdt"));
-        
-        salvarDados(codigo, titulo, descricao, marca, categoria, subCategoria, qtd, preco, data);
-    }
-    
-    public void salvarDados(Integer codigo, String titulo, String descricao, String marca, String categoria, String subCategoria, Integer quantidade, Double preco, LocalDate dataCadastro) {
-        this.codigo = codigo;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.marca = marca;
-        this.categoria = categoria;
-        this.subCategoria = subCategoria;
-        this.quantidade = quantidade;
-        this.preco = preco;
-        this.dataCadastro = dataCadastro;
-    }
 
     public Produto(String titulo, String descricao, String marca, String categoria, String subCategoria, Integer quantidade, Double preco) {
         this.titulo = titulo;
@@ -167,6 +131,65 @@ public class Produto extends Observable{
 
     public void setPromocao(PromocaoGenerica promocao) {
         this.promocao = promocao;
+    }
+    
+    public Produto getProduto(Integer codigoProduto) throws SQLException, SQLException, ClassNotFoundException {
+        return ProdutoDAO.getInstance().getProdutoByID(codigoProduto);
+    }
+    
+    public void salvarProduto() throws SQLException, ClassNotFoundException {
+        ProdutoDAO.getInstance().salvarProduto(this);
+    }
+    
+    public void alterarProduto() throws SQLException, SQLException, ClassNotFoundException {
+        ProdutoDAO.getInstance().alterarProduto(this);
+    }
+    
+    public List<Observable> getInteressadoByUsuario(Usuario usuario) throws SQLException, SQLException, ClassNotFoundException {
+        return ProdutoDAO.getInstance().getInteressadoByUsuario(usuario);
+    }
+    
+    public void removerProduto() throws SQLException, ClassNotFoundException {
+        ProdutoDAO.getInstance().removerProduto(this);
+    }
+    
+    public void capturarAtributos(HttpServletRequest request) {
+        Integer codigo = Integer.parseInt(request.getParameter("codigo-produto") == null ? request.getParameter("codigo-produto") : "0" );
+        String titulo = request.getParameter("titulo");
+        Integer qtd = Integer.parseInt(request.getParameter("qtd"));
+        String descricao = request.getParameter("descricao");
+        String marca = request.getParameter("marca");
+        Double preco = Double.parseDouble(request.getParameter("preco"));
+        String categoria = request.getParameter("produto-categoria");
+        String subCategoria = request.getParameter("produto-sub-categoria");
+        
+        salvarDados(codigo, titulo, descricao, marca, categoria, subCategoria, qtd, preco, LocalDate.now());
+    }
+    
+    public void receberAtributosDAO(ResultSet rs) throws SQLException {
+        Integer codigo = Integer.parseInt(rs.getString("cdg_prdt"));
+        String descricao = rs.getString("dscr_prdt");
+        String marca = rs.getString("mrc_prdt");
+        Double preco = Double.parseDouble(rs.getString("prc_prdt"));
+        Integer qtd = Integer.parseInt(rs.getString("qtd_estq_prdt"));
+        String titulo = rs.getString("ttl_prdt");
+        String categoria = rs.getString("ctgr_prdt");
+        String subCategoria = rs.getString("sb_ctgr_prdt");
+        LocalDate data = LocalDate.parse(rs.getString("dt_cdstr_prdt"));
+        
+        salvarDados(codigo, titulo, descricao, marca, categoria, subCategoria, qtd, preco, data);
+    }
+    
+    public void salvarDados(Integer codigo, String titulo, String descricao, String marca, String categoria, String subCategoria, Integer quantidade, Double preco, LocalDate dataCadastro) {
+        this.codigo = codigo;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.subCategoria = subCategoria;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.dataCadastro = dataCadastro;
     }
     
     @Override

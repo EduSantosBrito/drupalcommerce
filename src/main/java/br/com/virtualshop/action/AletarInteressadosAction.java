@@ -5,7 +5,6 @@
  */
 package br.com.virtualshop.action;
 
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.Usuario;
 import java.sql.SQLException;
@@ -25,7 +24,8 @@ public class AletarInteressadosAction {
     }
     
     public void alertarClientes(Produto produto) throws ClassNotFoundException, SQLException{
-        List<Usuario> clientes = ProdutoDAO.getInstance().getAllInteressadosByProduto(produto);
+        Usuario usuario = new Usuario();
+        List<Usuario> clientes = usuario.getUsuariosInteressados(produto);
         for(int i = 0; i < clientes.size(); i++){
             clientes.get(i).gostarProduto(produto);
         }

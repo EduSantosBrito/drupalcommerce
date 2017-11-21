@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PedidoDAO;
 import br.com.virtualshop.model.EstadosSalvosSingleton;
 import br.com.virtualshop.model.Pedido;
 import br.com.virtualshop.model.PedidoMemento;
@@ -29,8 +28,8 @@ public class RetornarEstadoPedidoAction implements Action{
         String codigoPedido = request.getParameter("idRetorno");
         
         try{
-            Pedido pedido = PedidoDAO.getInstance().getPedidoByID(Integer.parseInt(codigoPedido));
-            
+            Pedido pedido = new Pedido();
+            pedido = pedido.getPedido(Integer.parseInt(codigoPedido));
             PosicionamentoEstados estados = EstadosSalvosSingleton.getInstance().getMapaEstados().get(pedido);
             PedidoMemento m = new PedidoMemento(pedido.getEstado());
             
@@ -56,7 +55,7 @@ public class RetornarEstadoPedidoAction implements Action{
             PedidoMemento memento = EstadosSalvosSingleton.getInstance().retornarEstado(pedido);
             if(memento != null){
                 pedido.restoreFromMemento(memento);
-                PedidoDAO.getInstance().updatePedido(pedido);
+                pedido.alterarPedido();
                 request.setAttribute("alteracaoEstado", "Estado restaurado para: " + pedido.getEstado().estado());
             } else {
                 request.setAttribute("alteracaoEstado", "Não ha estado a ser recuperado");

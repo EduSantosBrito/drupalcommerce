@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -22,15 +21,12 @@ public class AlterarProdutoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
-        Produto produto = new Produto();
-        
+  
         try{
-            produto = ProdutoDAO.getInstance().getProdutoByID(produto.getCodigo());
-            
+            Produto produto = new Produto();
             produto.capturarAtributos(request);
 
-            ProdutoDAO.getInstance().alterarProduto(produto);
+            produto.alterarProduto();
             
             AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
             apa.execute(request, response);

@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import br.com.virtualshop.model.Usuario;
 import java.io.IOException;
@@ -26,7 +25,8 @@ public class RemoverProdutoCarrinhoAction implements Action {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Integer codigo = Integer.parseInt(request.getParameter("id"));
         try {
-            Produto produto = ProdutoDAO.getInstance().getProdutoByID(codigo);
+            Produto produto = new Produto();
+            produto = produto.getProduto(codigo);
             usuario.getCarrinho().remove(produto);
             
             VisualizarPedidoAction v = new VisualizarPedidoAction();

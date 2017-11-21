@@ -11,8 +11,14 @@ public class PedidoMemento {
         this.estado = estado;
     }
     
+    public PedidoMemento(){}
+    
     public PedidoEstado getEstadoSalvo(){
         return estado;
+    }
+    
+    public PedidoMemento getEstadoAtualPedido(Pedido pedido) {
+        return EstadosSalvosSingleton.getInstance().avancarEstado(pedido);
     }
 
     @Override

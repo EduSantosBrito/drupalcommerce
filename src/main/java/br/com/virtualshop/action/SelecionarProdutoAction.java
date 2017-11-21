@@ -6,7 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.ProdutoDAO;
 import br.com.virtualshop.model.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -31,7 +30,8 @@ public class SelecionarProdutoAction implements Action {
                 apa.execute(request, response);
                 
             }else{
-                Produto produto = ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(codigo));
+                Produto produto = new Produto();
+                produto = produto.getProduto(Integer.parseInt(codigo));
                 request.setAttribute("produto", produto);
                 AtualizarPaginaAdminAction apa = new AtualizarPaginaAdminAction();
                 apa.execute(request, response);

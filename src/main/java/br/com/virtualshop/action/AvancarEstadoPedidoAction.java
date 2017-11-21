@@ -6,8 +6,6 @@
 package br.com.virtualshop.action;
 
 import br.com.virtualshop.controller.Action;
-import br.com.virtualshop.dao.PedidoDAO;
-import br.com.virtualshop.model.EstadosSalvosSingleton;
 import br.com.virtualshop.model.Pedido;
 import br.com.virtualshop.model.PedidoMemento;
 import java.io.IOException;
@@ -27,11 +25,14 @@ public class AvancarEstadoPedidoAction implements Action{
         String codigoPedido = request.getParameter("idAvanco");
         
         try{
-            Pedido pedido = PedidoDAO.getInstance().getPedidoByID(Integer.parseInt(codigoPedido));
-            PedidoMemento memento = EstadosSalvosSingleton.getInstance().avancarEstado(pedido);
+            Pedido pedido = new Pedido();
+            pedido = pedido.getPedido(Integer.parseInt(codigoPedido));
+            PedidoMemento memento = new PedidoMemento();
+            memento.getEstadoAtualPedido(pedido);
+            
             if(memento != null){
                 pedido.restoreFromMemento(memento);
-                PedidoDAO.getInstance().updatePedido(pedido);
+                pedido.alterarPedido();
                 request.setAttribute("alteracaoEstado", "Estado avançado para: " + pedido.getEstado().estado());
             } else {
                 request.setAttribute("alteracaoEstado", "Não ha estado a ser avançado");
