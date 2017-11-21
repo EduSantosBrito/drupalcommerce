@@ -3,6 +3,8 @@ package br.com.virtualshop.action;
 import br.com.virtualshop.controller.Action;
 import br.com.virtualshop.model.Produto;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +21,11 @@ public class RegistrarProdutoAction implements Action{
             apa.execute(request, response);
         }
         catch(Exception e){
-            
+            try {
+                throw e;
+            } catch (Exception ex) {
+                Logger.getLogger(RegistrarProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

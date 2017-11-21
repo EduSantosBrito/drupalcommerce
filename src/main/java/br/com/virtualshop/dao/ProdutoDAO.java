@@ -52,11 +52,10 @@ public class ProdutoDAO {
         stmt.setString(1, produto.getTitulo());
         stmt.setString(2, produto.getDescricao());
         stmt.setString(3, produto.getMarca());
-        stmt.setDate(4, Date.valueOf(LocalDate.now()));
-        stmt.setString(5, produto.getCategoria());
-        stmt.setString(6, produto.getSubCategoria());
-        stmt.setInt(7, produto.getQuantidade());
-        stmt.setDouble(8, produto.getPreco());
+        stmt.setString(4, produto.getCategoria());
+        stmt.setString(5, produto.getSubCategoria());
+        stmt.setInt(6, produto.getQuantidade());
+        stmt.setDouble(7, produto.getPreco());
     }
     
     public void alterarProduto(Produto produto) throws SQLException, ClassNotFoundException{
@@ -204,15 +203,15 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.receberAtributosDAO(rs);
                 
-                Integer codigo = Integer.parseInt(rs.getString("cdg_prm"));
-                String titulo = rs.getString("ttl_prm");
-                Integer desconto = Integer.parseInt(rs.getString("dscnt_prm"));
-                
-                if(codigo != null){
-                    PromocaoGenerica promocao = new PromocaoGenerica(codigo, titulo, desconto);
-                    produto.setPromocao(promocao);
-                }
-                
+                try{
+                    Integer codigo = Integer.parseInt(rs.getString("cdg_prm"));
+                    String titulo = rs.getString("ttl_prm");
+                    Integer desconto = Integer.parseInt(rs.getString("dscnt_prm"));
+                    if(codigo != null){
+                        PromocaoGenerica promocao = new PromocaoGenerica(codigo, titulo, desconto);
+                        produto.setPromocao(promocao);
+                    }
+                }catch(Exception e){}
                 produtos.add(produto);
             }
         }

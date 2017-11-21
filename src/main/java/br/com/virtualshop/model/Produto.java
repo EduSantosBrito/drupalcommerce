@@ -154,7 +154,7 @@ public class Produto extends Observable{
     }
     
     public void capturarAtributos(HttpServletRequest request) {
-        Integer codigo = Integer.parseInt(request.getParameter("codigo-produto") == null ? request.getParameter("codigo-produto") : "0" );
+        Integer cdg = 0;
         String titulo = request.getParameter("titulo");
         Integer qtd = Integer.parseInt(request.getParameter("qtd"));
         String descricao = request.getParameter("descricao");
@@ -162,8 +162,11 @@ public class Produto extends Observable{
         Double preco = Double.parseDouble(request.getParameter("preco"));
         String categoria = request.getParameter("produto-categoria");
         String subCategoria = request.getParameter("produto-sub-categoria");
-        
-        salvarDados(codigo, titulo, descricao, marca, categoria, subCategoria, qtd, preco, LocalDate.now());
+        String codigo = request.getParameter("codigo-produto");
+        if(codigo != null) {
+            cdg = Integer.parseInt(codigo);
+        }
+        salvarDados(cdg, titulo, descricao, marca, categoria, subCategoria, qtd, preco, LocalDate.now());
     }
     
     public void receberAtributosDAO(ResultSet rs) throws SQLException {
