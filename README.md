@@ -49,4 +49,6 @@ A aplicação web será construida utilizando a linguagem Java, deverá ser dese
  4. Implementação dos modelos e controladores: <b>FEITO</b>
  5. Construção e Implementação dos padrões mais complexos: <b>FEITO</b>
  6. Migração para Maven: <b>FEITO</b>
- 7. Refatoração: EM ANDAMENTO.
+ 7. Refatoração: <b>FEITO</b><br />
+ 
+ <b>PROJETO FINALIZADO</b>
