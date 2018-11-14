@@ -1,59 +1,59 @@
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\dao\PromocaoDAO.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Produto.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstadoCancelado.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\InteresseProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\ListaProdutosSubCategoriaAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AlterarEstadoPedidoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\EstadoFactory.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\strategy\Pagamento.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\dao\PedidoDAO.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\DeslogarAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RemoverPromocaoProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\FrontController.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Promocao.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AdicionarPromocaoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\IndexServlet.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Categoria.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\PosicionamentoEstados.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\PromocaoGenerica.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\strategy\PagamentoCartaoDuas.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\VisualizarProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RegistrarProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\ListaProdutosCategoriaAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstado.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\strategy\PagamentoCartaoTres.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\LogarAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AletarInteressadosAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\EstadosSalvosSingleton.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\FinalizarPedidoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AletarAlteracaoEstadoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RemoveAlertaAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\Action.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Carrinho.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\PagamentoFactory.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AvancarEstadoPedidoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Usuario.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AtualizarPaginaAdminAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstadoAtraso.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\dao\UsuarioDAO.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RemoverProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\VisualizarPedidoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Pedido.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AdicionarCarrinhoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RetornarEstadoPedidoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\controller\ActionFactory.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\Item.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\strategy\PagamentoBoleto.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\model\PedidoMemento.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\dao\DatabaseLocator.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RemoverProdutoCarrinhoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AlterarProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\dao\ProdutoDAO.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstadoSeparacao.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\VerificarAutenticacaoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\RegistrarUsuarioAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\SelecionarProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\action\AdicionarPromocaoProdutoAction.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstadoEnviado.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\strategy\PagamentoCartaoUma.java
-C:\Users\Automateasy\Desktop\GITGUD\VirtualShop\src\main\java\br\com\virtualshop\state\PedidoEstadoAnalise.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AvancarEstadoPedidoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AlterarProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\VisualizarProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AdicionarPromocaoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstadoSeparacao.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RemoverProdutoCarrinhoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\dao\PedidoDAO.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\ListaProdutosSubCategoriaAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RegistrarUsuarioAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\PosicionamentoEstados.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\strategy\PagamentoCartaoTres.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Item.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RemoveAlertaAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\strategy\Pagamento.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RetornarEstadoPedidoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RegistrarProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\strategy\PagamentoBoleto.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\SelecionarProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RemoverProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\EstadosSalvosSingleton.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\FinalizarPedidoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AdicionarCarrinhoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\DeslogarAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Usuario.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\EstadoFactory.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\dao\ProdutoDAO.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\dao\UsuarioDAO.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstadoAtraso.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstadoEnviado.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Promocao.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\VerificarAutenticacaoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\PagamentoFactory.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AletarAlteracaoEstadoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\FrontController.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\dao\PromocaoDAO.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\strategy\PagamentoCartaoDuas.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AlterarEstadoPedidoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\PromocaoGenerica.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\ListaProdutosCategoriaAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\Action.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AdicionarPromocaoProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AtualizarPaginaAdminAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\VisualizarPedidoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\dao\DatabaseLocator.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\PedidoMemento.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstado.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\RemoverPromocaoProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstadoCancelado.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Produto.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\state\PedidoEstadoAnalise.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\InteresseProdutoAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Carrinho.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\ActionFactory.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\strategy\PagamentoCartaoUma.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\AletarInteressadosAction.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\controller\IndexServlet.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Pedido.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\model\Categoria.java
+C:\Users\medua\Desktop\Programa Pattern\DrupalCommerce\src\main\java\br\com\drupalcommerce\action\LogarAction.java
