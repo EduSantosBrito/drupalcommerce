@@ -9,7 +9,7 @@ import br.com.drupalcommerce.state.PedidoEstado;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class EstadoFactory {
     public static PedidoEstado create(String action) throws Exception{

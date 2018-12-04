@@ -17,10 +17,6 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author macanha
- */
 public class RetornarEstadoPedidoAction implements Action{
 
     @Override

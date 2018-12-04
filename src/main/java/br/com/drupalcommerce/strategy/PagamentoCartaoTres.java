@@ -7,7 +7,7 @@ package br.com.drupalcommerce.strategy;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class PagamentoCartaoTres implements Pagamento{
     

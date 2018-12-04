@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package br.com.drupalcommerce.model;
-
-/**
- *
- * @author macanha
- */
 public abstract class Promocao {
     
     public abstract String getTitulo();

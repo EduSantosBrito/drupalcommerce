@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class AletarAlteracaoEstadoAction {
     private static AletarAlteracaoEstadoAction instance = new AletarAlteracaoEstadoAction();

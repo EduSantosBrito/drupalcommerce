@@ -9,7 +9,7 @@ import br.com.drupalcommerce.strategy.Pagamento;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class PagamentoFactory {
     public static Pagamento create(String action) throws Exception{

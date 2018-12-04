@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class DeslogarAction implements Action {
 

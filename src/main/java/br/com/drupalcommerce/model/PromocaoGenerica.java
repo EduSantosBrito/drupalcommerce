@@ -9,10 +9,6 @@ import br.com.drupalcommerce.dao.PromocaoDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author macanha
- */
 public class PromocaoGenerica extends Promocao {
     private Integer codigo;
     private String tituloPromocao;

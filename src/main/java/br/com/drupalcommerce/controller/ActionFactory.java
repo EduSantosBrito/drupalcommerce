@@ -7,7 +7,7 @@ package br.com.drupalcommerce.controller;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class ActionFactory {
     public static Action create(String action) throws Exception{

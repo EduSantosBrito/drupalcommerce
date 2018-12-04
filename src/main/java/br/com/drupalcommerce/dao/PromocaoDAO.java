@@ -15,10 +15,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author macanha
- */
 public class PromocaoDAO {
     private static PromocaoDAO instance = new PromocaoDAO();
     private Connection conn = null;
@@ -34,8 +30,7 @@ public class PromocaoDAO {
         String sql = "INSERT INTO tb_prm(ttl_prm, dscnt_prm) VALUES ('" + promocao.getTitulo() + "'," + promocao.getDesconto() + ")";
         
         try{
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -45,14 +40,18 @@ public class PromocaoDAO {
             closeResources(conn, st);
         }
     }
+
+	private void getConn() throws SQLException, ClassNotFoundException {
+		conn = DatabaseLocator.getInstance().getConnection();
+		st = conn.createStatement();
+	}
     
     public List<PromocaoGenerica> getAllPromocao() throws SQLException, ClassNotFoundException{
         List<PromocaoGenerica> promocoes = new ArrayList<>();
         String sql = "SELECT * FROM tb_prm";
         
         try{
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 PromocaoGenerica pg = new PromocaoGenerica();
@@ -74,8 +73,7 @@ public class PromocaoDAO {
         String sql = "SELECT * FROM tb_prm WHERE cdg_prm = " + id;
         PromocaoGenerica promocao = new PromocaoGenerica();
         try{
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 promocao.receberAtributosDAO(rs);
@@ -95,8 +93,7 @@ public class PromocaoDAO {
         String sql = "INSERT INTO tb_prmprdt(cdg_prdt, cdg_prm) VALUES (" + produto.getCodigo() + ", " + promocao.getCodigo() + ")";
         
         try{
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -111,8 +108,7 @@ public class PromocaoDAO {
         String sql = "DELETE FROM tb_prmprdt WHERE cdg_prdt = " + produto.getCodigo();
         
         try{
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {

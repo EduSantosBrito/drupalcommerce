@@ -32,8 +32,7 @@ public class ProdutoDAO {
             "INSERT INTO tb_prdt(ttl_prdt, dscr_prdt, mrc_prdt, ctgr_prdt, sb_ctgr_prdt, qtd_estq_prdt, prc_prdt, dt_cdstr_prdt) " +
             "VALUES (?,?,?,?,?,?,?,'"+Date.valueOf(LocalDate.now())+"')";
         
-            conn = DatabaseLocator.getInstance().getConnection();
-            stmt = conn.prepareStatement(sql);
+            getConn(sql);
 
             receberAtributosStmt(produto, stmt);
             
@@ -47,6 +46,11 @@ public class ProdutoDAO {
             closeResources(conn, st);
         }
     }
+
+	private void getConn(String sql) throws SQLException, ClassNotFoundException {
+		conn = DatabaseLocator.getInstance().getConnection();
+		stmt = conn.prepareStatement(sql);
+	}
     
     public void receberAtributosStmt(Produto produto, PreparedStatement stmt) throws SQLException {
         stmt.setString(1, produto.getTitulo());
@@ -71,8 +75,7 @@ public class ProdutoDAO {
                 "prc_prdt = ? " +
                 "WHERE cdg_prdt = " + produto.getCodigo();
         
-            conn = DatabaseLocator.getInstance().getConnection();
-            stmt = conn.prepareStatement(sql);
+            getConn(sql);
             receberAtributosStmt(produto, stmt);
             stmt.execute();
             stmt.close();

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author sandr
+ * @author Eduardo
  */
 public class AlterarProdutoAction implements Action {
 

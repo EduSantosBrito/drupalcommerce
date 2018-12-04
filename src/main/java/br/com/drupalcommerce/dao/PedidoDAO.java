@@ -28,8 +28,7 @@ public class PedidoDAO {
         String sql = "SELECT * FROM tb_pdd";
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido();
@@ -46,6 +45,11 @@ public class PedidoDAO {
         
         return pedidos;
     }
+
+	private void getConn() throws SQLException, ClassNotFoundException {
+		conn = DatabaseLocator.getInstance().getConnection();
+		st = conn.createStatement();
+	}
     
     public void salvarPedido(Usuario usuario, Item item) throws SQLException, ClassNotFoundException{
         String estado = new PedidoEstadoAnalise().estado();
@@ -60,8 +64,7 @@ public class PedidoDAO {
                 "')";
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -77,8 +80,7 @@ public class PedidoDAO {
         String sql = "SELECT * FROM tb_pdd WHERE cdg_pdd = " + id;
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 pedido.receberAtributosDAO(rs);
@@ -97,8 +99,7 @@ public class PedidoDAO {
     public void updatePedido(Pedido pedido) throws SQLException, ClassNotFoundException{
         String sql = "UPDATE tb_pdd SET std_pdd = '" + pedido.getEstado().estado() + "' WHERE cdg_pdd = " + pedido.getCodigo();
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -115,8 +116,7 @@ public class PedidoDAO {
                      "FROM tb_pdd p, tb_usr u WHERE u.cdg_usr = " + usuario.getCodigo() +
                      " AND u.cdg_usr = p.cdg_usr";
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido(usuario);
@@ -142,8 +142,7 @@ public class PedidoDAO {
                      " AND p.cdg_usr = u.cdg_usr";
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){

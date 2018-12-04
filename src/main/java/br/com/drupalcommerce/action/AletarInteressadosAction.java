@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class AletarInteressadosAction {
     private static AletarInteressadosAction instance = new AletarInteressadosAction();

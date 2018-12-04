@@ -9,7 +9,7 @@ import br.com.drupalcommerce.model.Pedido;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class PedidoEstadoCancelado implements PedidoEstado {
 

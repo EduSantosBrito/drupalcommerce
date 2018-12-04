@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class DatabaseLocator {
     private static DatabaseLocator instance = new DatabaseLocator();

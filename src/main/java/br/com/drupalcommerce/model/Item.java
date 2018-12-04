@@ -7,7 +7,7 @@ package br.com.drupalcommerce.model;
 
 /**
  *
- * @author sandr
+ * @author Eduardo
  */
 public class Item {
     

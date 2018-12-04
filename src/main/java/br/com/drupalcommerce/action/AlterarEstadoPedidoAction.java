@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author sandr
+ * @author Eduardo
  */
 public class AlterarEstadoPedidoAction implements Action {
 

@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  *
- * @author Automateasy
+ * @author Eduardo
  */
 public class ListaProdutosCategoriaAction implements Action {
 

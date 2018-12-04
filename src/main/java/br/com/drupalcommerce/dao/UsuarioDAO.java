@@ -1,4 +1,4 @@
-package br.com.drupalcommerce.dao;
+	package br.com.drupalcommerce.dao;
 
 import br.com.drupalcommerce.model.Usuario;
 import java.sql.Connection;
@@ -26,8 +26,7 @@ public class UsuarioDAO {
                             "'," + usuario.getTelefone() +
                         ");";
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
             ResultSet rs = st.executeQuery("SELECT * FROM tb_usr WHERE eml_usr = '" + usuario.getEmail() + "'");
             while(rs.next()){
@@ -43,13 +42,17 @@ public class UsuarioDAO {
         
         return user;
     }
+
+	private void getConn() throws SQLException, ClassNotFoundException {
+		conn = DatabaseLocator.getInstance().getConnection();
+		st = conn.createStatement();
+	}
     
     public Usuario autentica(Usuario usuario) throws SQLException, ClassNotFoundException{
         String sql = "SELECT * FROM tb_usr WHERE eml_usr = '" + usuario.getEmail() + "' AND snh_usr = '" + usuario.getSenha() + "';";
         Usuario usuarioAutenticado = new Usuario();
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
@@ -73,8 +76,7 @@ public class UsuarioDAO {
         Usuario usuario = new Usuario();
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
@@ -95,8 +97,7 @@ public class UsuarioDAO {
         String sql = "INSERT INTO tb_lrtusr (ttl_lrt, cdg_usr) VALUES ('" + alerta + "', " + usuario.getCodigo() +")";
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -110,8 +111,7 @@ public class UsuarioDAO {
     public Usuario getAlertas(Usuario usuario) throws SQLException, ClassNotFoundException {
         String sql = "SELECT ttl_lrt FROM tb_lrtusr WHERE cdg_usr = " + usuario.getCodigo();
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 String alerta = rs.getString("ttl_lrt");
@@ -132,8 +132,7 @@ public class UsuarioDAO {
         String sql = "DELETE FROM tb_lrtusr WHERE cdg_usr = " + id; 
         
         try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
+            getConn();
             st.execute(sql);
         }
         catch(SQLException e) {
