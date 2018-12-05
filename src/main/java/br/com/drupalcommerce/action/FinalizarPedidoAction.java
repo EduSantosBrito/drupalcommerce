@@ -31,8 +31,8 @@ public class FinalizarPedidoAction implements Action {
             }
             
             usuario.getCarrinho().finalizar();
-            VisualizarPedidoAction vizualizarPedidoAction = new VisualizarPedidoAction();
-            vizualizarPedidoAction.execute(request, response);
+            VisualizarPedidoAction visualizarPedidoAction = new VisualizarPedidoAction();
+            visualizarPedidoAction.execute(request, response);
         }
         catch(Exception e){
             try {

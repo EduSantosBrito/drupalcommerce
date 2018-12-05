@@ -35,25 +35,17 @@ public class PedidoEstadoAtraso implements PedidoEstado {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoSeparacao());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para separação";
     }
-
-	private void logException(Exception e) {
-		try {
-		    throw e;
-		} catch (Exception ex) {
-		    Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
-		}
-	}
 
     @Override
     public String cancelado(Pedido pedido) {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoCancelado());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para cancelado";
     }
@@ -63,7 +55,7 @@ public class PedidoEstadoAtraso implements PedidoEstado {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoEnviado());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para enviado";
     }

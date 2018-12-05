@@ -14,6 +14,8 @@ import br.com.drupalcommerce.state.PedidoEstado;
 public class EstadoFactory extends Factory{
     public static PedidoEstado createAction(String action) throws Exception{
         String nomeClasse = "br.com.drupalcommerce.state.PedidoEstado" + action;
-        return (PedidoEstado) create(nomeClasse);
+        Object object = create(nomeClasse);
+        if(!(object instanceof PedidoEstado)) return null;
+        return (PedidoEstado) object;
     }
 }

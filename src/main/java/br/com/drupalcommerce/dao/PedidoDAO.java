@@ -1,9 +1,5 @@
 package br.com.drupalcommerce.dao;
 
-import br.com.drupalcommerce.model.Item;
-import br.com.drupalcommerce.model.Pedido;
-import br.com.drupalcommerce.model.Usuario;
-import br.com.drupalcommerce.state.PedidoEstadoAnalise;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +7,11 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.drupalcommerce.model.Item;
+import br.com.drupalcommerce.model.Pedido;
+import br.com.drupalcommerce.model.Usuario;
+import br.com.drupalcommerce.state.PedidoEstadoAnalise;
 
 public class PedidoDAO {
     private static PedidoDAO instance = new PedidoDAO();
@@ -28,7 +29,7 @@ public class PedidoDAO {
         String sql = "SELECT * FROM tb_pdd";
         
         try {
-            getConn();
+            HelperDAO.getConn(conn, st);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido();
@@ -46,10 +47,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
-	private void getConn() throws SQLException, ClassNotFoundException {
-		conn = DatabaseLocator.getInstance().getConnection();
-		st = conn.createStatement();
-	}
+	
     
     public void salvarPedido(Usuario usuario, Item item) throws SQLException, ClassNotFoundException{
         String estado = new PedidoEstadoAnalise().estado();
@@ -64,7 +62,7 @@ public class PedidoDAO {
                 "')";
         
         try {
-            getConn();
+        	HelperDAO.getConn(conn, st);
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -80,7 +78,7 @@ public class PedidoDAO {
         String sql = "SELECT * FROM tb_pdd WHERE cdg_pdd = " + id;
         
         try {
-            getConn();
+        	HelperDAO.getConn(conn, st);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 pedido.receberAtributosDAO(rs);
@@ -99,7 +97,7 @@ public class PedidoDAO {
     public void updatePedido(Pedido pedido) throws SQLException, ClassNotFoundException{
         String sql = "UPDATE tb_pdd SET std_pdd = '" + pedido.getEstado().estado() + "' WHERE cdg_pdd = " + pedido.getCodigo();
         try {
-            getConn();
+        	HelperDAO.getConn(conn, st);
             st.execute(sql);
         }
         catch(SQLException e) {
@@ -116,7 +114,7 @@ public class PedidoDAO {
                      "FROM tb_pdd p, tb_usr u WHERE u.cdg_usr = " + usuario.getCodigo() +
                      " AND u.cdg_usr = p.cdg_usr";
         try {
-            getConn();
+        	HelperDAO.getConn(conn, st);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
                 Pedido pedido = new Pedido(usuario);
@@ -142,7 +140,7 @@ public class PedidoDAO {
                      " AND p.cdg_usr = u.cdg_usr";
         
         try {
-            getConn();
+        	HelperDAO.getConn(conn, st);
             st.execute(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){

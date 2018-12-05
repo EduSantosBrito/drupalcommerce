@@ -6,8 +6,6 @@
 package br.com.drupalcommerce.state;
 
 import br.com.drupalcommerce.model.Pedido;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -30,18 +28,10 @@ public class PedidoEstadoSeparacao implements PedidoEstado {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoAtraso());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para atraso";
     }
-
-	private void logException(Exception e) {
-		try {
-		    throw e;
-		} catch (Exception ex) {
-		    Logger.getLogger(PedidoEstadoAnalise.class.getName()).log(Level.SEVERE, null, ex);
-		}
-	}
 
     @Override
     public String separacao(Pedido pedido) {
@@ -53,7 +43,7 @@ public class PedidoEstadoSeparacao implements PedidoEstado {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoCancelado());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para cancelado";
     }
@@ -63,7 +53,7 @@ public class PedidoEstadoSeparacao implements PedidoEstado {
         try {
             pedido.setEstadoUpdate(new PedidoEstadoEnviado());
         } catch (Exception e) {
-            logException(e);
+        	HelperLog.logException(e);
         }
         return "O estado do pedido foi alterado para enviado";
     }
