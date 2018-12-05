@@ -9,21 +9,9 @@ package br.com.drupalcommerce.controller;
  *
  * @author Eduardo
  */
-public class ActionFactory {
-    public static Action create(String action) throws Exception{
-        Action actionObject = null;
+public class ActionFactory extends Factory {
+	public static Action createAction(String action) throws Exception{
         String nomeClasse = "br.com.drupalcommerce.action." + action + "Action";
-        Class classe = null;
-        Object object = null;
-        try {
-            classe = Class.forName(nomeClasse);
-            object = classe.newInstance();
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        if(!(object instanceof Action)) return null;
-        actionObject = (Action) object;
-        return actionObject;
+        return (Action) create(nomeClasse);
     }
-}
+}	

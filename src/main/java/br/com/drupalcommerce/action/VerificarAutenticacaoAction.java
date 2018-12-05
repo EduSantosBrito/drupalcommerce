@@ -40,7 +40,7 @@ public class VerificarAutenticacaoAction implements Action {
                     apa.execute(request, response);
                 }
                 else{
-                    actionObject = ActionFactory.create(pagina);
+                    actionObject = (Action) ActionFactory.create(pagina);
                     if(actionObject != null)
                         actionObject.execute(request, response);
                 }

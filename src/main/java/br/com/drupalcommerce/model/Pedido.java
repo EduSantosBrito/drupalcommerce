@@ -160,19 +160,14 @@ public class Pedido extends Observable{
     
     public void receberAtributosDAO(ResultSet rs) throws SQLException, ClassNotFoundException{
         
-        this.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
-        this.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
-        this.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
-        this.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
-        this.setDesconto(Integer.parseInt(rs.getString("dsct_pdd")));
-        this.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
+        setarDados(rs);
 
         String estado = rs.getString("std_pdd");
         try{
             PedidoEstado actionObject = null;
             if(estado == null || estado.equals(""))
                 this.setEstado(null);
-            actionObject = EstadoFactory.create(estado);
+            actionObject = (PedidoEstado) EstadoFactory.create(estado);
             if(actionObject != null)
                 this.setEstado(actionObject);
         }
@@ -180,6 +175,15 @@ public class Pedido extends Observable{
             this.setEstado(null);
         }
     }
+
+	private void setarDados(ResultSet rs) throws SQLException, ClassNotFoundException {
+		this.setCodigo(Integer.parseInt(rs.getString("cdg_pdd")));
+        this.setProduto(ProdutoDAO.getInstance().getProdutoByID(Integer.parseInt(rs.getString("cdg_prdt"))));
+        this.setPreco(Double.parseDouble(rs.getString("prc_pdd")));
+        this.setQuantidade(Integer.parseInt(rs.getString("qtd_prdt")));
+        this.setDesconto(Integer.parseInt(rs.getString("dsct_pdd")));
+        this.setDataPedido(LocalDate.parse(rs.getString("dt_pdd")));
+	}
     
     public String getPedidoEstado(String estadoPedido) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
         String funcao = "set" + estadoPedido + "Estado";

@@ -22,7 +22,7 @@ public class FinalizarPedidoAction implements Action {
             Pagamento actionObject = null;
             if(pagamento == null || pagamento.equals(""))
                 response.sendRedirect("/index");
-            actionObject = PagamentoFactory.create(pagamento);
+            actionObject = (Pagamento) PagamentoFactory.create(pagamento);
             if(actionObject != null)
                 usuario.getCarrinho().setPagamento(actionObject);
             
@@ -31,8 +31,8 @@ public class FinalizarPedidoAction implements Action {
             }
             
             usuario.getCarrinho().finalizar();
-            VisualizarPedidoAction v = new VisualizarPedidoAction();
-            v.execute(request, response);
+            VisualizarPedidoAction vizualizarPedidoAction = new VisualizarPedidoAction();
+            vizualizarPedidoAction.execute(request, response);
         }
         catch(Exception e){
             try {

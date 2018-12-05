@@ -19,7 +19,7 @@ public class FrontController extends HttpServlet {
             Action actionObject = null;
             if(action == null || action.equals(""))
                 response.sendRedirect("/index");
-            actionObject = ActionFactory.create(action);
+            actionObject = (Action) ActionFactory.create(action);
             if(actionObject != null)
                 actionObject.execute(request, response);
         }

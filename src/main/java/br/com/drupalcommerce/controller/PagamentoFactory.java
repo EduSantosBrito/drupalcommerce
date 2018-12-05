@@ -11,21 +11,9 @@ import br.com.drupalcommerce.strategy.Pagamento;
  *
  * @author Eduardo
  */
-public class PagamentoFactory {
-    public static Pagamento create(String action) throws Exception{
-        Pagamento actionObject = null;
+public class PagamentoFactory extends Factory {
+    public static Pagamento createAction(String action) throws Exception{
         String nomeClasse = "br.com.drupalcommerce.strategy.Pagamento" + action;
-        Class classe = null;
-        Object object = null;
-        try {
-            classe = Class.forName(nomeClasse);
-            object = classe.newInstance();
-        }
-        catch(Exception ex){
-            throw ex;
-        }
-        if(!(object instanceof Pagamento)) return null;
-        actionObject = (Pagamento) object;
-        return actionObject;
+        return (Pagamento) create(nomeClasse);
     }
 }
